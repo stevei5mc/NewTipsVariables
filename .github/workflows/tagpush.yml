@@ -1,0 +1,67 @@
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: tagpush
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 拉取代码
+      uses: actions/checkout@v3
+    - name: 安装java8
+      uses: actions/setup-java@v3
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
+    - name: 获取tag版本号
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+    - name: 构建
+      run: mvn -B package --file pom.xml
+    - name: 收集构建文件
+      run: |
+        mkdir staging && cp target/*.jar staging
+        pwd
+        ls -la
+    - name: 收集构建文件
+      uses: actions/upload-artifact@v1
+      with:
+        name: UnicodeVariables
+        path: staging 
+    - name: 创建新版本
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      with:
+        tag_name: ${{ steps.get_version.outputs.VERSION }}
+        release_name: Release V${{ steps.get_version.outputs.VERSION }}
+        body: |
+          Release V${{ steps.get_version.outputs.VERSION }}
+          更新日志将在后续发布，敬请期待!
+        draft: false
+        prerelease: false
+    - name: 发布新版本
+      id: upload-release-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./target/UnicodeVariables-${{ steps.get_version.outputs.VERSION }}.jar
+        asset_name: UnicodeVariables-${{ steps.get_version.outputs.VERSION }}.jar
+        asset_content_type: application/zip
