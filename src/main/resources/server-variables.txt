@@ -1,0 +1,3 @@
+变量名 变量说明
+{Motd} 获取服务器motd
+{SubMotd} 获取服务器副motd
