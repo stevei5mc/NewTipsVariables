@@ -16,5 +16,7 @@ public class tipsserver extends BaseVariable {
     public void scv() {
         addStrReplaceString("{Motd}", Server.getInstance().getMotd());
         addStrReplaceString("{SubMotd}", Server.getInstance().getSubMotd());
+        addStrReplaceString("{ServerIp}", Server.getInstance().getIp());
+        addStrReplaceString("{ServerPort}", String.valueOf(Server.getInstance().getPort()));
     }
 }
