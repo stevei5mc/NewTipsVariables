@@ -35,5 +35,5 @@ jobs:
     - name: 收集构建文件
       uses: actions/upload-artifact@v1
       with:
-        name: UnicodeVariables
+        name: NewTipsVariables
         path: staging
