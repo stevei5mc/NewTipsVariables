@@ -1,5 +1,5 @@
 变量名 变量说明
-{Motd} 获取服务器motd
+{Motd} 获取服务器主motd
 {SubMotd} 获取服务器副motd
-{ServerIp} 获取服务器的IP
-{ServerPort} 获取服务器的port
+{ServerIp} 获取服务器IP
+{ServerPort} 获取服务器端口

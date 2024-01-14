@@ -16,5 +16,7 @@ public class tipsplayer extends BaseVariable {
     public void playervar() {
         addStrReplaceString("{xp}", String.valueOf(player.getExperienceLevel()));
         addStrReplaceString("{DeviceModel}", player.getLoginChainData().getDeviceModel());
+        addStrReplaceString("{XUID}", String.valueOf(player.getLoginChainData().getXUID()));
+        addStrReplaceString("{PlayerLang}", player.getLoginChainData().getLanguageCode());      
     }
 }

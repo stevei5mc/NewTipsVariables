@@ -1,0 +1,6 @@
+# 更新插件(这个功能展示没有用)
+updata:
+  #检查更新
+  check: false
+  #自动更新
+  auto: false
