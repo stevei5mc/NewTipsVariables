@@ -17,9 +17,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: 获取tag版本号
+    - name: 获取信息
       id: get_info
-      #run: echo "repository_name=${{ github.repository }}" >> $GITHUB_OUTPUT
       run: echo "repository_name=`basename ${{ github.repository }}`" >> $GITHUB_OUTPUT
     - name: 拉取代码
       uses: actions/checkout@v3
