@@ -19,7 +19,7 @@ jobs:
     steps:
     - name: 获取tag版本号
       id: get_info
-      run: echo "repository_name=${{ GITHUB_REPOSITORY }}" >> $GITHUB_OUTPUT
+      run: echo "repository_name=${{ github.repository }}" >> $GITHUB_OUTPUT
     - name: 拉取代码
       uses: actions/checkout@v3
     - name: 安装java8
