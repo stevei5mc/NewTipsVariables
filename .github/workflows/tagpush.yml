@@ -31,9 +31,8 @@ jobs:
       id: get_version
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
     - name: 构建
-      run: mvn -B package --file pom.xml
-    - name: 收集构建文件
       run: |
+        mvn -B package --file pom.xml
         mkdir staging && cp target/*.jar staging
         pwd
         ls -la
