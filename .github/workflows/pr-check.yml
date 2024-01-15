@@ -26,14 +26,13 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: 构建
-      run: mvn -B package --file pom.xml
-    - name: 收集构建文件
       run: |
+        mvn -B package --file pom.xml
         mkdir staging && cp target/*.jar staging
         pwd
         ls -la
     - name: 收集构建文件
       uses: actions/upload-artifact@v1
       with:
-        name: NewTipsVariables
+        name: ${{ GITHUB_REPOSITORY }}
         path: staging

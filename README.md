@@ -3,19 +3,14 @@
 ### 暂无
 ## 变量介绍
 ### 文字相关的变量
-|变量名|对应内容|变量名|对应内容|
-|-|-|-|-|
-|{text-s0}|§0|{text-sa}|§a|
-|{text-s1}|§1|{text-sb}|§b|
-|{text-s2}|§2|{text-sc}|§c|
-|{text-s3}|§3|{text-sd}|§d|
-|{text-s4}|§4|{text-se}|§e|
-|{text-s5}|§5|{text-sf}|§f|
-|{text-s6}|§6|{text-bold}|§l|
-|{text-s7}|§7|{text-italic}|§o|
-|{text-s8}|§8|{text-reset}|§r|
-|{text-s9}|§9|{text-mess}|§k|
-|{text-next}|§r|\|\|
+|变量名|对应内容|变量名|对应内容|变量名|对应内容|变量名|对应内容|
+|-|-|-|-|-|-|-|-|
+|{text-s0}|§0|{text-s1}|§1|{text-s2}|§2|{text-s3}|§3|
+|{text-s4}|§4|{text-s5}|§5|{text-s6}|§6|{text-s7}|§7|
+|{text-s8}|§8|{text-s9}|§9|{text-sa}|§a|{text-sb}|§b|
+|{text-sc}|§c|{text-sd}|§d|{text-se}|§e|{text-sf}|§f|
+|{text-bold}|§l|{text-italic}|§o|{text-reset}|§r|{text-mess}|§k|
+|{text-next}|§r|---|---|---|---|---|---|
 ### 玩家相关的变量
 |变量|介绍|变量|介绍|
 |-|-|-|-|
