@@ -1,0 +1,5 @@
+name: NewTipsVariables
+main: cn.stevei5mc.NewTipsVariables.main
+version: '1.0.0-beta1'
+author: stevei5mc
+api: ["1.0.14"]
