@@ -1,10 +1,13 @@
-# NewTipsVeriable
+# NewTipsVariables
 ## 插件介绍
-> 该插件可以为Tips添加更多的变量内容，更多变量敬请期待
+[![GitHub License](https://img.shields.io/github/license/stevei5mc/NewTipsVariables?style=plastic)](LICENSE)
+![GitHub top language](https://img.shields.io/github/languages/top/stevei5mc/NewTipsVariables?style=plastic)
+[![GitHub Release](https://img.shields.io/github/v/release/stevei5mc/NewTipsVariables?style=plastic&color=drak%20green)](https://github.com/stevei5mc/NewTipsVariables/releases)
+> **该插件可以为Tips添加更多的变量内容，更多变量敬请期待**
 ## 使用方法
-> 1、将插件放进`plugins`文件夹  
-> 2、需确保安装`Tips`插件后重启服务器  
-> 3、在`/plugins/NewTipsVariables`文件夹中的txt文件获取相关变量介绍，也可在本页面获取相关的变量介绍  
+> **1、将插件放进`plugins`文件夹**  
+> **2、需确保安装`Tips`插件后重启服务器**  
+> **3、在`/plugins/NewTipsVariables`文件夹中的`.txt`文件获取相关变量介绍，也可在本页面获取相关的变量介绍**  
 ## 变量介绍
 ### 文字相关的变量
 |变量名|对应内容|变量名|对应内容|变量名|对应内容|变量名|对应内容|
@@ -14,7 +17,7 @@
 |{text-s8}|§8|{text-s9}|§9|{text-sa}|§a|{text-sb}|§b|
 |{text-sc}|§c|{text-sd}|§d|{text-se}|§e|{text-sf}|§f|
 |{text-bold}|§l|{text-italic}|§o|{text-reset}|§r|{text-mess}|§k|
-|{text-next}|§r|---|---|---|---|---|---|
+|{text-next}|\n|---|---|---|---|---|---|
 ### 玩家相关的变量
 |变量|介绍|变量|介绍|
 |-|-|-|-|
