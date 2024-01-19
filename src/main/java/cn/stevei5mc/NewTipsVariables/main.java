@@ -6,6 +6,7 @@ import tip.utils.Api;
 import cn.stevei5mc.NewTipsVariables.variables.tipstext;
 import cn.stevei5mc.NewTipsVariables.variables.tipsserver;
 import cn.stevei5mc.NewTipsVariables.variables.tipsplayer;
+import cn.stevei5mc.NewTipsVariables.variables.tipsplayer2;
 
 public class main extends PluginBase {
     public void onEnable() {
@@ -38,6 +39,7 @@ public class main extends PluginBase {
         Api.registerVariables("tipstext", tipstext.class);
         Api.registerVariables("tipsserver", tipsserver.class);
         Api.registerVariables("tipsplayer", tipsplayer.class);
+        Api.registerVariables("tipsplayer2", tipsplayer2.class);
     }
 
     public void loadover() {
