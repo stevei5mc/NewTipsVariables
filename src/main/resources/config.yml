@@ -11,6 +11,7 @@ player:
     low: "§a"
     medium: "§e"
     high: "§c"
+  # 玩家设备的系统
   DeviceOS:
     Android: "安卓"
     iOS: "苹果"
@@ -27,7 +28,18 @@ player:
     Xbox: "Xbox"
     Windows_Phone: "windows但是手机"
     Unknown: "未知的系统"
+  # 玩家的ui样式
   UIProfile:
     classic: "classic ui"
     pocket: "pocket ui"
     Unknown: "Unknown ui"
+  # 玩家的血量状态
+  HP:
+    low: "§e"
+    medium: "§e"
+    high: "§a"
+  # 玩家的饱食度状态
+  Food:
+    low: "§e"
+    medium: "§e"
+    high: "§a

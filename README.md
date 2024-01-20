@@ -23,7 +23,8 @@
 |-|-|-|-|
 |{xp}|获取玩家在游戏中的经验等级(minecraft的)|{DeviceModel}|获取玩家使用的设备型号|
 |{XUID}|获取玩家的xuid|{PlayerLang}|获取玩家客户端使用的语言|
-|{PlayerUI}|获取玩家的UI档案|---|---|
+|{PlayerUi}|获取玩家客户端使用的UI|{deviceOS}|获取玩家设备的系统|
+|{{PlayerUuid}|获取玩家的uuid|---|---|
 ### 服务器相关的变量
 |变量|介绍|变量|介绍|
 |-|-|-|-|
