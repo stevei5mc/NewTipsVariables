@@ -14,10 +14,10 @@ public class tipsplayer extends BaseVariable {
     }
 
     public void playervar() {
-        addStrReplaceString("{PlayerXp}", String.valueOf(player.getExperienceLevel()));
-        addStrReplaceString("{DeviceModel}", player.getLoginChainData().getDeviceModel());
+        addStrReplaceString("{Player-Xp}", String.valueOf(player.getExperienceLevel()));
+        addStrReplaceString("{Device-Model}", player.getLoginChainData().getDeviceModel());
         addStrReplaceString("{XUID}", String.valueOf(player.getLoginChainData().getXUID()));
-        addStrReplaceString("{PlayerLang}", player.getLoginChainData().getLanguageCode());  
-        addStrReplaceString("{PlayerUuid}", String.valueOf(player.getLoginChainData().getClientUUID())); 
+        addStrReplaceString("{Player-Lang}", player.getLoginChainData().getLanguageCode());  
+        addStrReplaceString("{Player-Uuid}", String.valueOf(player.getLoginChainData().getClientUUID())); 
     }
 }

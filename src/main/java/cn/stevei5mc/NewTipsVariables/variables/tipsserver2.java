@@ -14,7 +14,7 @@ public class tipsserver2 extends BaseVariable {
     }
 
     public void scv() {
-        addStrReplaceString("{ServerTps}", this.getServerTps(player));
+        addStrReplaceString("{Server-Tps}", this.getServerTps(player));
     }
 
     public static String getServerTps(Player player) {

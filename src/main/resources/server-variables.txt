@@ -1,6 +1,6 @@
 变量名 变量说明
-{Motd} 获取服务器主motd
-{SubMotd} 获取服务器副motd
-{ServerIp} 获取服务器IP
-{ServerPort} 获取服务器端口
-{ServerTps} 获取服务器当前TPS
+{Server-Motd} 获取服务器主motd
+{Server-SubMotd} 获取服务器副motd
+{Server-Ip} 获取服务器IP
+{Server-Port} 获取服务器端口
+{Server-Tps} 获取服务器当前TPS

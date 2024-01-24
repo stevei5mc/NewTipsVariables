@@ -14,11 +14,11 @@ public class tipsplayer2 extends BaseVariable {
     }
 
     public void playervar() {  
-        addStrReplaceString("{DeviceOs}", this.mapDeviceOSToString(player.getLoginChainData().getDeviceOS()));
-        addStrReplaceString("{PlayerUi}", this.playerUiString(player.getLoginChainData().getUIProfile()));
-        addStrReplaceString("{PlayerPing}", this.getPlayerPing(player));
-        addStrReplaceString("{PlayerFood}", this.getPlayerFood(player));
-        addStrReplaceString("{PlayerHealth}", this.getPlayerHealth(player));
+        addStrReplaceString("{Device-Os}", this.mapDeviceOSToString(player.getLoginChainData().getDeviceOS()));
+        addStrReplaceString("{Player-Ui}", this.playerUiString(player.getLoginChainData().getUIProfile()));
+        addStrReplaceString("{Player-Ping}", this.getPlayerPing(player));
+        addStrReplaceString("{Player-Food}", this.getPlayerFood(player));
+        addStrReplaceString("{Player-Health}", this.getPlayerHealth(player));
     }
 
 
