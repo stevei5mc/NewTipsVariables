@@ -6,11 +6,6 @@ updata:
   #自动更新(需开启检查更新但暂时没有用)
   auto: false
 player:
-  # 玩家的延迟显示(low=0~79,medium=80~119,high=120+)
-  ping:
-    low: "§a"
-    medium: "§e"
-    high: "§c"
   # 玩家设备的系统
   DeviceOS:
     Android: "安卓"
@@ -33,13 +28,38 @@ player:
     classic: "classic ui"
     pocket: "pocket ui"
     Unknown: "Unknown ui"
+  # 玩家的延迟显示
+  ping:
+    #配置说明,下面同理
+    #low的最低值为0,因此不提供相关设置
+    #设置最低值的显示颜色
+    low_color: "§a"
+    #设置中等值为多少
+    medium_value: 80
+    #设置中等值的显示颜色
+    medium_color: "§e"
+    #设置最高值为多少
+    high_value: 120
+    #设置最高值的显示颜色
+    high_color: "§c"
   # 玩家的血量状态
   HP:
-    low: "§e"
-    medium: "§e"
-    high: "§a"
+    low_color: "§c"
+    medium_value: 9
+    medium_color: "§e"
+    high_value: 15
+    high_color: "§a"
   # 玩家的饱食度状态
   Food:
-    low: "§e"
-    medium: "§e"
-    high: "§a
+    low_color: "§c"
+    medium_value: 9 
+    medium_color: "§e"
+    high_value: 15
+    high_color: "§a"
+server:
+  TPS:
+    low_color: "§c"
+    medium_value: 9
+    medium_color: "§e"
+    high_value: 15
+    high_color: "§a"

@@ -4,7 +4,6 @@ import cn.nukkit.Player;
 import cn.nukkit.Server;
 import tip.utils.variables.BaseVariable;
 
-//这个class内容是要从config.yml获取内容的,但是现在还不行
 public class tipsplayer2 extends BaseVariable {
     public tipsplayer2(Player player) {
         super(player);
@@ -15,11 +14,56 @@ public class tipsplayer2 extends BaseVariable {
     }
 
     public void playervar() {  
-        addStrReplaceString("{deviceOS}", this.mapDeviceOSToString(player.getLoginChainData().getDeviceOS()));
+        addStrReplaceString("{DeviceOs}", this.mapDeviceOSToString(player.getLoginChainData().getDeviceOS()));
         addStrReplaceString("{PlayerUi}", this.playerUiString(player.getLoginChainData().getUIProfile()));
+        addStrReplaceString("{PlayerPing}", this.getPlayerPing(player));
+        addStrReplaceString("{PlayerFood}", this.getPlayerFood(player));
+        addStrReplaceString("{PlayerHealth}", this.getPlayerHealth(player));
+    }
+
+
+    //这下面的内容是要从config.yml获取内容的,但是现在还不行
+    
+    /*这ui档案应该只有classic ui和pocket ui这两种UI(测试出来的)
+    Unknown UI是为了保险起见加上去的*/
+    private String playerUiString(int uiprofile) {
+        switch (uiprofile) {
+            case 0: return "classic ui";
+            case 1: return "pocket ui";
+            default: return "Unknown UI";
+        }
+    }    
+
+    //获取玩家的饱食度状态
+    public static String getPlayerFood(Player player) {
+        String playerFood = "§a15";
+        if (player.getFoodData().getLevel() >= 0) {
+            playerFood = "§c" + player.getFoodData().getLevel();
+        }
+        if (player.getFoodData().getLevel() >= 9) {
+            playerFood = "§e" + player.getFoodData().getLevel();
+        }
+        if (player.getFoodData().getLevel() >= 15) {
+            playerFood = "§a" + player.getFoodData().getLevel();
+        }
+        return playerFood;
+    }
+
+    //获取玩家的生命值状态
+    public static String getPlayerHealth(Player player) {
+        String playerFood = "§a15";
+        if (player.getHealth() >= 0) {
+            playerFood = "§c" + player.getHealth();
+        }
+        if (player.getHealth() >= 9) {
+            playerFood = "§e" + player.getHealth();
+        }
+        if (player.getHealth() >= 15) {
+            playerFood = "§a" + player.getHealth();
+        }
+        return playerFood;
     }
     
-    //这下面的内容是要从config.yml获取内容的,但是现在还不行
     private String mapDeviceOSToString(int os) {
         switch (os) {
             case 1: return "Android";
@@ -40,11 +84,17 @@ public class tipsplayer2 extends BaseVariable {
         return "Unknown";
     }
 
-    private String playerUiString(int uiprofile) {
-        switch (uiprofile) {
-            case 0: return "classic ui";
-            case 1: return "pocket ui";
-            default: return "Unknown UI";
+    public static String getPlayerPing(Player player) {
+        String playerMS = "§a0";
+        if (player.getPing() >= 0) {
+            playerMS = "§a" + player.getPing();
         }
+        if (player.getPing() >= 80) {
+            playerMS = "§e" + player.getPing();
+        }
+        if (player.getPing() >= 120) {
+            playerMS = "§c" + player.getPing();
+        }
+        return playerMS;
     }
 }
