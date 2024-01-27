@@ -6,14 +6,19 @@ import tip.utils.Api;
 import cn.stevei5mc.NewTipsVariables.variables.tipstext;
 import cn.stevei5mc.NewTipsVariables.variables.tipsserver;
 import cn.stevei5mc.NewTipsVariables.variables.tipsplayer;
+import cn.stevei5mc.NewTipsVariables.variables.tipsplayer2;
+import cn.stevei5mc.NewTipsVariables.variables.tipsserver2;
 
 public class main extends PluginBase {
     public void onEnable() {
-        this.loadresource();
+        this.loadresource();//先把资源文件给加载了
+        //判断需要的前置插件是否存在
         if (this.getServer().getPluginManager().getPlugin("Tips") != null) {
-            this.tipsvariables();
-            this.loadover();
+            //存在则加载该插件
+            this.tipsvariables();//加载变量部分
+            this.loadover();//加载完成显示的内容
         } else {
+            //不存在作为卸载该插件
             this.getLogger().warning("§c未检测到前置插件§aTips§c，请安装§aTips§c再试!!!");
             this.getLogger().warning("§b下载地址: §ehttps://ci.lanink.cn/job/Tips/");
             this.onDisable();
@@ -31,17 +36,19 @@ public class main extends PluginBase {
         this.saveResource("text-variables.txt","/text-variables.txt",true);
         this.saveResource("server-variables.txt","/server-variables.txt",true);
         this.saveResource("player-variables.txt","/player-variables.txt",true);
-        this.getLogger().info("变量说明文件生成成功");
+        this.getLogger().info("§a变量说明文件加载成功");
     }
 
     public void tipsvariables() {
         Api.registerVariables("tipstext", tipstext.class);
         Api.registerVariables("tipsserver", tipsserver.class);
         Api.registerVariables("tipsplayer", tipsplayer.class);
+        Api.registerVariables("tipsplayer2", tipsplayer2.class);
+        Api.registerVariables("tipsserver2", tipsserver2.class);
     }
 
     public void loadover() {
-        this.getLogger().info("加载成功");
+        this.getLogger().info("§a加载成功");
         this.getLogger().warning("§c警告:");
         this.getLogger().warning("§c本插件为免费且开源的一款插件，如果你是付费获取到的那么你就被骗了");
         this.getLogger().info("§a开源链接和使用方法: §bhttps://github.com/stevei5mc/NewTipsVariables");
