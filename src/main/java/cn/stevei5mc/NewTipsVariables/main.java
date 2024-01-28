@@ -8,6 +8,7 @@ import cn.stevei5mc.NewTipsVariables.variables.tipsserver;
 import cn.stevei5mc.NewTipsVariables.variables.tipsplayer;
 import cn.stevei5mc.NewTipsVariables.variables.tipsplayer2;
 import cn.stevei5mc.NewTipsVariables.variables.tipsserver2;
+import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.loadSupportPlugins;
 
 public class main extends PluginBase {
     public void onEnable() {
@@ -45,6 +46,7 @@ public class main extends PluginBase {
         Api.registerVariables("tipsplayer", tipsplayer.class);
         Api.registerVariables("tipsplayer2", tipsplayer2.class);
         Api.registerVariables("tipsserver2", tipsserver2.class);
+        loadSupportPlugins.loadSupportVariables();
     }
 
     public void loadover() {
