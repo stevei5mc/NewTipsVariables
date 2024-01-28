@@ -14,7 +14,7 @@ public class loadSupportPlugins {
         String loadFailureMsg1 = "§c无法识别到插件§e【§b";
         String loadFailureMsg2 = "§e】§c相关变量加载失败,请安装相关插件再试";
         //需要加载的变量的插件
-        String loadPlugin1 = "UnicodeVariables";
+        /* String loadPlugin1 = "UnicodeVariables";
         
         if (Server.getInstance().getPluginManager().getPlugin(loadPlugin1) != null) {
             //存在
@@ -23,6 +23,6 @@ public class loadSupportPlugins {
         }  else {
             //不存在
             Server.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin1 + loadFailureMsg2);
-        }
+        } */
     }
 }
