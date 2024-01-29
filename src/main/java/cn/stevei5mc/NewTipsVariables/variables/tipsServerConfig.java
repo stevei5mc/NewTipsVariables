@@ -4,18 +4,20 @@ import cn.nukkit.Player;
 import cn.nukkit.Server;
 import tip.utils.variables.BaseVariable;
 
-public class tipsserver2 extends BaseVariable {
-    public tipsserver2(Player player) {
+public class tipsServerConfig extends BaseVariable {
+    public tipsServerConfig(Player player) {
         super(player);
     }
 
     public void strReplace() {
-        scv();
+        serverVarConfig();
     }
 
-    public void scv() {
+    public void serverVarConfig() {
         addStrReplaceString("{Server-Tps}", this.getServerTps(player));
     }
+
+    //这下面的内容是要从config.yml获取内容的,但是现在还不行
 
     public static String getServerTps(Player player) {
         String serverTps = "§a15";

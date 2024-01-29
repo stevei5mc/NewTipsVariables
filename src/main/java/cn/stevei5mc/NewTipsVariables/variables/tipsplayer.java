@@ -4,16 +4,16 @@ import cn.nukkit.Player;
 import cn.nukkit.Server;
 import tip.utils.variables.BaseVariable;
 
-public class tipsplayer extends BaseVariable {
-    public tipsplayer(Player player) {
+public class tipsPlayer extends BaseVariable {
+    public tipsPlayer(Player player) {
         super(player);
     }
 
     public void strReplace() {
-        playervar();
+        playerVar();
     }
 
-    public void playervar() {
+    public void playerVar() {
         addStrReplaceString("{Player-Xp}", String.valueOf(player.getExperienceLevel()));
         addStrReplaceString("{Device-Model}", player.getLoginChainData().getDeviceModel());
         addStrReplaceString("{XUID}", String.valueOf(player.getLoginChainData().getXUID()));

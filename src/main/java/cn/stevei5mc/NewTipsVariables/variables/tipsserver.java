@@ -4,16 +4,16 @@ import cn.nukkit.Player;
 import cn.nukkit.Server;
 import tip.utils.variables.BaseVariable;
 
-public class tipsserver extends BaseVariable {
-    public tipsserver(Player player) {
+public class tipsServer extends BaseVariable {
+    public tipsServer(Player player) {
         super(player);
     }
 
     public void strReplace() {
-        scv();
+        serverVar();
     }
 
-    public void scv() {
+    public void serverVar() {
         addStrReplaceString("{Server-Motd}", Server.getInstance().getMotd());
         addStrReplaceString("{Server-SubMotd}", Server.getInstance().getSubMotd());
         addStrReplaceString("{Server-Ip}", Server.getInstance().getIp());

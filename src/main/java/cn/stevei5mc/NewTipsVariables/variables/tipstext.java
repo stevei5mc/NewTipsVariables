@@ -3,16 +3,16 @@ package cn.stevei5mc.NewTipsVariables.variables;
 import cn.nukkit.Player;
 import tip.utils.variables.BaseVariable;
 
-public class tipstext extends BaseVariable {
-    public tipstext(Player player) {
+public class tipsText extends BaseVariable {
+    public tipsText(Player player) {
         super(player);
     }
 
     public void strReplace() {
-        tc();
+        textVar();
     }
 
-    public void tc() {
+    public void textVar() {
         addStrReplaceString("{text-s0}", "§0");
         addStrReplaceString("{text-s1}", "§1");
         addStrReplaceString("{text-s2}", "§2");

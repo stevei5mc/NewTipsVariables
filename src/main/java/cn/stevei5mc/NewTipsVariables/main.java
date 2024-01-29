@@ -3,11 +3,11 @@ package cn.stevei5mc.NewTipsVariables;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.plugin.PluginManager;
 import tip.utils.Api;
-import cn.stevei5mc.NewTipsVariables.variables.tipstext;
-import cn.stevei5mc.NewTipsVariables.variables.tipsserver;
-import cn.stevei5mc.NewTipsVariables.variables.tipsplayer;
-import cn.stevei5mc.NewTipsVariables.variables.tipsplayer2;
-import cn.stevei5mc.NewTipsVariables.variables.tipsserver2;
+import cn.stevei5mc.NewTipsVariables.variables.tipsText;
+import cn.stevei5mc.NewTipsVariables.variables.tipsServer;
+import cn.stevei5mc.NewTipsVariables.variables.tipsPlayer;
+import cn.stevei5mc.NewTipsVariables.variables.tipsPlayerConfig;
+import cn.stevei5mc.NewTipsVariables.variables.tipsServerConfig;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.loadSupportPlugins;
 
 public class main extends PluginBase {
@@ -41,11 +41,11 @@ public class main extends PluginBase {
     }
 
     public void tipsvariables() {
-        Api.registerVariables("tipstext", tipstext.class);
-        Api.registerVariables("tipsserver", tipsserver.class);
-        Api.registerVariables("tipsplayer", tipsplayer.class);
-        Api.registerVariables("tipsplayer2", tipsplayer2.class);
-        Api.registerVariables("tipsserver2", tipsserver2.class);
+        Api.registerVariables("tipsText", tipsText.class);
+        Api.registerVariables("tipsServer", tipsServer.class);
+        Api.registerVariables("tipsPlayer", tipsPlayer.class);
+        Api.registerVariables("tipsPlayerConfig", tipsPlayerConfig.class);
+        Api.registerVariables("tipsServerConfig", tipsServerConfig.class);
         loadSupportPlugins.loadSupportVariables();
     }
 

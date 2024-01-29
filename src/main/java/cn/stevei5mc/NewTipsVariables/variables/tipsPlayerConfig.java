@@ -4,23 +4,22 @@ import cn.nukkit.Player;
 import cn.nukkit.Server;
 import tip.utils.variables.BaseVariable;
 
-public class tipsplayer2 extends BaseVariable {
-    public tipsplayer2(Player player) {
+public class tipsPlayerConfig extends BaseVariable {
+    public tipsPlayerConfig(Player player) {
         super(player);
     }
 
     public void strReplace() {
-        playervar();
+        playerVarConfig();
     }
 
-    public void playervar() {  
+    public void playerVarConfig() {  
         addStrReplaceString("{Device-Os}", this.mapDeviceOSToString(player.getLoginChainData().getDeviceOS()));
         addStrReplaceString("{Player-Ui}", this.playerUiString(player.getLoginChainData().getUIProfile()));
         addStrReplaceString("{Player-Ping}", this.getPlayerPing(player));
         addStrReplaceString("{Player-Food}", this.getPlayerFood(player));
         addStrReplaceString("{Player-Health}", this.getPlayerHealth(player));
     }
-
 
     //这下面的内容是要从config.yml获取内容的,但是现在还不行
     
