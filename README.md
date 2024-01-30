@@ -36,3 +36,4 @@
 |{Server-Motd}|获取服务器主motd|{Server-SubMotd}|获取服务器副motd|
 |{Server-Ip}|获取服务器IP|{Server-Port}|获取服务器端口|
 |{Server-Tps}|获取服务器当前TPS|---|---|
+### [支持的插件](SupportPluginsVariables.md)

@@ -9,8 +9,11 @@ import cn.stevei5mc.NewTipsVariables.variables.tipsPlayer;
 import cn.stevei5mc.NewTipsVariables.variables.tipsPlayerConfig;
 import cn.stevei5mc.NewTipsVariables.variables.tipsServerConfig;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.loadSupportPlugins;
+import cn.nukkit.Player;
 
 public class main extends PluginBase {
+    public static Player player;
+
     public void onEnable() {
         this.loadresource();//先把资源文件给加载了
         //判断需要的前置插件是否存在
@@ -46,7 +49,7 @@ public class main extends PluginBase {
         Api.registerVariables("tipsPlayer", tipsPlayer.class);
         Api.registerVariables("tipsPlayerConfig", tipsPlayerConfig.class);
         Api.registerVariables("tipsServerConfig", tipsServerConfig.class);
-        loadSupportPlugins.loadSupportVariables();
+        loadSupportPlugins.loadSupportVariables(player);
     }
 
     public void loadover() {
