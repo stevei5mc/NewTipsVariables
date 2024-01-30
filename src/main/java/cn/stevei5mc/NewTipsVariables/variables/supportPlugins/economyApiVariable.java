@@ -14,6 +14,6 @@ public class economyApiVariable extends BaseVariable {
     }
 
     public void economyApi() {
-        this.addStrReplaceString("{economy}", String.format("%.2f", EconomyAPI.getInstance().myMoney(player)));
+        this.addStrReplaceString("{economy}", String.format("%.2f", EconomyAPI.getInstance().myMoney(player))); //这个代码的是复制TipsVeriable的
     }
 }

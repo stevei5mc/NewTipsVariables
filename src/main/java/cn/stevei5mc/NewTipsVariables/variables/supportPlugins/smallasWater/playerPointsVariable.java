@@ -14,6 +14,6 @@ public class playerPointsVariable extends BaseVariable {
     }
 
     public void playerPoint() {
-        this.addStrReplaceString("{point}", String.format("%.2f", Point.myPoint(player)));
+        this.addStrReplaceString("{point}", String.format("%.2f", Point.myPoint(player))); //这个代码的是复制TipsVeriable的
     }
 }

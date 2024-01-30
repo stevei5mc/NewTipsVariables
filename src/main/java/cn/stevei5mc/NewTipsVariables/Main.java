@@ -11,7 +11,7 @@ import cn.stevei5mc.NewTipsVariables.variables.tipsServerConfig;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.loadSupportPlugins;
 import cn.nukkit.Player;
 
-public class main extends PluginBase {
+public class Main extends PluginBase {
     public static Player player;
 
     public void onEnable() {

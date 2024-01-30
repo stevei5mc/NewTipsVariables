@@ -24,8 +24,9 @@ public class loadSupportPlugins {
             Server.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin1 + loadSuccessMsg2);
         }  else {
             //不存在
-            Server.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin1 + loadFailureMsg2);
-            Api.addVariable("{point}", loadFailureMsg1 + loadPlugin1 + loadFailureMsg2);
+            String loadPlugin1Failure = loadFailureMsg1 + loadPlugin1 + loadFailureMsg2;
+            Server.getInstance().getLogger().info(loadPlugin1Failure);
+            Api.addVariable("{point}", loadPlugin1Failure);
         }
 
         if (Server.getInstance().getPluginManager().getPlugin(loadPlugin2) != null) {
@@ -34,8 +35,9 @@ public class loadSupportPlugins {
             Server.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin2 + loadSuccessMsg2);
         }  else {
             //不存在
-            Server.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin2 + loadFailureMsg2);
-            Api.addVariable("{economy}", loadFailureMsg1 + loadPlugin2 + loadFailureMsg2);
+            String loadPlugin2Failure = loadFailureMsg1 + loadPlugin2 + loadFailureMsg2;
+            Server.getInstance().getLogger().info(loadPlugin2Failure);
+            Api.addVariable("{economy}", loadPlugin2Failure);
         }      
     }
 }
