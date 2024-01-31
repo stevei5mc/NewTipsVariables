@@ -10,9 +10,9 @@ public class loadSupportPlugins {
     
     public static void loadSupportVariables(Player player) {
         //加载相关插件的变量时的提示
-        String loadSuccessMsg1 = "§a识别到插件§e【§b";
+        String loadSuccessMsg1 = "§a找到插件§e【§b";
         String loadSuccessMsg2 = "§e】§a相关变量已加载";
-        String loadFailureMsg1 = "§c无法识别到插件§e【§b";
+        String loadFailureMsg1 = "§c无法找到插件§e【§b";
         String loadFailureMsg2 = "§e】§c相关变量加载失败,请安装相关插件再试";
         //需要加载的变量的插件
         String loadPlugin1 = "playerPoints";

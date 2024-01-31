@@ -13,10 +13,10 @@
 ## D
 ---
 ## **E**
-### **EconomyAPI**
+### **[EconomyAPI](https://github.com/Nukkit-coders/EconomyAPI)**
 |变量名|变量介绍|
 |-|-|
-|{economy}|玩家金钱数量|
+|{economyApi-money}|玩家金钱数量|
 ---
 ## F
 ---
@@ -39,7 +39,7 @@
 ## O
 ---
 ## **P**
-### **playerPoints**
+### **[playerPoints](https://github.com/SmallasWater/PlayerPoints)**
 |变量名|变量介绍|
 |-|-|
 |{point}|获取玩家的点券数量|
