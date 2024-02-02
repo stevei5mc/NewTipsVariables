@@ -37,9 +37,8 @@ public class Main extends PluginBase {
     public void loadresource() {
         this.getDataFolder().mkdirs(); //创建插件文件夹
         //每次都加载最新的变量信息
-        this.saveResource("text-variables.txt","/text-variables.txt",true);
-        this.saveResource("server-variables.txt","/server-variables.txt",true);
-        this.saveResource("player-variables.txt","/player-variables.txt",true);
+        this.saveResource("base-variables.txt","/base-variables.txt",true);
+        this.saveResource("SupportPluginsVariables.txt","SupportPluginsVariables.txt",true);
         this.getLogger().info("§a变量说明文件加载成功");
     }
 

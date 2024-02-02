@@ -38,11 +38,14 @@
 ---
 ## **O**
 ### **[OreArea](https://github.com/SmallasWater/OreArea)**
-|变量名|变量介绍|变量名|变量介绍|
-|-|-|-|-|
-|{orearea-level-this}|获取玩家的矿区等级|{orearea-level-next}|获取玩家的矿区下一等级|
-|{orearea-time-use}|获取玩家所在的矿区可以使用的时间(这个有点bug)|{orearea-time-reset}|获取玩家所在的刷新时间|
-|{orearea-name}|获取玩家所在的矿区等级|---|---|
+**注意: 变量`{orearea-time-use}`在有限时的矿区会有BUG(到秒就不动了)**
+|变量名|变量介绍|
+|-|-|
+|{orearea-level-this}|获取玩家的矿区等级|
+|orearea-level-next}|获取玩家的矿区下一等级|
+|{orearea-time-use}|获取玩家所在的矿区可以使用的时间|
+|{orearea-time-reset}|获取玩家所在的刷新时间|
+|{orearea-name}|获取玩家所在的矿区等级|
 ---
 ## **P**
 ### **[playerPoints](https://github.com/SmallasWater/PlayerPoints)**
