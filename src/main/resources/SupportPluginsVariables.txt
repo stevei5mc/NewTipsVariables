@@ -1,0 +1,20 @@
+NewTipsVariables(变量文档)
+  本文档内容为支持的插件变量
+  变量内容排序按插件的英文字母排序
+E
+  EconomyAPI
+    {economyApi-money} 玩家金钱数量
+O
+  OreArea
+    {orearea-level-this}   获取玩家的矿区等级
+    {orearea-level-next}   获取玩家的矿区下一等级
+    {orearea-time-use}     获取玩家所在的矿区可以使用的时间(在有限时的矿区会有BUG,是到秒就不动了)
+    {orearea-time-reset}   获取玩家所在的刷新时间
+    {orearea-name}         获取玩家所在的矿区等级
+P
+  playerPoints
+    {point}  获取玩家的点券数量
+R
+  RsTask
+    {task-name}       正在进行中的任务 (显示第一个)
+    {task-count}      玩家任务积分

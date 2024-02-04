@@ -30,9 +30,10 @@
 |{Player-Ui}|获取玩家客户端使用的UI|{Device-Os}|获取玩家设备的系统|
 |{{Player-Uuid}|获取玩家的uuid|{Player-Ping}|获取玩家当前的延迟|
 |{Player-Food}|玩家当前的饥饿度|{Player-Health}|玩家当前的血量|
-### 服务器相关的变
+### 服务器相关的变量
 |变量|介绍|变量|介绍|
 |-|-|-|-|
 |{Server-Motd}|获取服务器主motd|{Server-SubMotd}|获取服务器副motd|
 |{Server-Ip}|获取服务器IP|{Server-Port}|获取服务器端口|
 |{Server-Tps}|获取服务器当前TPS|---|---|
+### [支持的插件](SupportPluginsVariables.md)

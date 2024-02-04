@@ -6,7 +6,7 @@
 
     <groupId>cn.stevei5mc</groupId>
     <artifactId>NewTipsVariables</artifactId>
-    <version>1.0.0-beta2</version>
+    <version>1.0.0-beta3</version>
 
 <repositories>
    <repository>
@@ -41,12 +41,35 @@
         <artifactId>nukkit</artifactId>
         <version>1.0-SNAPSHOT</version>
     </dependency>
-
     <dependency>
         <groupId>com.smallaswater.tips</groupId>
         <artifactId>Tips</artifactId>
         <version>2.1.8</version>
         <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.smallaswater</groupId>
+        <artifactId>PlayerPoints</artifactId>
+        <version>1.3.0-20231117.131552-1</version>
+    </dependency>  
+    <dependency>
+        <groupId>me.onebone</groupId>
+        <artifactId>economyapi</artifactId>
+        <version>2.0.3</version>
+    </dependency>
+    <dependency>
+        <groupId>com.smallaswater.orearea</groupId>
+        <artifactId>OreArea</artifactId>
+        <version>1.3.8</version>
+        <scope>system</scope>
+        <systemPath> ${project.basedir}/lib/OreArea_v1.3.8.jar</systemPath>
+    </dependency>
+    <dependency>
+        <groupId>com.smallaswater.rstask</groupId>
+        <artifactId>RsTask</artifactId>
+        <version>1.8.4</version>
+        <scope>system</scope>
+        <systemPath> ${project.basedir}/lib/RsTask_v1.8.4.jar</systemPath>
     </dependency>
 </dependencies>
 
