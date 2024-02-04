@@ -56,6 +56,11 @@
 ## Q
 ---
 ## R
+### **[RsTask](https://github.com/MemoriesOfTime/RSTask)**
+|变量名|变量介绍|
+|-|-|
+|{task-name}|正在进行中的任务 (显示第一个)|
+|{task-count}|玩家任务积分|
 ---
 ## S
 ---

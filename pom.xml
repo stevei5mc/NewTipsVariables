@@ -64,6 +64,13 @@
         <scope>system</scope>
         <systemPath> ${project.basedir}/lib/OreArea_v1.3.8.jar</systemPath>
     </dependency>
+    <dependency>
+        <groupId>com.smallaswater.rstask</groupId>
+        <artifactId>RsTask</artifactId>
+        <version>1.8.4</version>
+        <scope>system</scope>
+        <systemPath> ${project.basedir}/lib/RsTask_v1.8.4.jar</systemPath>
+    </dependency>
 </dependencies>
 
     <properties>

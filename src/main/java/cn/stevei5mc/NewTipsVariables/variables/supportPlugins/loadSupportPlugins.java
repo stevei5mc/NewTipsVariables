@@ -6,6 +6,7 @@ import cn.nukkit.Player;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.economyApiVariable;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.playerPointsVariable;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.OreAreaVariable;
+import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.RsTaskVariable;
 
 public class loadSupportPlugins {
     
@@ -53,6 +54,18 @@ public class loadSupportPlugins {
             Api.addVariable("{orearea-level-this}", loadPlugin3Failure);Api.addVariable("{orearea-level-next}", loadPlugin3Failure);
             Api.addVariable("{orearea-time-use}", loadPlugin3Failure);Api.addVariable("{orearea-time-reset}", loadPlugin3Failure);
             Api.addVariable("{orearea-name}", loadPlugin3Failure);
-        }  
+        }
+        
+        String loadPlugin4 = "RsTask";
+        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin4) != null) {
+            //存在
+            Api.registerVariables("RsTaskVariable", RsTaskVariable.class);
+            Server.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin4 + loadSuccessMsg2);
+        }  else {
+            //不存在
+            String loadPlugin4Failure = loadFailureMsg1 + loadPlugin4 + loadFailureMsg2;
+            Server.getInstance().getLogger().info(loadPlugin4Failure);
+            Api.addVariable("{task-name}", loadPlugin4Failure);Api.addVariable("{task-count}", loadPlugin4Failure);
+        }
     }
 }

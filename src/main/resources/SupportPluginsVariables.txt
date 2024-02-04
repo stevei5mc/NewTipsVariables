@@ -14,3 +14,7 @@ O
 P
   playerPoints
     {point}  获取玩家的点券数量
+R
+  RsTask
+    {task-name}       正在进行中的任务 (显示第一个)
+    {task-count}      玩家任务积分
