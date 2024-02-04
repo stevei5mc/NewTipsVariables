@@ -25,9 +25,7 @@ public class loadSupportPlugins {
             Server.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin1 + loadSuccessMsg2);
         }  else {
             //不存在
-            String loadPlugin1Failure = loadFailureMsg1 + loadPlugin1 + loadFailureMsg2;
-            Server.getInstance().getLogger().info(loadPlugin1Failure);
-            Api.addVariable("{point}", loadPlugin1Failure);
+            Server.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin1 + loadFailureMsg2);
         }
 
         String loadPlugin2 = "EconomyAPI";
@@ -37,9 +35,7 @@ public class loadSupportPlugins {
             Server.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin2 + loadSuccessMsg2);
         }  else {
             //不存在
-            String loadPlugin2Failure = loadFailureMsg1 + loadPlugin2 + loadFailureMsg2;
-            Server.getInstance().getLogger().info(loadPlugin2Failure);
-            Api.addVariable("{economyApi-money}", loadPlugin2Failure);
+            Server.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin2 + loadFailureMsg2);
         }
         
         String loadPlugin3 = "OreArea";
@@ -49,23 +45,17 @@ public class loadSupportPlugins {
             Server.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin3 + loadSuccessMsg2);
         }  else {
             //不存在
-            String loadPlugin3Failure = loadFailureMsg1 + loadPlugin3 + loadFailureMsg2;
-            Server.getInstance().getLogger().info(loadPlugin3Failure);
-            Api.addVariable("{orearea-level-this}", loadPlugin3Failure);Api.addVariable("{orearea-level-next}", loadPlugin3Failure);
-            Api.addVariable("{orearea-time-use}", loadPlugin3Failure);Api.addVariable("{orearea-time-reset}", loadPlugin3Failure);
-            Api.addVariable("{orearea-name}", loadPlugin3Failure);
+            Server.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin3 + loadFailureMsg2);
         }
         
-        String loadPlugin4 = "RsTask";
+        String loadPlugin4 = "RSTask";
         if (Server.getInstance().getPluginManager().getPlugin(loadPlugin4) != null) {
             //存在
             Api.registerVariables("RsTaskVariable", RsTaskVariable.class);
             Server.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin4 + loadSuccessMsg2);
         }  else {
             //不存在
-            String loadPlugin4Failure = loadFailureMsg1 + loadPlugin4 + loadFailureMsg2;
-            Server.getInstance().getLogger().info(loadPlugin4Failure);
-            Api.addVariable("{task-name}", loadPlugin4Failure);Api.addVariable("{task-count}", loadPlugin4Failure);
+            Server.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin4 + loadFailureMsg2);
         }
     }
 }
