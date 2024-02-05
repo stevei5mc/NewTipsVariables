@@ -1,10 +1,18 @@
+version: 1
 # 更新功能(这个功能展示没有用)
-# 整个配置文件都没有用
 updata:
-  #检查更新(暂时没有用)
-  check: false
-  #自动更新(需开启检查更新但暂时没有用)
-  auto: false
+  in-plugin:
+    #检查更新(暂时没有用)
+    check: false
+    #自动更新(需开启检查更新但暂时没有用)
+    auto: false
+  in-config:
+    #检查更新(暂时没有用)
+    check: false
+    #自动更新(需开启检查更新但暂时没有用)
+    auto: false
+# 是否释放新的变量说明文档
+save-variables-doc: true
 player:
   # 玩家设备的系统
   DeviceOS:
