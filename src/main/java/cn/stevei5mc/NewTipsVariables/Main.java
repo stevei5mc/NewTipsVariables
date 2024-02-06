@@ -20,9 +20,13 @@ public class Main extends PluginBase {
         return instance;
     }
     
-    public void onEnable() {
+    public void onLoad() {
+        instance = this;
         this.loadConfigRes();//加载配置文件
         this.loadVarRes();//加载变量文档
+    }
+    
+    public void onEnable() {
         //判断需要的前置插件是否存在
         if (this.getServer().getPluginManager().getPlugin("Tips") != null) {
             //存在则加载该插件
@@ -51,8 +55,8 @@ public class Main extends PluginBase {
         boolean saveVariablesDoc = this.config.getBoolean("save-variables-doc");
         if (saveVariablesDoc == true) {
             //为true时就每次都加载最新的变量信息
-            this.saveResource("base-variables.txt","/base-variables.txt",true);
-            this.saveResource("SupportPluginsVariables.txt","SupportPluginsVariables.txt",true);
+            this.saveResource("base-variables.txt",true);
+            this.saveResource("SupportPluginsVariables.txt",true);
             this.getLogger().info("§a变量说明文件加载成功");
         }
     }
@@ -73,6 +77,7 @@ public class Main extends PluginBase {
         this.getLogger().info("§a开源链接和使用方法: §bhttps://github.com/stevei5mc/NewTipsVariables");
     }
     
+    @Override
     public Config getConfig() {
         return this.config;
     }
