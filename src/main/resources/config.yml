@@ -64,10 +64,3 @@ player:
     medium_color: "§e"
     high_value: 15
     high_color: "§a"
-server:
-  TPS:
-    low_color: "§c"
-    medium_value: 9
-    medium_color: "§e"
-    high_value: 15
-    high_color: "§a"
