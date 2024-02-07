@@ -1,0 +1,44 @@
+#使用说明: https://github.com/stevei5mc/NewTipsVariables/blob/main/README.md
+#配置文件版本，勿动
+version: 1
+Device:
+  OS:
+    Android: "安卓"
+    iOS: "苹果"
+    macOS: "苹果但是电脑"
+    Fire_OS: "Fire_OS"
+    Gear_VR: "Gear_VR"
+    HoloLens: "HoloLens"
+    Windows_10: "Windows 10"
+    Windows: "Windows"
+    Dedicated: "Dedicated"
+    tvOS: "tvOS"
+    PlayStation: "PlayStation"
+    Switch: "Switch"
+    Xbox: "Xbox"
+    Windows_Phone: "windows但是手机"
+    Unknown: "未知的系统"
+  UIProfile:
+    classic: "classic ui"
+    pocket: "pocket ui"
+    Unknown: "Unknown ui"
+ping:
+  low_color: "§a"
+  medium_value: 80
+  medium_color: "§e"
+  high_value: 120
+  high_color: "§c"
+HP:
+  symbols: "§7/"
+  low_color: "§c"
+  medium_value: 9
+  medium_color: "§e"
+  high_value: 15
+  high_color: "§a"
+Food:
+  symbols: "§7/"
+  low_color: "§c"
+  medium_value: 9 
+  medium_color: "§e"
+  high_value: 15
+  high_color: "§a"

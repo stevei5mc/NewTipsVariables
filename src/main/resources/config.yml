@@ -1,65 +1,17 @@
+#使用说明: https://github.com/stevei5mc/NewTipsVariables/blob/main/README.md
+#配置文件版本，勿动
+version: 1
 # 更新功能(这个功能展示没有用)
-# 整个配置文件都没有用
 updata:
-  #检查更新(暂时没有用)
-  check: false
-  #自动更新(需开启检查更新但暂时没有用)
-  auto: false
-player:
-  # 玩家设备的系统
-  DeviceOS:
-    Android: "安卓"
-    iOS: "苹果"
-    macOS: "苹果但是电脑"
-    Fire_OS: "Fire_OS"
-    Gear_VR: "Gear_VR"
-    HoloLens: "HoloLens"
-    Windows_10: "Windows 10"
-    Windows: "Windows"
-    Dedicated: "Dedicated"
-    tvOS: "tvOS"
-    PlayStation: "PlayStation"
-    Switch: "Switch"
-    Xbox: "Xbox"
-    Windows_Phone: "windows但是手机"
-    Unknown: "未知的系统"
-  # 玩家的ui样式
-  UIProfile:
-    classic: "classic ui"
-    pocket: "pocket ui"
-    Unknown: "Unknown ui"
-  # 玩家的延迟显示
-  ping:
-    #配置说明,下面同理
-    #low的最低值为0,因此不提供相关设置
-    #设置最低值的显示颜色
-    low_color: "§a"
-    #设置中等值为多少
-    medium_value: 80
-    #设置中等值的显示颜色
-    medium_color: "§e"
-    #设置最高值为多少
-    high_value: 120
-    #设置最高值的显示颜色
-    high_color: "§c"
-  # 玩家的血量状态
-  HP:
-    low_color: "§c"
-    medium_value: 9
-    medium_color: "§e"
-    high_value: 15
-    high_color: "§a"
-  # 玩家的饱食度状态
-  Food:
-    low_color: "§c"
-    medium_value: 9 
-    medium_color: "§e"
-    high_value: 15
-    high_color: "§a"
-server:
-  TPS:
-    low_color: "§c"
-    medium_value: 9
-    medium_color: "§e"
-    high_value: 15
-    high_color: "§a"
+  in-plugin:
+    #检查更新(暂时没有用)
+    check: false
+    #自动更新(需开启检查更新但暂时没有用)
+    auto: false
+  in-config:
+    #检查更新(暂时没有用)
+    check: false
+    #自动更新(需开启检查更新但暂时没有用)
+    auto: false
+# 是否释放新的变量说明文档
+save-variables-doc: true

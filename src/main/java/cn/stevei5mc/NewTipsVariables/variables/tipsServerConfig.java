@@ -3,6 +3,7 @@ package cn.stevei5mc.NewTipsVariables.variables;
 import cn.nukkit.Player;
 import cn.nukkit.Server;
 import tip.utils.variables.BaseVariable;
+import cn.stevei5mc.NewTipsVariables.Main;
 
 public class tipsServerConfig extends BaseVariable {
     public tipsServerConfig(Player player) {
@@ -17,18 +18,23 @@ public class tipsServerConfig extends BaseVariable {
         addStrReplaceString("{Server-Tps}", this.getServerTps(player));
     }
 
-    //这下面的内容是要从config.yml获取内容的,但是现在还不行
-
     public static String getServerTps(Player player) {
-        String serverTps = "§a15";
-        if (Server.getInstance().getTicksPerSecond() >= 0) {
-            serverTps = "§c" + Server.getInstance().getTicksPerSecond();
+        String serverTpslowColor = Main.getInstance().getConfigInServer().getString("TPS.low_color");
+        int serverTpsMediumValue = Main.getInstance().getConfigInServer().getInt("TPS.medium_value");
+        String serverTpsMediumColor = Main.getInstance().getConfigInServer().getString("TPS.medium_color");
+        int serverTpsHgihValue = Main.getInstance().getConfigInServer().getInt("TPS.high_value");
+        String serverTpsHgihColor = Main.getInstance().getConfigInServer().getString("TPS.high_color");
+        String serverTps = serverTpsHgihColor + serverTpsHgihValue;
+        float tpsValue = Server.getInstance().getTicksPerSecond();
+        //最低值为0
+        if (tpsValue >= 0) {
+            serverTps = serverTpslowColor + tpsValue;
         }
-        if (Server.getInstance().getTicksPerSecond() >= 9) {
-            serverTps = "§e" + Server.getInstance().getTicksPerSecond();
+        if (tpsValue >= serverTpsMediumValue) {
+            serverTps = serverTpsMediumColor + tpsValue;
         }
-        if (Server.getInstance().getTicksPerSecond() >= 15) {
-            serverTps = "§a" + Server.getInstance().getTicksPerSecond();
+        if (tpsValue >= serverTpsHgihValue) {
+            serverTps = serverTpsHgihColor + tpsValue;
         }
         return serverTps;
     }
