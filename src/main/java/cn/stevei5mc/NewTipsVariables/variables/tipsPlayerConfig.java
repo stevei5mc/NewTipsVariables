@@ -37,6 +37,7 @@ public class tipsPlayerConfig extends BaseVariable {
 
     //获取玩家的饱食度状态
     public static String getPlayerFood(Player player) {
+        String playerFoodSymbols = Main.getInstance().getConfigInPlayer().getString("Food.symbols");
         String playerFoodLowColor = Main.getInstance().getConfigInPlayer().getString("Food.low_color");
         int playerFoodMediumValue = Main.getInstance().getConfigInPlayer().getInt("Food.medium_value");
         String playerFoodMediumColor = Main.getInstance().getConfigInPlayer().getString("Food.medium_color");
@@ -44,21 +45,23 @@ public class tipsPlayerConfig extends BaseVariable {
         String playerFoodHgihColor = Main.getInstance().getConfigInPlayer().getString("Food.high_color");
         String playerFood = playerFoodHgihColor + playerFoodHgihValue;
         float foodValue = player.getFoodData().getLevel();
+        int foodMaxValue = player.getFoodData().getMaxLevel();
         //最低值为0
         if (foodValue >= 0) {
-            playerFood = playerFoodLowColor + foodValue;
+            playerFood = playerFoodLowColor + foodValue + playerFoodSymbols + playerFoodLowColor + foodMaxValue;
         }
         if (foodValue >= playerFoodMediumValue) {
-            playerFood = playerFoodMediumColor + foodValue;
+            playerFood = playerFoodMediumColor + foodValue + playerFoodSymbols + playerFoodMediumColor + foodMaxValue;
         }
         if (foodValue >= playerFoodHgihValue) {
-            playerFood = playerFoodHgihColor + foodValue;
+            playerFood = playerFoodHgihColor + foodValue + playerFoodSymbols + playerFoodHgihColor + foodMaxValue;
         }
         return playerFood;
     }
 
     //获取玩家的生命值状态
     public static String getPlayerHealth(Player player) {
+        String playerHealthSymbols = Main.getInstance().getConfigInPlayer().getString("HP.symbols");
         String playerHealthLowColor = Main.getInstance().getConfigInPlayer().getString("HP.low_color");
         int playerHealthMediumValue = Main.getInstance().getConfigInPlayer().getInt("HP.medium_value");
         String playerHealthMediumColor = Main.getInstance().getConfigInPlayer().getString("HP.medium_color");
@@ -66,15 +69,16 @@ public class tipsPlayerConfig extends BaseVariable {
         String playerHealthHgihColor = Main.getInstance().getConfigInPlayer().getString("HP.high_color");
         String playerHealth = playerHealthHgihColor + playerHealthHgihValue;
         float healthValue = player.getHealth();
+        int healthMaxValue = player.getMaxHealth();
         //最低值为0
         if (healthValue >= 0) {
-            playerHealth = playerHealthLowColor + healthValue;
+            playerHealth = playerHealthLowColor + healthValue  + playerHealthSymbols + playerHealthLowColor + healthMaxValue;
         }
         if (healthValue >= playerHealthMediumValue) {
-            playerHealth = playerHealthMediumColor + healthValue;
+            playerHealth = playerHealthMediumColor + healthValue + playerHealthSymbols + playerHealthMediumColor + healthMaxValue;
         }
         if (healthValue >= playerHealthHgihValue) {
-            playerHealth = playerHealthHgihColor + healthValue;
+            playerHealth = playerHealthHgihColor + healthValue + playerHealthSymbols + playerHealthHgihColor + healthMaxValue;
         }
         return playerHealth;
     }

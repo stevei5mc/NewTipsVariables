@@ -1,3 +1,5 @@
+#使用说明: https://github.com/stevei5mc/NewTipsVariables/blob/main/README.md
+#配置文件版本，勿动
 version: 1
 Device:
   OS:
@@ -27,12 +29,14 @@ ping:
   high_value: 120
   high_color: "§c"
 HP:
+  symbols: "§7/"
   low_color: "§c"
   medium_value: 9
   medium_color: "§e"
   high_value: 15
   high_color: "§a"
 Food:
+  symbols: "§7/"
   low_color: "§c"
   medium_value: 9 
   medium_color: "§e"
