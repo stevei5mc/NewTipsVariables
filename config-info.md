@@ -1,8 +1,6 @@
 [返回](README.md) [支持的插件](SupportPluginsVariables.md)
 # **配置文件使用说明**
 > **若未在此说明中写配置项出则代表该配置项还没有支持**
-```
-```
 ## **[config.yml](src/main/resources/config.yml)**
 > **主配置文件**
 ### **是否释放新的变量说明文档**
