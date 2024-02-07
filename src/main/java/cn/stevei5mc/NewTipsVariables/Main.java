@@ -17,6 +17,7 @@ public class Main extends PluginBase {
     private static Main instance;
     private static Config config;
     private static Config configInServer;
+    private static Config configInPlayer;
     public static Main getInstance() {
         return instance;
     }
@@ -50,8 +51,10 @@ public class Main extends PluginBase {
         this.getDataFolder().mkdirs(); //创建插件文件夹
         this.saveDefaultConfig();
         this.saveResource("server.yml",false);
+        this.saveResource("player.yml",false);
         this.config = new Config(this.getDataFolder() + "/config.yml", Config.YAML);
         this.configInServer = new Config(this.getDataFolder() + "/server.yml", Config.YAML);
+        this.configInPlayer = new Config(this.getDataFolder() + "/player.yml", Config.YAML);
     }
 
     public void loadVarRes() {
@@ -87,5 +90,9 @@ public class Main extends PluginBase {
 
     public Config getConfigInServer() {
         return this.configInServer;
+    }
+
+    public Config getConfigInPlayer() {
+        return this.configInPlayer;
     }
 }
