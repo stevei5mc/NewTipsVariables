@@ -1,4 +1,4 @@
-name: pr-check
+name: dispatch
 on:
   workflow_dispatch:
 jobs:
