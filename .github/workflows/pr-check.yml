@@ -1,21 +1,9 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: pr-check
-
 on:
   pull_request:
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: 获取信息
       id: get_info
@@ -32,10 +20,8 @@ jobs:
       run: |
         mvn -B package --file pom.xml
         mkdir staging && cp target/*.jar staging
-        pwd
-        ls -la
     - name: 收集构建文件
       uses: actions/upload-artifact@v1
       with:
-        name: ${{ steps.get_info.outputs.repository_name }}
+        name: ${{ steps.get_info.outputs.repository_name }}-Pr_check-Build-${{ github.run_number}}
         path: staging

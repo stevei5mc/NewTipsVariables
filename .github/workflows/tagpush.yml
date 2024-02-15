@@ -1,23 +1,11 @@
-# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-java-with-maven
-
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
 name: tagpush
-
 on:
   push:
     tags:
       - '*'
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: 获取信息
       id: get_info
@@ -36,33 +24,26 @@ jobs:
       run: |
         mvn -B package --file pom.xml
         mkdir staging && cp target/*.jar staging
-        pwd
-        ls -la
     - name: 收集构建文件
       uses: actions/upload-artifact@v1
       with:
-        name: ${{ steps.get_info.outputs.repository_name }}
+        name: ${{ steps.get_info.outputs.repository_name }}-Release-${{ steps.get_info.outputs.VERSION }}
         path: staging 
-    - name: 创建新版本
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+    - name: 创建上传新版本
+      uses: ncipollo/release-action@v1.14.0
       with:
-        tag_name: ${{ steps.get_info.outputs.VERSION }}
-        release_name: Release V${{ steps.get_info.outputs.VERSION }}
-        body: |
-          V${{ steps.get_info.outputs.VERSION }}
-          更新日志将在后续发布，敬请期待!
-        draft: false
-        prerelease: false
-    - name: 发布新版本
-      id: upload-release-asset 
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./target/${{ steps.get_info.outputs.repository_name }}-${{ steps.get_info.outputs.VERSION }}.jar
-        asset_name: ${{ steps.get_info.outputs.repository_name }}-${{ steps.get_info.outputs.VERSION }}.jar
-        asset_content_type: application/zip
+        tag: ${{ steps.get_info.outputs.VERSION }}
+        name: ${{ steps.get_info.outputs.VERSION }}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        bodyFile: ./changelogs/${{ steps.get_info.outputs.VERSION }}.md
+        artifacts: ./target/${{ steps.get_info.outputs.repository_name }}-${{ steps.get_info.outputs.VERSION }}.jar
+    # 这个暂时没有用
+    # - name: 发布至minebbs
+    #   uses: HuoHuas001/Minebbs-Auto-Release@v1.0.6
+    #   with: 
+    #     resources: '1'
+    #     token: ${{ secrets.MINEBBSKEY }}
+    #     title: ${{ steps.get_info.outputs.VERSION }}
+    #     new_version: ${{ steps.get_info.outputs.VERSION }}
+    #     description_file: ./changelogs/${{ steps.get_info.outputs.VERSION }}.md
+    #     file_url: 'https://github.com/${{ github.repository }}/releases/latest'
