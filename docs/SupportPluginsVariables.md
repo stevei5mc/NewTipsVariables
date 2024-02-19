@@ -1,5 +1,5 @@
-[返回](README.md) [配置文件说明](config-info.md)
-# NewTipsVariables(变量文档)
+[返回](../README.md) [配置文件说明](./config-info.md)
+# **NewTipsVariables(变量文档)**
 > **支持的插件篇**  
 > **按插件的英文字母排序**  
 > **TipsVeriable 相关变量移值中,部分变量名有改动**
