@@ -32,6 +32,7 @@ public class Main extends PluginBase {
         //判断需要的前置插件是否存在
         if (this.getServer().getPluginManager().getPlugin("Tips") != null) {
             //存在则加载该插件
+            this.deBugMode();//用于加载debug信息
             this.tipsvariables();//加载变量部分
             this.loadover();//加载完成显示的内容
         } else {
@@ -64,6 +65,23 @@ public class Main extends PluginBase {
             this.saveResource("base-variables.txt",true);
             this.saveResource("SupportPluginsVariables.txt",true);
             this.getLogger().info("§a变量说明文件加载成功");
+        }
+    }
+
+    public void deBugMode() {
+        boolean deBug = this.config.getBoolean("debug", false); //这个功能默认关闭,不在配置文件中,需手动加上
+        if (deBug == true) {
+            String debugPerfix = "§7[§cDEBUG§7] ";
+            this.getLogger().warning(debugPerfix + "§cdebug模式已开启");
+            int configVersionLatest = 1;
+            int configInServerVersionLatest = 1;
+            int configInPlayerVersionLatest = 1;
+            int configVersion = this.config.getInt("version");
+            int configInServerVersion = this.configInServer.getInt("version");
+            int configInPlayerVersion = this.configInPlayer.getInt("version");
+            this.getLogger().info(debugPerfix + "§bconfig.yml§e 当前版本§a " + configVersion + " §e最新版本§a " + configVersionLatest);
+            this.getLogger().info(debugPerfix + "§bserver.yml§e 当前版本§a " + configInServerVersion + " §e最新版本§a " + configInServerVersionLatest);
+            this.getLogger().info(debugPerfix + "§bplayer.yml§e 当前版本§a " + configInPlayerVersion + " §e最新版本§a " + configInPlayerVersionLatest);
         }
     }
 
