@@ -60,7 +60,7 @@ public class Main extends PluginBase {
 
     public void loadVarRes() {
         boolean saveVariablesDoc = this.config.getBoolean("save-variables-doc");
-        if (saveVariablesDoc == true) {
+        if (saveVariablesDoc) {
             //为true时就每次都加载最新的变量信息
             this.saveResource("base-variables.txt",true);
             this.saveResource("SupportPluginsVariables.txt",true);
@@ -70,7 +70,7 @@ public class Main extends PluginBase {
 
     public void deBugMode() {
         boolean deBug = this.config.getBoolean("debug", false); //这个功能默认关闭,不在配置文件中,需手动加上
-        if (deBug == true) {
+        if (deBug) {
             String debugPerfix = "§7[§cDEBUG§7] ";
             this.getLogger().warning(debugPerfix + "§cdebug模式已开启");
             int configVersionLatest = 1;
