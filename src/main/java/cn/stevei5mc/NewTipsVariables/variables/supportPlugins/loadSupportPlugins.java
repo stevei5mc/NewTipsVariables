@@ -29,7 +29,6 @@ public class loadSupportPlugins {
             }
 
         }  else {
-            Api.registerVariables("playerPointsVariable", playerPointsVariable.class);
             if (debug) {
                 Main.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin1 + loadFailureMsg2);
             }
