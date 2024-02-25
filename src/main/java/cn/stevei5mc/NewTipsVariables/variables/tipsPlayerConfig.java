@@ -20,6 +20,7 @@ public class tipsPlayerConfig extends BaseVariable {
         addStrReplaceString("{Player-Ping}", this.getPlayerPing(player));
         addStrReplaceString("{Player-Food}", this.getPlayerFood(player));
         addStrReplaceString("{Player-Health}", this.getPlayerHealth(player));
+        addStrReplaceString("{Player-World}", this.getPlayerWorld(player));
     }
     
     /*这ui档案应该只有classic ui和pocket ui这两种UI(测试出来的)
@@ -83,6 +84,7 @@ public class tipsPlayerConfig extends BaseVariable {
         return playerHealth;
     }
     
+    //获取玩家设备的系统
     private String mapDeviceOSToString(int os) {
         String osAndroid = Main.getInstance().getConfigInPlayer().getString("Device.OS.Android");
         String osIOS = Main.getInstance().getConfigInPlayer().getString("Device.OS.iOS");
@@ -118,6 +120,7 @@ public class tipsPlayerConfig extends BaseVariable {
         }
     }
 
+    //获取玩家的延迟
     public static String getPlayerPing(Player player) {
         String playerPingLowColor = Main.getInstance().getConfigInPlayer().getString("ping.low_color");
         int playerPingMediumValue = Main.getInstance().getConfigInPlayer().getInt("ping.medium_value");
@@ -137,5 +140,18 @@ public class tipsPlayerConfig extends BaseVariable {
             playerMS = playerPingHgihColor + pingValue;
         }
         return playerMS;
+    }
+
+    //获取玩家所在的世界名
+    public static String getPlayerWorld(Player player) {
+        String worldName = player.getLevel().getFolderName();
+        String levelName = Main.getInstance().getWorldName().getString(worldName);
+        String levelName2;
+        if (levelName != "") {
+            levelName2 = levelName;
+        } else {
+            levelName2 = "§c未知世界,请检查是否在§6world_name.yml§c中填写!";
+        }
+        return levelName2;
     }
 }

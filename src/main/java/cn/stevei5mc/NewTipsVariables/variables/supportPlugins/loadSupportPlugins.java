@@ -28,7 +28,7 @@ public class loadSupportPlugins {
                 Main.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin1 + loadSuccessMsg2);
             }
 
-        }  else {
+        } else {
             if (debug) {
                 Main.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin1 + loadFailureMsg2);
             }
@@ -40,7 +40,7 @@ public class loadSupportPlugins {
             if (debug) {
                 Main.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin2 + loadSuccessMsg2);
             }
-        }  else {
+        } else {
             if (debug) {
                 Main.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin2 + loadFailureMsg2);
             }
@@ -52,7 +52,7 @@ public class loadSupportPlugins {
             if (debug) {
                 Main.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin3 + loadSuccessMsg2);
             }
-        }  else {
+        } else {
             if (debug) {
                 Main.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin3 + loadFailureMsg2);
             }
@@ -63,7 +63,7 @@ public class loadSupportPlugins {
             if (debug) {
                 Main.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin4 + loadSuccessMsg2);
             }
-        }  else {
+        } else {
             if (debug) {
                 Main.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin4 + loadFailureMsg2);
             }

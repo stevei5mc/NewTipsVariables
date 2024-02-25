@@ -13,3 +13,4 @@
 |{Server-Ip}|获取服务器IP||
 |{Server-Port}|获取服务器端口||
 |{Server-Tps}|获取服务器当前TPS||
+|{WorldOnline@世界名}|获取指定世界的人数||
