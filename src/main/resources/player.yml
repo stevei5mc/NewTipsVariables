@@ -17,11 +17,9 @@ Device:
     Switch: "Switch"
     Xbox: "Xbox"
     Windows_Phone: "windows但是手机"
-    Unknown: "未知的系统"
   UIProfile:
     classic: "classic ui"
     pocket: "pocket ui"
-    Unknown: "Unknown ui"
 ping:
   low_color: "§a"
   medium_value: 80

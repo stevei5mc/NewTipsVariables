@@ -28,7 +28,7 @@ public class tipsPlayerConfig extends BaseVariable {
     private String playerUiString(int uiprofile) {
         String classicUi = Main.getInstance().getConfigInPlayer().getString("Device.UIProfile.classic");
         String pocketUi = Main.getInstance().getConfigInPlayer().getString("Device.UIProfile.pocket");
-        String unknownUi = Main.getInstance().getConfigInPlayer().getString("Device.UIProfile.Unknown");
+        String unknownUi = Main.getInstance().getLanguage().getString("Unknown_Device_UIProfile");
         switch (uiprofile) {
             case 0: return classicUi;
             case 1: return pocketUi;
@@ -100,7 +100,7 @@ public class tipsPlayerConfig extends BaseVariable {
         String osSwitch = Main.getInstance().getConfigInPlayer().getString("Device.OS.Switch");
         String osXbox = Main.getInstance().getConfigInPlayer().getString("Device.OS.Xbox");
         String osWindowsPhone = Main.getInstance().getConfigInPlayer().getString("Device.OS.Windows_Phone");
-        String osUnknown = Main.getInstance().getConfigInPlayer().getString("Device.OS.Unknown");
+        String osUnknown = Main.getInstance().getLanguage().getString("Unknown_Device_OS");
         switch (os) {
             case 1: return osAndroid;
             case 2: return osIOS;
@@ -146,12 +146,11 @@ public class tipsPlayerConfig extends BaseVariable {
     public static String getPlayerWorld(Player player) {
         String worldName = player.getLevel().getFolderName();
         String levelName = Main.getInstance().getWorldName().getString(worldName);
-        String levelName2;
-        if (levelName != "") {
-            levelName2 = levelName;
-        } else {
-            levelName2 = "§c未知世界,请检查是否在§6world_name.yml§c中填写!";
+        String unknownWorld = Main.getInstance().getLanguage().getString("Unknown_World")
+            .replace("{0}", worldName);
+        if (levelName == "") {
+            levelName = unknownWorld;
         }
-        return levelName2;
+        return levelName;
     }
 }
