@@ -11,7 +11,7 @@ jobs:
       id: get_info
       run: |
         echo "version=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_OUTPUT
-        echo "repository_name=`basename ${{ github.repository }}`" >> $GITHUB_OUTPUT
+        echo "repository_name=${GITHUB_REPOSITORY/${{ github.repository_owner }}\//}" >> $GITHUB_OUTPUT
     - name: 拉取代码
       uses: actions/checkout@v3
     - name: 安装java8
