@@ -27,16 +27,15 @@ ping:
   high_value: 120
   high_color: "§c"
 HP:
-  symbols: "§7/"
-  low_color: "§c"
+  low_color: "§c{0}§7/§c{1}"
   medium_value: 9
-  medium_color: "§e"
+  medium_color: "§e{0}§7/§e{1}"
   high_value: 15
-  high_color: "§a"
+  high_color: "§a{0}§7/§a{1}"
 Food:
-  symbols: "§7/"
-  low_color: "§c"
+  empty_color: "§7{0}/{1}"
+  low_color: "§c{0}§7/§c{1}"
   medium_value: 9 
-  medium_color: "§e"
+  medium_color: "§e{0}§7/§e{1}"
   high_value: 15
-  high_color: "§a"
+  high_color: "§a{0}§7/§a{1}"
