@@ -15,11 +15,11 @@ import cn.nukkit.utils.Config;
 public class Main extends PluginBase {
     public static Player player;
     private static Main instance;
-    private static Config config;
-    private static Config configInServer;
-    private static Config configInPlayer;
-    private static Config worldName;
-    private static Config language;
+    private Config config;
+    private Config configInServer;
+    private Config configInPlayer;
+    private Config worldName;
+    private Config language;
     public static Main getInstance() {
         return instance;
     }
@@ -107,7 +107,6 @@ public class Main extends PluginBase {
         this.getLogger().info("§a开源链接和使用方法: §bhttps://github.com/stevei5mc/NewTipsVariables");
     }
     
-    @Override
     public Config getConfig() {
         return this.config;
     }

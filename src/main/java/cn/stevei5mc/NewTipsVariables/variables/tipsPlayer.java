@@ -1,7 +1,6 @@
 package cn.stevei5mc.NewTipsVariables.variables;
 
 import cn.nukkit.Player;
-import cn.nukkit.Server;
 import tip.utils.variables.BaseVariable;
 
 public class tipsPlayer extends BaseVariable {
