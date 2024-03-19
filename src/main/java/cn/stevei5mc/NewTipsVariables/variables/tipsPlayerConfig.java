@@ -1,7 +1,6 @@
 package cn.stevei5mc.NewTipsVariables.variables;
 
 import cn.nukkit.Player;
-import cn.nukkit.Server;
 import tip.utils.variables.BaseVariable;
 import cn.stevei5mc.NewTipsVariables.Main;
 
@@ -44,7 +43,7 @@ public class tipsPlayerConfig extends BaseVariable {
         String playerFoodMediumColor = Main.getInstance().getConfigInPlayer().getString("Food.medium_color");
         int playerFoodHgihValue = Main.getInstance().getConfigInPlayer().getInt("Food.high_value");//hgih值
         String playerFoodHgihColor = Main.getInstance().getConfigInPlayer().getString("Food.high_color");
-        String playerFood = playerFoodHgihColor + playerFoodHgihValue;
+        String playerFood;
         float foodValue = player.getFoodData().getLevel();
         String foodValue2 = String.valueOf(foodValue);
         String foodMaxValue = String.valueOf(player.getFoodData().getMaxLevel());
@@ -68,7 +67,7 @@ public class tipsPlayerConfig extends BaseVariable {
         String playerHealthMediumColor = Main.getInstance().getConfigInPlayer().getString("HP.medium_color");
         int playerHealthHgihValue = Main.getInstance().getConfigInPlayer().getInt("HP.high_value");//hgih值
         String playerHealthHgihColor = Main.getInstance().getConfigInPlayer().getString("HP.high_color");
-        String playerHealth = playerHealthHgihColor + playerHealthHgihValue;
+        String playerHealth;
         float healthValue = player.getHealth();
         String healthValue2 = String.valueOf(healthValue);
         String healthMaxValue = String.valueOf(player.getMaxHealth());
@@ -121,12 +120,12 @@ public class tipsPlayerConfig extends BaseVariable {
 
     //获取玩家的延迟
     public static String getPlayerPing(Player player) {
-        String playerPingLowColor = Main.getInstance().getConfigInPlayer().getString("ping.low_color");
-        int playerPingMediumValue = Main.getInstance().getConfigInPlayer().getInt("ping.medium_value");
+        String playerPingLowColor = Main.getInstance().getConfigInPlayer().getString("ping.low_color");//low值
+        int playerPingMediumValue = Main.getInstance().getConfigInPlayer().getInt("ping.medium_value");//medium值
         String playerPingMediumColor = Main.getInstance().getConfigInPlayer().getString("ping.medium_color");
-        int playerPingHgihValue = Main.getInstance().getConfigInPlayer().getInt("ping.high_value");
+        int playerPingHgihValue = Main.getInstance().getConfigInPlayer().getInt("ping.high_value");//hgih值
         String playerPingHgihColor = Main.getInstance().getConfigInPlayer().getString("ping.high_color");
-        String playerMS = playerPingHgihColor + playerPingHgihValue;
+        String playerMS;
         int pingValue = player.getPing();
         //low=0
         if (pingValue >= playerPingHgihValue) {
