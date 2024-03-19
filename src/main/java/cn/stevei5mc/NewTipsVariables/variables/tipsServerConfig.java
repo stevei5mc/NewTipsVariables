@@ -26,15 +26,13 @@ public class tipsServerConfig extends BaseVariable {
         String serverTpsHgihColor = Main.getInstance().getConfigInServer().getString("TPS.high_color");
         String serverTps = serverTpsHgihColor + serverTpsHgihValue;
         float tpsValue = Server.getInstance().getTicksPerSecond();
-        //最低值为0
-        if (tpsValue >= 0) {
-            serverTps = serverTpslowColor + tpsValue;
-        }
-        if (tpsValue >= serverTpsMediumValue) {
-            serverTps = serverTpsMediumColor + tpsValue;
-        }
+        //low=0
         if (tpsValue >= serverTpsHgihValue) {
             serverTps = serverTpsHgihColor + tpsValue;
+        }else if (tpsValue >= serverTpsMediumValue) {
+            serverTps = serverTpsMediumColor + tpsValue;
+        }else {
+            serverTps = serverTpslowColor + tpsValue;
         }
         return serverTps;
     }

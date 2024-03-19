@@ -3,4 +3,3 @@ Unknown_Device_OS: §c未知的系统
 Unknown_Device_UIProfile: §cUnknown ui
 debug_plugins_found: §a找到插件§e【§b{0}§e】§a相关变量已加载
 debug_plugins_not_found: §c无法找到插件§e【§b{0}§e】§c相关变量加载失败,请安装相关插件再试
-debug_config_info: "§b{0}§e 当前版本§a {1} §e最新版本§a {2}"
