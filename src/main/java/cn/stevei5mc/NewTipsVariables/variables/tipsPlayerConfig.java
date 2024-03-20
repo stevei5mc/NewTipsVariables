@@ -20,6 +20,7 @@ public class tipsPlayerConfig extends BaseVariable {
         addStrReplaceString("{Player-Food}", this.getPlayerFood(player));
         addStrReplaceString("{Player-Health}", this.getPlayerHealth(player));
         addStrReplaceString("{Player-World}", this.getPlayerWorld(player));
+        addStrReplaceString("{Player-Controls}",getDeviceControls(player.getLoginChainData().getCurrentInputMode()));
     }
     
     /*这ui档案应该只有classic ui和pocket ui这两种UI(测试出来的)
@@ -33,7 +34,7 @@ public class tipsPlayerConfig extends BaseVariable {
             case 1: return pocketUi;
             default: return unknownUi;
         }
-    }    
+    }
 
     //获取玩家的饱食度状态
     public static String getPlayerFood(Player player) {
@@ -147,5 +148,21 @@ public class tipsPlayerConfig extends BaseVariable {
             levelName = unknownWorld;
         }
         return levelName;
+    }
+
+    //获取玩家的操作方式
+    public static String getDeviceControls(int ctrl) {
+        String keyboard = Main.getInstance().getConfigInPlayer().getString("Device.Controls.Keyboard");
+        String touch = Main.getInstance().getConfigInPlayer().getString("Device.Controls.Touch");
+        String pad = Main.getInstance().getConfigInPlayer().getString("Device.Controls.pad");
+        String motionController = Main.getInstance().getConfigInPlayer().getString("Device.Controls.motion_controller");
+        String unknownCtrl = Main.getInstance().getLanguage().getString("Unknown_Device_controls");
+            switch (ctrl) {
+            case 1: return keyboard;
+            case 2: return touch;
+            case 3: return pad;
+            case 4: return motionController;
+            default: return unknownCtrl;
+       }
     }
 }

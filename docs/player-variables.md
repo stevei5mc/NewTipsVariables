@@ -19,3 +19,4 @@
 |{Player-Food}|获取玩家当前的饥饿度||
 |{Player-Health}|获取玩家当前的血量||
 |{Player-World}|获取玩家所在的世界|**需在world_name.yml配置**|
+|{Player-Controls}|获取玩家设备的操作方式||
