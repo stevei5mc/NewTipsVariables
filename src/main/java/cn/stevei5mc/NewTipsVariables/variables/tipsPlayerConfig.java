@@ -38,47 +38,48 @@ public class tipsPlayerConfig extends BaseVariable {
 
     //获取玩家的饱食度状态
     public static String getPlayerFood(Player player) {
-        String playerFoodEmptyColor = Main.getInstance().getConfigInPlayer().getString("Food.empty_color");//empty值
-        String playerFoodLowColor = Main.getInstance().getConfigInPlayer().getString("Food.low_color");//low值
-        int playerFoodMediumValue = Main.getInstance().getConfigInPlayer().getInt("Food.medium_value");//medium值
+        String playerFoodSymbols = Main.getInstance().getConfigInPlayer().getString("Food.symbols");
+        String playerFoodLowColor = Main.getInstance().getConfigInPlayer().getString("Food.low_color");
+        int playerFoodMediumValue = Main.getInstance().getConfigInPlayer().getInt("Food.medium_value");
         String playerFoodMediumColor = Main.getInstance().getConfigInPlayer().getString("Food.medium_color");
-        int playerFoodHgihValue = Main.getInstance().getConfigInPlayer().getInt("Food.high_value");//hgih值
+        int playerFoodHgihValue = Main.getInstance().getConfigInPlayer().getInt("Food.high_value");
         String playerFoodHgihColor = Main.getInstance().getConfigInPlayer().getString("Food.high_color");
         String playerFood = playerFoodHgihColor + playerFoodHgihValue;
         float foodValue = player.getFoodData().getLevel();
-        String foodValue2 = String.valueOf(foodValue);
-        String foodMaxValue = String.valueOf(player.getFoodData().getMaxLevel());
-        //empty=0 low=1
+        int foodMaxValue = player.getFoodData().getMaxLevel();
+        //最低值为0
+        if (foodValue >= 0) {
+            playerFood = playerFoodLowColor + foodValue + playerFoodSymbols + playerFoodLowColor + foodMaxValue;
+        }
+        if (foodValue >= playerFoodMediumValue) {
+            playerFood = playerFoodMediumColor + foodValue + playerFoodSymbols + playerFoodMediumColor + foodMaxValue;
+        }
         if (foodValue >= playerFoodHgihValue) {
-            playerFood = playerFoodHgihColor.replace("{0}",foodValue2).replace("{1}",foodMaxValue);
-        }else if (foodValue >= playerFoodMediumValue) {
-            playerFood = playerFoodMediumColor.replace("{0}",foodValue2).replace("{1}",foodMaxValue);
-        }else if (foodValue >= 1) {
-            playerFood = playerFoodLowColor.replace("{0}",foodValue2).replace("{1}",foodMaxValue);
-        }else {
-            playerFood = playerFoodEmptyColor.replace("{0}",foodValue2).replace("{1}",foodMaxValue);
+            playerFood = playerFoodHgihColor + foodValue + playerFoodSymbols + playerFoodHgihColor + foodMaxValue;
         }
         return playerFood;
     }
 
     //获取玩家的生命值状态
     public static String getPlayerHealth(Player player) {
-        String playerHealthLowColor = Main.getInstance().getConfigInPlayer().getString("HP.low_color");//low值
-        int playerHealthMediumValue = Main.getInstance().getConfigInPlayer().getInt("HP.medium_value");//medium值
+        String playerHealthSymbols = Main.getInstance().getConfigInPlayer().getString("HP.symbols");
+        String playerHealthLowColor = Main.getInstance().getConfigInPlayer().getString("HP.low_color");
+        int playerHealthMediumValue = Main.getInstance().getConfigInPlayer().getInt("HP.medium_value");
         String playerHealthMediumColor = Main.getInstance().getConfigInPlayer().getString("HP.medium_color");
-        int playerHealthHgihValue = Main.getInstance().getConfigInPlayer().getInt("HP.high_value");//hgih值
+        int playerHealthHgihValue = Main.getInstance().getConfigInPlayer().getInt("HP.high_value");
         String playerHealthHgihColor = Main.getInstance().getConfigInPlayer().getString("HP.high_color");
         String playerHealth = playerHealthHgihColor + playerHealthHgihValue;
         float healthValue = player.getHealth();
-        String healthValue2 = String.valueOf(healthValue);
-        String healthMaxValue = String.valueOf(player.getMaxHealth());
-        //low=1
+        int healthMaxValue = player.getMaxHealth();
+        //最低值为0
+        if (healthValue >= 0) {
+            playerHealth = playerHealthLowColor + healthValue  + playerHealthSymbols + playerHealthLowColor + healthMaxValue;
+        }
+        if (healthValue >= playerHealthMediumValue) {
+            playerHealth = playerHealthMediumColor + healthValue + playerHealthSymbols + playerHealthMediumColor + healthMaxValue;
+        }
         if (healthValue >= playerHealthHgihValue) {
-            playerHealth = playerHealthHgihColor.replace("{0}",healthValue2).replace("{1}",healthMaxValue);
-        }else if (healthValue >= playerHealthMediumValue) {
-            playerHealth = playerHealthMediumColor.replace("{0}",healthValue2).replace("{1}",healthMaxValue);
-        }else {
-            playerHealth = playerHealthLowColor.replace("{0}",healthValue2).replace("{1}",healthMaxValue);
+            playerHealth = playerHealthHgihColor + healthValue + playerHealthSymbols + playerHealthHgihColor + healthMaxValue;
         }
         return playerHealth;
     }
