@@ -52,9 +52,11 @@ Device:
     Switch: "Switch"
     Xbox: "Xbox"
     Windows_Phone: "windows但是手机"
+    Unknown: "未知的系统"
   UIProfile:
     classic: "classic ui"
     pocket: "pocket ui"
+    Unknown: "Unknown ui
 ```
 > 1、**```OS```玩家的设备系统**  
 > 2、**```UIProfile```玩家的设备UI**
@@ -66,18 +68,19 @@ ping:
   high_value: 120
   high_color: "§c"
 HP:
-  low_color: "§c{0}§7/§c{1}"
+  symbols: "§7/"
+  low_color: "§c"
   medium_value: 9
-  medium_color: "§e{0}§7/§e{1}"
+  medium_color: "§e"
   high_value: 15
-  high_color: "§a{0}§7/§a{1}"
+  high_color: "§a"
 Food:
-  empty_color: "§7{0}/{1}"
-  low_color: "§c{0}§7/§c{1}"
+  symbols: "§7/"
+  low_color: "§c"
   medium_value: 9 
-  medium_color: "§e{0}§7/§e{1}"
+  medium_color: "§e"
   high_value: 15
-  high_color: "§a{0}§7/§a{1}"
+  high_color: "§a"
 ```
 > **1、```color```设置显示的颜色，```low```、```medium```、```high```为显示的范围**  
 > **2、```value```是一个范围值，```medium```、```high```为可设置的范围值，```low```值只能为```0```**  

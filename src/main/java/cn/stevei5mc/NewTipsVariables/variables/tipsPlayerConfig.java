@@ -128,14 +128,16 @@ public class tipsPlayerConfig extends BaseVariable {
         String playerPingHgihColor = Main.getInstance().getConfigInPlayer().getString("ping.high_color");
         String playerMS = playerPingHgihColor + playerPingHgihValue;
         int pingValue = player.getPing();
-        //low=0
+        //最低值为0
+        if (pingValue >= 0) {
+            playerMS = playerPingLowColor + pingValue;
+        }
+        if (pingValue >= playerPingMediumValue) {
+            playerMS = playerPingMediumColor + pingValue;
+        }
         if (pingValue >= playerPingHgihValue) {
             playerMS = playerPingHgihColor + pingValue;
-        }else if (pingValue >= playerPingMediumValue) {
-            playerMS = playerPingMediumColor + pingValue;
-        }else {
-            playerMS = playerPingLowColor + pingValue;
-        }      
+        }
         return playerMS;
     }
 
@@ -143,7 +145,8 @@ public class tipsPlayerConfig extends BaseVariable {
     public static String getPlayerWorld(Player player) {
         String worldName = player.getLevel().getFolderName();
         String levelName = Main.getInstance().getWorldName().getString(worldName);
-        String unknownWorld = Main.getInstance().getLanguage().getString("Unknown_World").replace("{0}", worldName);
+        String unknownWorld = Main.getInstance().getLanguage().getString("Unknown_World")
+            .replace("{0}", worldName);
         if (levelName == "") {
             levelName = unknownWorld;
         }
