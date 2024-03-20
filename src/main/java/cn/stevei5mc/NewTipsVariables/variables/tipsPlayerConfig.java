@@ -14,8 +14,8 @@ public class tipsPlayerConfig extends BaseVariable {
     }
 
     public void playerVarConfig() {  
-        addStrReplaceString("{Device-Os}", this.mapDeviceOSToString(player.getLoginChainData().getDeviceOS()));
-        addStrReplaceString("{Player-Ui}", this.playerUiString(player.getLoginChainData().getUIProfile()));
+        addStrReplaceString("{Device-Os}", this.getDeviceOS(player.getLoginChainData().getDeviceOS()));
+        addStrReplaceString("{Player-Ui}", getPlayerUi(player.getLoginChainData().getUIProfile()));
         addStrReplaceString("{Player-Ping}", this.getPlayerPing(player));
         addStrReplaceString("{Player-Food}", this.getPlayerFood(player));
         addStrReplaceString("{Player-Health}", this.getPlayerHealth(player));
@@ -25,11 +25,11 @@ public class tipsPlayerConfig extends BaseVariable {
     
     /*这ui档案应该只有classic ui和pocket ui这两种UI(测试出来的)
     Unknown UI是为了保险起见加上去的*/
-    private String playerUiString(int uiprofile) {
+    public String getPlayerUi(int ui) {
         String classicUi = Main.getInstance().getConfigInPlayer().getString("Device.UIProfile.classic");
         String pocketUi = Main.getInstance().getConfigInPlayer().getString("Device.UIProfile.pocket");
         String unknownUi = Main.getInstance().getLanguage().getString("Unknown_Device_UIProfile");
-        switch (uiprofile) {
+        switch (ui) {
             case 0: return classicUi;
             case 1: return pocketUi;
             default: return unknownUi;
@@ -84,38 +84,38 @@ public class tipsPlayerConfig extends BaseVariable {
     }
     
     //获取玩家设备的系统
-    private String mapDeviceOSToString(int os) {
-        String osAndroid = Main.getInstance().getConfigInPlayer().getString("Device.OS.Android");
-        String osIOS = Main.getInstance().getConfigInPlayer().getString("Device.OS.iOS");
-        String osMacOS = Main.getInstance().getConfigInPlayer().getString("Device.OS.macOS");
-        String osFireOS = Main.getInstance().getConfigInPlayer().getString("Device.OS.Fire_OS");
-        String osGearVR = Main.getInstance().getConfigInPlayer().getString("Device.OS.Gear_VR");
-        String osHoloLens = Main.getInstance().getConfigInPlayer().getString("Device.OS.HoloLens");
-        String osWindows10 = Main.getInstance().getConfigInPlayer().getString("Device.OS.Windows_10");
-        String osWindows = Main.getInstance().getConfigInPlayer().getString("Device.OS.Windows");
-        String osDedicated = Main.getInstance().getConfigInPlayer().getString("Device.OS.Dedicated");
-        String osTvOS = Main.getInstance().getConfigInPlayer().getString("Device.OS.tvOS");
-        String osPlayStation = Main.getInstance().getConfigInPlayer().getString("Device.OS.PlayStation");
-        String osSwitch = Main.getInstance().getConfigInPlayer().getString("Device.OS.Switch");
-        String osXbox = Main.getInstance().getConfigInPlayer().getString("Device.OS.Xbox");
-        String osWindowsPhone = Main.getInstance().getConfigInPlayer().getString("Device.OS.Windows_Phone");
-        String osUnknown = Main.getInstance().getLanguage().getString("Unknown_Device_OS");
+    public String getDeviceOS(int os) {
+        String android = Main.getInstance().getConfigInPlayer().getString("Device.OS.Android");
+        String iOS = Main.getInstance().getConfigInPlayer().getString("Device.OS.iOS");
+        String macOS = Main.getInstance().getConfigInPlayer().getString("Device.OS.macOS");
+        String fireOS = Main.getInstance().getConfigInPlayer().getString("Device.OS.Fire_OS");
+        String gearVR = Main.getInstance().getConfigInPlayer().getString("Device.OS.Gear_VR");
+        String holoLens = Main.getInstance().getConfigInPlayer().getString("Device.OS.HoloLens");
+        String windows10 = Main.getInstance().getConfigInPlayer().getString("Device.OS.Windows_10");
+        String windows = Main.getInstance().getConfigInPlayer().getString("Device.OS.Windows");
+        String dedicated = Main.getInstance().getConfigInPlayer().getString("Device.OS.Dedicated");
+        String tvOS = Main.getInstance().getConfigInPlayer().getString("Device.OS.tvOS");
+        String playStation = Main.getInstance().getConfigInPlayer().getString("Device.OS.PlayStation");
+        String switchh = Main.getInstance().getConfigInPlayer().getString("Device.OS.Switch");
+        String xbox = Main.getInstance().getConfigInPlayer().getString("Device.OS.Xbox");
+        String windowsPhone = Main.getInstance().getConfigInPlayer().getString("Device.OS.Windows_Phone");
+        String unknownOs = Main.getInstance().getLanguage().getString("Unknown_Device_OS");
         switch (os) {
-            case 1: return osAndroid;
-            case 2: return osIOS;
-            case 3: return osMacOS;
-            case 4: return osFireOS;
-            case 5: return osGearVR;
-            case 6: return osHoloLens;
-            case 7: return osWindows10;
-            case 8: return osWindows;
-            case 9: return osDedicated;
-            case 10: return osTvOS;
-            case 11: return osPlayStation;
-            case 12: return osSwitch;
-            case 13: return osXbox;
-            case 14: return osWindowsPhone;
-            default: return osUnknown;
+            case 1: return android;
+            case 2: return iOS;
+            case 3: return macOS;
+            case 4: return fireOS;
+            case 5: return gearVR;
+            case 6: return holoLens;
+            case 7: return windows10;
+            case 8: return windows;
+            case 9: return dedicated;
+            case 10: return tvOS;
+            case 11: return playStation;
+            case 12: return switchh;
+            case 13: return xbox;
+            case 14: return windowsPhone;
+            default: return unknownOs;
         }
     }
 

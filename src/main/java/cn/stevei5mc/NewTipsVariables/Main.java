@@ -75,19 +75,10 @@ public class Main extends PluginBase {
     }
 
     public void deBugMode() {
-        boolean deBug = this.config.getBoolean("debug", false); //这个功能默认关闭,不在配置文件中,需手动加上
+        boolean deBug = this.config.getBoolean("debug", false); //这个功能默认关闭,不在config.yml中,需手动加上
         if (deBug) {
             String debugPerfix = "§7[§cDEBUG§7] ";
             this.getLogger().warning(debugPerfix + "§cdebug模式已开启");
-            int configVersionLatest = 1;
-            int configInServerVersionLatest = 1;
-            int configInPlayerVersionLatest = 1;
-            int configVersion = this.config.getInt("version");
-            int configInServerVersion = this.configInServer.getInt("version");
-            int configInPlayerVersion = this.configInPlayer.getInt("version");
-            this.getLogger().info(debugPerfix + "§bconfig.yml§e 当前版本§a " + configVersion + " §e最新版本§a " + configVersionLatest);
-            this.getLogger().info(debugPerfix + "§bserver.yml§e 当前版本§a " + configInServerVersion + " §e最新版本§a " + configInServerVersionLatest);
-            this.getLogger().info(debugPerfix + "§bplayer.yml§e 当前版本§a " + configInPlayerVersion + " §e最新版本§a " + configInPlayerVersionLatest);
         }
     }
 
@@ -110,19 +101,15 @@ public class Main extends PluginBase {
     public Config getConfig() {
         return this.config;
     }
-
     public Config getConfigInServer() {
         return this.configInServer;
     }
-
     public Config getConfigInPlayer() {
         return this.configInPlayer;
     }
-
     public Config getWorldName() {
         return this.worldName;
     }
-
     public Config getLanguage() {
         return this.language;
     }
