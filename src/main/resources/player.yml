@@ -3,11 +3,11 @@
 version: 1
 Device:
   OS:
-    Android: "Android"
-    iOS: "iOS"
-    macOS: "macOS"
-    Fire_OS: "Fire OS"
-    Gear_VR: "Gear VR"
+    Android: "安卓"
+    iOS: "苹果"
+    macOS: "苹果但是电脑"
+    Fire_OS: "Fire_OS"
+    Gear_VR: "Gear_VR"
     HoloLens: "HoloLens"
     Windows_10: "Windows 10"
     Windows: "Windows"
@@ -16,12 +16,7 @@ Device:
     PlayStation: "PlayStation"
     Switch: "Switch"
     Xbox: "Xbox"
-    Windows_Phone: "Windows Phone"
-  Controls:
-    Keyboard: Keyboard
-    Touch: Touch
-    pad: pad
-    motion_controller: motion_controller
+    Windows_Phone: "windows但是手机"
   UIProfile:
     classic: "classic ui"
     pocket: "pocket ui"
