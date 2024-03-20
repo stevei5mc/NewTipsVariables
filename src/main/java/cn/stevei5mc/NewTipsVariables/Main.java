@@ -18,7 +18,6 @@ public class Main extends PluginBase {
     private static Config config;
     private static Config configInServer;
     private static Config configInPlayer;
-    private static Config worldName;
     public static Main getInstance() {
         return instance;
     }
@@ -54,11 +53,9 @@ public class Main extends PluginBase {
         this.saveDefaultConfig();
         this.saveResource("server.yml",false);
         this.saveResource("player.yml",false);
-        this.saveResource("world_name.yml",false);
         this.config = new Config(this.getDataFolder() + "/config.yml", Config.YAML);
         this.configInServer = new Config(this.getDataFolder() + "/server.yml", Config.YAML);
         this.configInPlayer = new Config(this.getDataFolder() + "/player.yml", Config.YAML);
-        this.worldName = new Config(this.getDataFolder() + "/world_name.yml", Config.YAML);
     }
 
     public void loadVarRes() {
@@ -115,9 +112,5 @@ public class Main extends PluginBase {
 
     public Config getConfigInPlayer() {
         return this.configInPlayer;
-    }
-
-    public Config getWorldName() {
-        return this.worldName;
     }
 }
