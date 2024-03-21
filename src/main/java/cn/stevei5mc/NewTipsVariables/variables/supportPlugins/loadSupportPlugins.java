@@ -7,55 +7,65 @@ import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.economyApiVariable
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.playerPointsVariable;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.OreAreaVariable;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.RsTaskVariable;
+import cn.stevei5mc.NewTipsVariables.Main;
 
 public class loadSupportPlugins {
     
     public static void loadSupportVariables(Player player) {
+        boolean debug = Main.getInstance().getConfig().getBoolean("debug", false);
         //加载相关插件的变量时的提示
-        String loadSuccessMsg1 = "§a找到插件§e【§b";
-        String loadSuccessMsg2 = "§e】§a相关变量已加载";
-        String loadFailureMsg1 = "§c无法找到插件§e【§b";
-        String loadFailureMsg2 = "§e】§c相关变量加载失败,请安装相关插件再试";
+        String debugPerfix = "§7[§cDEBUG§7] ";
+        String loadPlugin;
+        String loadSuccessMsg = Main.getInstance().getLanguage().getString("debug_plugins_found");
+        String loadFailureMsg = Main.getInstance().getLanguage().getString("debug_plugins_not_found");
         //需要加载的变量的插件
-        
-        String loadPlugin1 = "playerPoints";
-        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin1) != null) {
+        loadPlugin = "playerPoints";
+        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin) != null) {
             //存在
             Api.registerVariables("playerPointsVariable", playerPointsVariable.class);
-            Server.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin1 + loadSuccessMsg2);
-        }  else {
-            //不存在
-            Server.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin1 + loadFailureMsg2);
-        }
+            if (debug) {
+                Main.getInstance().getLogger().info(loadSuccessMsg.replace("{0}",loadPlugin));
+            }
 
-        String loadPlugin2 = "EconomyAPI";
-        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin2) != null) {
+        } else {
+            if (debug) {
+                Main.getInstance().getLogger().info(loadFailureMsg.replace("{0}",loadPlugin));
+            }
+        }
+        loadPlugin = "EconomyAPI";
+        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin) != null) {
             //存在
             Api.registerVariables("economyApiVariable", economyApiVariable.class);
-            Server.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin2 + loadSuccessMsg2);
-        }  else {
-            //不存在
-            Server.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin2 + loadFailureMsg2);
-        }
-        
-        String loadPlugin3 = "OreArea";
-        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin3) != null) {
+            if (debug) {
+                Main.getInstance().getLogger().info(loadSuccessMsg.replace("{0}",loadPlugin));
+            }
+        } else {
+            if (debug) {
+                Main.getInstance().getLogger().info(loadFailureMsg.replace("{0}",loadPlugin));
+            }
+        }        
+        loadPlugin = "OreArea";
+        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin) != null) {
             //存在
             Api.registerVariables("OreAreaVariable", OreAreaVariable.class);
-            Server.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin3 + loadSuccessMsg2);
-        }  else {
-            //不存在
-            Server.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin3 + loadFailureMsg2);
-        }
-        
-        String loadPlugin4 = "RSTask";
-        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin4) != null) {
-            //存在
+            if (debug) {
+                Main.getInstance().getLogger().info(loadSuccessMsg.replace("{0}",loadPlugin));
+            }
+        } else {
+            if (debug) {
+                Main.getInstance().getLogger().info(loadFailureMsg.replace("{0}",loadPlugin));
+            }
+        }       
+        loadPlugin = "RSTask";
+        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin) != null) {
             Api.registerVariables("RsTaskVariable", RsTaskVariable.class);
-            Server.getInstance().getLogger().info(loadSuccessMsg1 + loadPlugin4 + loadSuccessMsg2);
-        }  else {
-            //不存在
-            Server.getInstance().getLogger().info(loadFailureMsg1 + loadPlugin4 + loadFailureMsg2);
+            if (debug) {
+                Main.getInstance().getLogger().info(loadSuccessMsg.replace("{0}",loadPlugin));
+            }
+        } else {
+            if (debug) {
+                Main.getInstance().getLogger().info(loadFailureMsg.replace("{0}",loadPlugin));
+            }
         }
     }
 }

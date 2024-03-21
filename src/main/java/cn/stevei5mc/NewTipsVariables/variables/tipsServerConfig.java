@@ -19,22 +19,20 @@ public class tipsServerConfig extends BaseVariable {
     }
 
     public static String getServerTps(Player player) {
-        String serverTpslowColor = Main.getInstance().getConfigInServer().getString("TPS.low_color");
-        int serverTpsMediumValue = Main.getInstance().getConfigInServer().getInt("TPS.medium_value");
+        String serverTpslowColor = Main.getInstance().getConfigInServer().getString("TPS.low_color");//low值
+        int serverTpsMediumValue = Main.getInstance().getConfigInServer().getInt("TPS.medium_value");//medium值
         String serverTpsMediumColor = Main.getInstance().getConfigInServer().getString("TPS.medium_color");
-        int serverTpsHgihValue = Main.getInstance().getConfigInServer().getInt("TPS.high_value");
+        int serverTpsHgihValue = Main.getInstance().getConfigInServer().getInt("TPS.high_value");//hgih值
         String serverTpsHgihColor = Main.getInstance().getConfigInServer().getString("TPS.high_color");
-        String serverTps = serverTpsHgihColor + serverTpsHgihValue;
+        String serverTps;
         float tpsValue = Server.getInstance().getTicksPerSecond();
-        //最低值为0
-        if (tpsValue >= 0) {
-            serverTps = serverTpslowColor + tpsValue;
-        }
-        if (tpsValue >= serverTpsMediumValue) {
-            serverTps = serverTpsMediumColor + tpsValue;
-        }
+        //low=0
         if (tpsValue >= serverTpsHgihValue) {
             serverTps = serverTpsHgihColor + tpsValue;
+        }else if (tpsValue >= serverTpsMediumValue) {
+            serverTps = serverTpsMediumColor + tpsValue;
+        }else {
+            serverTps = serverTpslowColor + tpsValue;
         }
         return serverTps;
     }
