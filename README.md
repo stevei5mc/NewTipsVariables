@@ -8,10 +8,15 @@
 ![GitHub issues](https://img.shields.io/github/issues/stevei5mc/NewTipsVariables?style=plastic&color=linkGreen)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/stevei5mc/NewTipsVariables?style=plastic)  
 > **该插件可以为Tips添加更多的变量内容，更多变量敬请期待**
-## 使用方法
+## **使用方法**
 > **1、将插件放进`plugins`文件夹**  
 > **2、需确保安装`Tips`插件后重启服务器**  
 > **3、在`/plugins/NewTipsVariables`文件夹中的`.txt`文件获取相关变量介绍，也可在本页面获取相关的变量介绍**  
 ### **[配置文件使用说明](./docs/config-info.md)**
 ### **变量介绍**
 **[文字相关变量](./docs/text-variables.md) [玩家相关变量](./docs/player-variables.md) [服务器相关变量](./docs/server-variables.md) [支持的插件](./docs/SupportPluginsVariables.md)**
+## **权限与权限节点**
+|权限节点|权限介绍|默认权限|
+|:-:|:-:|:-:|
+|newtipsariables.admin|管理员权限|OP|
+|newtipsariables.admin.reload|重载权限|OP|
