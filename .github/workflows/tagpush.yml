@@ -35,7 +35,7 @@ jobs:
         tag: ${{ steps.get_info.outputs.VERSION }}
         name: ${{ steps.get_info.outputs.VERSION }}
         token: ${{ secrets.GITHUB_TOKEN }}
-        bodyFile: ./changelogs/${{ steps.get_info.outputs.VERSION }}.md
+        bodyFile: ./docs/changelogs/${{ steps.get_info.outputs.VERSION }}.md
         artifacts: ./target/${{ steps.get_info.outputs.repository_name }}-${{ steps.get_info.outputs.VERSION }}.jar
     # 这个暂时没有用
     # - name: 发布至minebbs
@@ -45,5 +45,5 @@ jobs:
     #     token: ${{ secrets.MINEBBSKEY }}
     #     title: ${{ steps.get_info.outputs.VERSION }}
     #     new_version: ${{ steps.get_info.outputs.VERSION }}
-    #     description_file: ./changelogs/${{ steps.get_info.outputs.VERSION }}.md
+    #     description_file: ./docs/changelogs/${{ steps.get_info.outputs.VERSION }}.md
     #     file_url: 'https://github.com/${{ github.repository }}/releases/latest'
