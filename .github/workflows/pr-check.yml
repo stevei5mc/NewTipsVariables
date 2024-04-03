@@ -25,3 +25,5 @@ jobs:
       with:
         name: ${{ steps.get_info.outputs.repository_name }}-Pr_check-Build-${{ github.run_number}}
         path: staging
+    - name: 批准PR
+      uses: hmarr/auto-approve-action@v4.0.0

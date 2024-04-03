@@ -15,8 +15,8 @@
 ### **[配置文件使用说明](./docs/config-info.md)**
 ### **变量介绍**
 **[文字相关变量](./docs/text-variables.md) [玩家相关变量](./docs/player-variables.md) [服务器相关变量](./docs/server-variables.md) [支持的插件](./docs/SupportPluginsVariables.md)**
-## **权限与权限节点**
-|权限节点|权限介绍|默认权限|
-|:-:|:-:|:-:|
-|newtipsariables.admin|管理员权限|OP|
-|newtipsariables.admin.reload|重载权限|OP|
+## **命令与权限节点**
+|命令|权限节点|权限介绍|默认权限|
+|:-:|:-:|:-:|:-:|
+|/newtipsariables|newtipsariables.admin|主命令|OP|
+|/newtipsariables reload|newtipsariables.admin.reload|重载配置文件|OP|
