@@ -13,12 +13,12 @@ public class NewTipsVariablesCommand extends BaseCommand {
         super("NewTipsVariables", "NewTipsVariables管理命令");
         this.setPermission("newtipsariables.admin");
         this.addSubCommand(new ReloadCommand("reload"));
-
         this.loadCommandBase();
     }
 
     @Override
     public void sendHelp(CommandSender sender) {
+        sender.sendMessage("§b=== NewTipsVariables ===");
         sender.sendMessage("§a/newtipsariables reload §e重载配置文件");
     }
 }

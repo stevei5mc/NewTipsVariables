@@ -26,7 +26,7 @@ public class ReloadCommand extends BaseSubCommand {
     @Override
     public boolean execute(CommandSender sender, String label, String[] args) {
         this.main.reload();
-        sender.sendMessage("重载配置完成！");
+        sender.sendMessage("§a重载配置完成！");
         return true;
     }
 

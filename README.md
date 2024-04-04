@@ -7,7 +7,10 @@
 ![GitHub forks](https://img.shields.io/github/forks/stevei5mc/NewTipsVariables?style=plastic)
 ![GitHub issues](https://img.shields.io/github/issues/stevei5mc/NewTipsVariables?style=plastic&color=linkGreen)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/stevei5mc/NewTipsVariables?style=plastic)  
-> **该插件可以为Tips添加更多的变量内容，更多变量敬请期待**
+- **该插件可以为Tips提供更多的变量内容**  
+- **目前该插件正处于`beta`测试阶段如果有问题请及时提交[issues](https://github.com/stevei5mc/NewTipsVariables/issues)**  
+- **如果你有开发能力可以为其提供[PR](https://github.com/stevei5mc/NewTipsVariables/pulls)来增加更多变量或修复问题**
+
 ## **使用方法**
 > **1、将插件放进`plugins`文件夹**  
 > **2、需确保安装`Tips`插件后重启服务器**  

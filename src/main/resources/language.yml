@@ -2,5 +2,3 @@ Unknown_World: §c未知世界§6{0}§c,请检查是否在§6world_name.yml§c�
 Unknown_Device_OS: §c未知的系统
 Unknown_Device_controls: §c未知的操作方式
 Unknown_Device_UIProfile: §cUnknown ui
-debug_plugins_found: §a找到插件§e【§b{0}§e】§a相关变量已加载
-debug_plugins_not_found: §c无法找到插件§e【§b{0}§e】§c相关变量加载失败,请安装相关插件再试

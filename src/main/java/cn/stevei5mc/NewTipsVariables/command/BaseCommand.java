@@ -42,9 +42,9 @@ public abstract class BaseCommand extends Command {
                     if (command.canUser(sender)) {
                         return command.execute(sender, s, args);
                     }else if (sender.isPlayer()) {
-                        sender.sendMessage("你没有权限使用此命令！");
+                        sender.sendMessage("§c你没有权限使用此命令！");
                     }else {
-                        sender.sendMessage("请在游戏内使用此命令！");
+                        sender.sendMessage("§c请在游戏内使用此命令！");
                     }
                 }else {
                     this.sendHelp(sender);
@@ -54,7 +54,7 @@ public abstract class BaseCommand extends Command {
             }
             return true;
         }else {
-            sender.sendMessage("你没有权限使用此命令！");
+            sender.sendMessage("§c你没有权限使用此命令！");
         }
         return true;
     }

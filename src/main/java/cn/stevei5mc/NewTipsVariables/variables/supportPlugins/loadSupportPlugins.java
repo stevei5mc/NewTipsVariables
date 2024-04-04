@@ -16,8 +16,8 @@ public class loadSupportPlugins {
         //加载相关插件的变量时的提示
         String debugPerfix = "§7[§cDEBUG§7] ";
         String loadPlugin;
-        String loadSuccessMsg = Main.getInstance().getLanguage().getString("debug_plugins_found");
-        String loadFailureMsg = Main.getInstance().getLanguage().getString("debug_plugins_not_found");
+        String loadSuccessMsg = "§a找到插件§e【§b{0}§e】§a相关变量已加载";
+        String loadFailureMsg = "§c无法找到插件§e【§b{0}§e】§c相关变量加载失败,请安装相关插件再试";
         //需要加载的变量的插件
         loadPlugin = "playerPoints";
         if (Server.getInstance().getPluginManager().getPlugin(loadPlugin) != null) {
