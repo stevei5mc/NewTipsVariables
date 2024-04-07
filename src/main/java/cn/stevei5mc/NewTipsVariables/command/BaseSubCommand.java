@@ -4,7 +4,6 @@ import cn.stevei5mc.NewTipsVariables.Main;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.command.data.CommandParameter;
 
-
 /**
  * @author SmallasWater
  */
@@ -51,5 +50,4 @@ public abstract class BaseSubCommand {
      * @return  提示参数
      * */
     public abstract CommandParameter[] getParameters();
-
 }

@@ -83,5 +83,4 @@ public abstract class BaseCommand extends Command {
             this.commandParameters.put(subCommand.getName(), parameters.toArray(new CommandParameter[0]));
         }
     }
-
 }

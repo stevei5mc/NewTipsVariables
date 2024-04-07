@@ -10,53 +10,52 @@ import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.RsTas
 import cn.stevei5mc.NewTipsVariables.Main;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.HealthAPIVariable;
 
-public class loadSupportPlugins {
-    
+public class loadSupportPlugins{
+    //加载相关插件的变量时的提示
+    public static String debugPerfix = "§7[§cDEBUG§7] ";
+    public static String successMsg = debugPerfix+"§a找到插件§e【§b{0}§e】§a相关变量已加载";
+    public static String failureMsg = debugPerfix+"§c无法找到插件§e【§b{0}§e】§c相关变量加载失败,请安装相关插件再试";
     public static void loadSupportVariables(Player player) {
-        boolean debug = Main.getInstance().getConfig().getBoolean("debug", false);
-        //加载相关插件的变量时的提示
-        String debugPerfix = "§7[§cDEBUG§7] ";
-        String loadPlugin;
-        String loadSuccessMsg = "§a找到插件§e【§b{0}§e】§a相关变量已加载";
-        String loadFailureMsg = "§c无法找到插件§e【§b{0}§e】§c相关变量加载失败,请安装相关插件再试";
+        boolean debug = Main.debug;
+        String plugin;
         //需要加载的变量的插件
-        loadPlugin = "playerPoints";
-        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin) != null) {
+        plugin = "playerPoints";
+        if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
             //存在
             Api.registerVariables("playerPointsVariable", playerPointsVariable.class);
-            if (debug) {Main.getInstance().getLogger().info(loadSuccessMsg.replace("{0}",loadPlugin));}
-        } else {
-            if (debug) {Main.getInstance().getLogger().info(loadFailureMsg.replace("{0}",loadPlugin));}
+            if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
+        } else if (debug) {
+            Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
         }
-        loadPlugin = "EconomyAPI";
-        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin) != null) {
+        plugin = "EconomyAPI";
+        if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
             //存在
             Api.registerVariables("economyApiVariable", economyApiVariable.class);
-            if (debug) {Main.getInstance().getLogger().info(loadSuccessMsg.replace("{0}",loadPlugin));}
-        } else {
-            if (debug) {Main.getInstance().getLogger().info(loadFailureMsg.replace("{0}",loadPlugin));}
-        }        
-        loadPlugin = "OreArea";
-        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin) != null) {
+            if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
+        } else if (debug) {
+            Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
+        }
+        plugin = "OreArea";
+        if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
             //存在
             Api.registerVariables("OreAreaVariable", OreAreaVariable.class);
-            if (debug) {Main.getInstance().getLogger().info(loadSuccessMsg.replace("{0}",loadPlugin));}
-        } else {
-            if (debug) {Main.getInstance().getLogger().info(loadFailureMsg.replace("{0}",loadPlugin));}
+            if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
+        } else if (debug) {
+            Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
         }       
-        loadPlugin = "RSTask";
-        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin) != null) {
+        plugin = "RSTask";
+        if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
             Api.registerVariables("RsTaskVariable", RsTaskVariable.class);
-            if (debug) {Main.getInstance().getLogger().info(loadSuccessMsg.replace("{0}",loadPlugin));}
-        } else {
-            if (debug) {Main.getInstance().getLogger().info(loadFailureMsg.replace("{0}",loadPlugin));}
+            if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
+        } else if (debug) {
+            Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
         }
-        loadPlugin = "HealthAPI";
-        if (Server.getInstance().getPluginManager().getPlugin(loadPlugin) != null) {
+        plugin = "HealthAPI";
+        if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
             Api.registerVariables("HealthAPIVariable", HealthAPIVariable.class);
-            if (debug) {Main.getInstance().getLogger().info(loadSuccessMsg.replace("{0}",loadPlugin));}
-        } else {
-            if (debug) {Main.getInstance().getLogger().info(loadFailureMsg.replace("{0}",loadPlugin));}
-        }            
+            if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
+        } else if (debug) {
+            Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
+        }
     }
 }

@@ -22,6 +22,7 @@ public class Main extends PluginBase {
     private Config configInPlayer;
     private Config worldName;
     private Config language;
+    public static boolean debug = false;
     //定义配置文件的一些信息
     public static int config1Version = 1; //config.yml
     public static int config2Version = 1; //player.yml
@@ -41,7 +42,7 @@ public class Main extends PluginBase {
         //判断需要的前置插件是否存在
         if (this.getServer().getPluginManager().getPlugin("Tips") != null) {
             //存在则加载该插件
-            this.getServer().getCommandMap().register("", new NewTipsVariablesCommand());
+            this.getServer().getCommandMap().register("", new NewTipsVariablesCommand());//注册命令
             configUtils.configUtils();
             this.deBugMode();//用于加载debug信息
             this.tipsvariables();//加载变量部分
@@ -86,8 +87,8 @@ public class Main extends PluginBase {
     public void deBugMode() {
         boolean deBug = this.config.getBoolean("debug", false); //这个功能默认关闭,不在config.yml中,需手动加上
         if (deBug) {
-            String debugPerfix = "§7[§cDEBUG§7] ";
-            this.getLogger().warning(debugPerfix + "§cdebug模式已开启");
+            debug = true;
+            this.getLogger().warning("§7[§cDEBUG§7] §cdebug模式已开启");
         }
     }
 
@@ -126,5 +127,6 @@ public class Main extends PluginBase {
     //重载配置
     public void reload() {
         loadConfigRes();
+        configUtils.configUtils();
     }
 }

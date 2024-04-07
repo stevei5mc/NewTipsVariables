@@ -33,6 +33,16 @@
 ## G
 ---
 ## H
+### **[HealthAPI](https://github.com/SmallasWater/HealthAPI)**
+**注意**  
+- 现在列出的变量是临时的，之后会将变量改为`{Player-Health}`  
+- 变量`{hb}`除外，并且移除变量`{mh}`  
+
+|变量名|变量介绍|
+|-|-|
+|{h}|玩家血量|
+|{mh}|玩家血量上限|
+|{hb}|玩家血量百分比|
 ---
 ## I
 ---

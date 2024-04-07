@@ -12,9 +12,9 @@
 - **如果你有开发能力可以为其提供[PR](https://github.com/stevei5mc/NewTipsVariables/pulls)来增加更多变量或修复问题**
 
 ## **使用方法**
-> **1、将插件放进`plugins`文件夹**  
-> **2、需确保安装`Tips`插件后重启服务器**  
-> **3、在`/plugins/NewTipsVariables`文件夹中的`.txt`文件获取相关变量介绍，也可在本页面获取相关的变量介绍**  
+1. **将插件放进`plugins`文件夹**  
+2. **需确保安装`Tips`插件后重启服务器**  
+3. **在`/plugins/NewTipsVariables`文件夹中的`.txt`文件获取相关变量介绍，也可在本页面获取相关的变量介绍**  
 ### **[配置文件使用说明](./docs/config-info.md)**
 ### **变量介绍**
 **[文字相关变量](./docs/text-variables.md) [玩家相关变量](./docs/player-variables.md) [服务器相关变量](./docs/server-variables.md) [支持的插件](./docs/SupportPluginsVariables.md)**
