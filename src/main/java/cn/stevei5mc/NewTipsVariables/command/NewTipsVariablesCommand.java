@@ -10,7 +10,7 @@ import cn.nukkit.command.CommandSender;
 public class NewTipsVariablesCommand extends BaseCommand {
 
     public NewTipsVariablesCommand() {
-        super("NewTipsVariables", "NewTipsVariables管理命令");
+        super("NewTipsVariables", "NewTipsVariables 命令");
         this.setPermission("newtipsariables.admin");
         this.addSubCommand(new ReloadCommand("reload"));
         this.loadCommandBase();
