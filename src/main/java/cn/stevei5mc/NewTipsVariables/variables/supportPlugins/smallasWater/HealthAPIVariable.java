@@ -14,12 +14,15 @@ public class HealthAPIVariable extends BaseVariable {
         HealthAPIVar();
     }
 
+/**
+ * @author SmallasWater
+ */
     public void HealthAPIVar() {
         PlayerHealth health = PlayerHealth.getPlayerHealth(this.player);
         addStrReplaceString("{h}", String.format("%.1f", health.getHealth()));
         addStrReplaceString("{mh}", health.getMaxHealth() + "");
         addStrReplaceString("{hb}", String.format("%.2f", health.getHealthPercentage() * 100.0D));
-        addStrReplaceString("{Player-Health}", this.getPlayerHealth(player));
+        addStrReplaceString("{Player-Health}", this.getPlayerHealth(player));//这个除外
     }
 
     public String getPlayerHealth(Player player) {

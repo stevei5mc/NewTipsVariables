@@ -9,6 +9,8 @@ import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.OreAr
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.RsTaskVariable;
 import cn.stevei5mc.NewTipsVariables.Main;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.HealthAPIVariable;
+import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.LevelAwakenSystemVariable;
+import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.RSWeaponVariable;
 
 public class loadSupportPlugins{
     //加载相关插件的变量时的提示
@@ -53,6 +55,20 @@ public class loadSupportPlugins{
         plugin = "HealthAPI";
         if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
             Api.registerVariables("HealthAPIVariable", HealthAPIVariable.class);
+            if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
+        } else if (debug) {
+            Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
+        }
+        plugin = "LevelAwakenSystem";
+        if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
+            Api.registerVariables("LevelAwakenSystemVariable", LevelAwakenSystemVariable.class);
+            if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
+        } else if (debug) {
+            Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
+        }
+        plugin = "RSWeapon";
+        if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
+            Api.registerVariables("RSWeaponVariable", RSWeaponVariable.class);
             if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
         } else if (debug) {
             Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
