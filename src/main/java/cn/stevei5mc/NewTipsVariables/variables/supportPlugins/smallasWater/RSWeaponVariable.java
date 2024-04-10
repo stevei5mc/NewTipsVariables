@@ -6,7 +6,6 @@ import weapon.items.Armor;
 import weapon.items.Weapon;
 import weapon.utils.PlayerAddAttributes;
 import cn.nukkit.item.Item;
-import cn.nukkit.utils.TextFormat;
 import cn.nukkit.Server;
 
 public class RSWeaponVariable extends BaseVariable {   
@@ -26,12 +25,12 @@ public class RSWeaponVariable extends BaseVariable {
             Item item = this.player.getInventory().getItemInHand();
             if (Server.getInstance().getPluginManager().getPlugin("RSWeapon") != null) {
                Weapon weapon = Weapon.getInstance(item);
-               String name = TextFormat.RED + "无神器";
+               String name = "§c无神器";
                int c = 0;
                if (weapon != null) {
                     name = weapon.getName();
                     if (!weapon.canUse(this.player)) {
-                        name = name + TextFormat.RED + " (无法使用)";
+                        name = name + " §c(无法使用)";
                 }
                 c = weapon.getGemStones().size();
             }
@@ -43,10 +42,10 @@ public class RSWeaponVariable extends BaseVariable {
                 int cSize = 0;
                 int lSize = 0;
                 int bSize = 0;
-                String hetName = TextFormat.RED + "无头盔";
-                String chestName = TextFormat.RED + "无胸凯";
-                String leggingName = TextFormat.RED + "无护腿";
-                String bootName = TextFormat.RED + "无靴子";
+                String hetName = "§c无头盔";
+                String chestName = "§c无胸凯";
+                String leggingName = "§c无护腿";
+                String bootName = "§c无靴子";
                 Armor armorHet = Armor.getInstance(het);
                 Armor armorChest = Armor.getInstance(chest);
                 Armor armorLegging = Armor.getInstance(legging);
@@ -54,28 +53,28 @@ public class RSWeaponVariable extends BaseVariable {
                 if (armorHet != null) {
                     hetName = armorHet.getName();
                     if (!armorHet.canUse(this.player)) {
-                        hetName = hetName + TextFormat.RED + " (无法使用)";
+                        hetName = hetName + " §c(无法使用)";
                     }
                     hSize = armorHet.getGemStones().size();
                 }
                 if (armorChest != null) {
                     chestName = armorChest.getName();
                     if (!armorChest.canUse(this.player)) {
-                        chestName = chestName + TextFormat.RED + " (无法使用)";
+                        chestName = chestName + " §c(无法使用)";
                     }
                     cSize = armorChest.getGemStones().size();
                 }
                 if (armorLegging != null) {
                     leggingName = armorLegging.getName();
                     if (!armorLegging.canUse(this.player)) {
-                        leggingName = leggingName + TextFormat.RED + " (无法使用)";
+                        leggingName = leggingName + " §c(无法使用)";
                     }
                     lSize = armorLegging.getGemStones().size();
                 }
                 if (armorBoot != null) {
                     bootName = armorBoot.getName();
                     if (!armorBoot.canUse(this.player)) {
-                        bootName = bootName + TextFormat.RED + " (无法使用)";
+                        bootName = bootName + " §c(无法使用)";
                     }
                     bSize = armorBoot.getGemStones().size();
                 }

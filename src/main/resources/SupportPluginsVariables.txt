@@ -1,59 +1,58 @@
 NewTipsVariables(变量文档)
   本文档内容为支持的插件变量
   变量内容排序按插件的英文字母排序
-E
-  EconomyAPI
-    {economyApi-money} 玩家金钱数量
-H
-  HealthAPI
-    {h}   玩家血量
-    {mh}  玩家血量上限
-    {hb}  玩家血量百分比
-L
-  LevelAwakenSystem
-    {属性}    玩家的RPG属性
-    {天赋}    玩家评分
-    {level}   玩家等级
-    {exp}     玩家当前经验
-    {mexp}    玩家当前经验最大值
-    {dw}      玩家物理攻击
-    {df}      玩家法术攻击
-    {dlw}     玩家物理防御
-    {dlf}     玩家法术防御
-    {b}       玩家暴击
-    {kb}      玩家抗暴
-    {kx}      玩家抗性
-    {c}       玩家穿透
-    {饰品}    玩家当前装备的饰品
-    {pvp}     玩家PVP 状态 (暂时不可用)
-O
-  OreArea
-    {orearea-level-this}   获取玩家的矿区等级
-    {orearea-level-next}   获取玩家的矿区下一等级
-    {orearea-time-use}     获取玩家所在的矿区可以使用的时间(在有限时的矿区会有BUG,是到秒就不动了)
-    {orearea-time-reset}   获取玩家所在的刷新时间
-    {orearea-name}         获取玩家所在的矿区等级
-P
-  playerPoints
-    {point}  获取玩家的点券数量
-R
-  RsTask
-    {task-name}       正在进行中的任务 (显示第一个)
-    {task-count}      玩家任务积分
-  RSWeapon
-    {武器名称} : 玩家手持武器的名称
-    {宝石个数} : 玩家手持武器的宝石个数
-    {头盔}     : 玩家装备的头盔
-    {胸甲}     : 玩家装备的胸甲
-    {护腿}     : 玩家装备的护腿
-    {靴子}     : 玩家装备的靴子
-    {头盔宝石} : 玩家装备的头盔宝石个数
-    {胸甲宝石} : 玩家装备的胸甲宝石个数
-    {护腿宝石} : 玩家装备的护腿宝石个数
-    {靴子宝石} : 玩家装备的靴子宝石个数
-    {we-damage}:  玩家武器攻击力
-    {we-armor}： 玩家盔甲护甲值
-    {we-health}: 玩家盔甲生命值
-    {we-kick}:   玩家武器击退值
-    {we-dkick}:   玩家盔甲抗击退值
-    {we-todamage}: 玩家盔甲反伤百分比
+
+EconomyAPI
+{economyApi-money} 玩家金钱数量
+
+HealthAPI
+{h}   玩家血量
+{mh}  玩家血量上限
+{hb}  玩家血量百分比
+
+LevelAwakenSystem
+{属性}    玩家的RPG属性
+{天赋}    玩家评分
+{level}   玩家等级
+{exp}     玩家当前经验
+{mexp}    玩家当前经验最大值
+{dw}      玩家物理攻击
+{df}      玩家法术攻击
+{dlw}     玩家物理防御
+{dlf}     玩家法术防御
+{b}       玩家暴击
+{kb}      玩家抗暴
+{kx}      玩家抗性
+{c}       玩家穿透
+{饰品}    玩家当前装备的饰品
+{pvp}     玩家PVP 状态 (暂时不可用)
+
+OreArea
+{orearea-level-this}   获取玩家的矿区等级
+{orearea-level-next}   获取玩家的矿区下一等级
+{orearea-time-use}     获取玩家所在的矿区可以使用的时间(在有限时的矿区会有BUG,是到秒就不动了)
+{orearea-time-reset}   获取玩家所在的刷新时间
+{orearea-name}         获取玩家所在的矿区等级
+playerPoints
+{point}  获取玩家的点券数量
+
+RsTask
+{task-name}       正在进行中的任务 (显示第一个)
+{task-count}      玩家任务积分
+RSWeapon
+{武器名称} : 玩家手持武器的名称
+{宝石个数} : 玩家手持武器的宝石个数
+{头盔}     : 玩家装备的头盔
+{胸甲}     : 玩家装备的胸甲
+{护腿}     : 玩家装备的护腿
+{靴子}     : 玩家装备的靴子
+{头盔宝石} : 玩家装备的头盔宝石个数
+{胸甲宝石} : 玩家装备的胸甲宝石个数
+{护腿宝石} : 玩家装备的护腿宝石个数
+{靴子宝石} : 玩家装备的靴子宝石个数
+{we-damage}:  玩家武器攻击力
+{we-armor}： 玩家盔甲护甲值
+{we-health}: 玩家盔甲生命值
+{we-kick}:   玩家武器击退值
+{we-dkick}:   玩家盔甲抗击退值
+{we-todamage}: 玩家盔甲反伤百分比
