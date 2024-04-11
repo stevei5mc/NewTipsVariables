@@ -4,6 +4,7 @@ import cn.nukkit.Player;
 import cn.nukkit.Server;
 import tip.utils.variables.BaseVariable;
 import cn.nukkit.level.Level;
+import cn.stevei5mc.NewTipsVariables.utils.GetConfigInfo;
 
 public class tipsServer extends BaseVariable {
     public tipsServer(Player player) {
@@ -23,5 +24,6 @@ public class tipsServer extends BaseVariable {
         for (Level level : Server.getInstance().getLevels().values()) {
             addStrReplaceString("{WorldOnline@"+ level.getFolderName() +"}", String.valueOf(level.getPlayers().size()));
         }
+        addStrReplaceString("{Server-Tps}", GetConfigInfo.getServerTps(player));
     }
 }

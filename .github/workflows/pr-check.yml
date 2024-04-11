@@ -23,5 +23,5 @@ jobs:
     - name: 收集构建文件
       uses: actions/upload-artifact@v1
       with:
-        name: ${{ steps.get_info.outputs.repository_name }}-Pr_check-Build-${{ github.run_number}}
+        name: ${{ steps.get_info.outputs.repository_name }}-PR_${{ github.event.pull_request.number }}-Build-${{ github.run_number}}
         path: staging

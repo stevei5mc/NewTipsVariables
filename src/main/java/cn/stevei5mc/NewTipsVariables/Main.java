@@ -6,8 +6,6 @@ import tip.utils.Api;
 import cn.stevei5mc.NewTipsVariables.variables.tipsText;
 import cn.stevei5mc.NewTipsVariables.variables.tipsServer;
 import cn.stevei5mc.NewTipsVariables.variables.tipsPlayer;
-import cn.stevei5mc.NewTipsVariables.variables.tipsPlayerConfig;
-import cn.stevei5mc.NewTipsVariables.variables.tipsServerConfig;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.loadSupportPlugins;
 import cn.nukkit.Player;
 import cn.nukkit.utils.Config;
@@ -96,8 +94,6 @@ public class Main extends PluginBase {
         Api.registerVariables("tipsText", tipsText.class);
         Api.registerVariables("tipsServer", tipsServer.class);
         Api.registerVariables("tipsPlayer", tipsPlayer.class);
-        Api.registerVariables("tipsPlayerConfig", tipsPlayerConfig.class);
-        Api.registerVariables("tipsServerConfig", tipsServerConfig.class);
         loadSupportPlugins.loadSupportVariables(player);
     }
 

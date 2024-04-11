@@ -15,16 +15,16 @@
 **[EconomyAPI][i1] [HealthAPI][i1] [LevelAwakenSystem][i1] [OreArea][i1] [playerPoints][i1] [RsTask][i1] [RsWeapon][i1]** 
 ### **命令与权限节点**
 |命令|权限节点|权限介绍|默认权限|
-|:-|:-:|:-|:-:|
+|:-:|:-:|:-:|:-:|
 |/newtipsariables|newtipsariables.admin|主命令|OP|
 |/newtipsariables reload|newtipsariables.admin.reload|重载配置文件|OP|
 ### **变量介绍**
 **[文字相关变量][i2] [玩家相关变量][i3] [服务器相关变量][i4] [支持的插件][i1]**
+### **[配置文件使用说明][i5]**
 ## **使用方法**
 1. **将插件放进`plugins`文件夹**  
 2. **需确保安装`Tips`插件后重启服务器**  
 3. **在`/plugins/NewTipsVariables`文件夹中的`.txt`文件获取相关变量介绍，也可在本页面获取相关的变量介绍**  
-### **[配置文件使用说明][i5]**
 
 [i1]: ./docs/SupportPluginsVariables.md "点击查看变量文档"
 [i2]: ./docs/text-variables.md "点击查看变量文档"
