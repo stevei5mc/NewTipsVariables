@@ -1,3 +1,4 @@
 *.java text eol=lf
-*.yml text eol=crlf
-*.txt text eol=crlf
+src/*.yml text eol=crlf
+src/*.txt text eol=crlf
+.github/*.yml text eol=lf

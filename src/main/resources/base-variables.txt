@@ -14,6 +14,7 @@
 {Player-Controls}  获取玩家设备的操作方式
 {Player-Yaw}      获取玩家的Yaw值
 {Player-Pitch}    获取玩家的Pitch值
+{Player-HeadYaw}  获取玩家的HeadYaw值
 服务器相关变量:
 {Server-Ip}       获取服务器IP
 {Server-Tps}      获取服务器当前TPS

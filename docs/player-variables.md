@@ -23,3 +23,4 @@
 |{Player-Controls}|获取玩家设备的操作方式||
 |{Player-Yaw}|获取玩家的Yaw值||
 |{Player-Pitch}|获取玩家的Pitch值||
+|{Player-HeadYaw}|获取玩家的HeadYaw值||
