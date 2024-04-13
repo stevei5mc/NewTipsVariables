@@ -23,8 +23,8 @@
 ### **[配置文件使用说明][i5]**
 ## **使用方法**
 1. **将插件放进`plugins`文件夹**  
-2. **需确保安装`Tips`插件后重启服务器**  
-3. **在`/plugins/NewTipsVariables`文件夹中的`.txt`文件获取相关变量介绍，也可在本页面获取相关的变量介绍**  
+2. **需确保安装[Tips](https://motci.cn/job/Tips/)插件后重启服务器**  
+3. **在`./plugins/NewTipsVariables`文件夹中的`.txt`文件获取相关变量介绍，也可在本页面获取相关的变量介绍**  
 
 [i1]: ./docs/SupportPluginsVariables.md "点击查看变量文档"
 [i2]: ./docs/text-variables.md "点击查看变量文档"

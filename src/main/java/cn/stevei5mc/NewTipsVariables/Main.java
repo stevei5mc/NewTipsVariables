@@ -3,14 +3,13 @@ package cn.stevei5mc.NewTipsVariables;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.plugin.PluginManager;
 import tip.utils.Api;
-import cn.stevei5mc.NewTipsVariables.variables.tipsText;
-import cn.stevei5mc.NewTipsVariables.variables.tipsServer;
-import cn.stevei5mc.NewTipsVariables.variables.tipsPlayer;
+import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.loadSupportPlugins;
 import cn.nukkit.Player;
 import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.command.NewTipsVariablesCommand;
 import cn.stevei5mc.NewTipsVariables.utils.configUtils;
+import cn.nukkit.Server;
 
 public class Main extends PluginBase {
     public static Player player;
@@ -48,7 +47,7 @@ public class Main extends PluginBase {
         } else {
             //不存在作为卸载该插件
             this.getLogger().warning("§c未检测到前置插件§aTips§c，请安装§aTips§c再试!!!");
-            this.getLogger().warning("§b下载地址: §ehttps://ci.lanink.cn/job/Tips/");
+            this.getLogger().warning("§b下载地址: §ehttps://motci.cn/job/Tips/");
             this.onDisable();
         }
     }
@@ -91,9 +90,7 @@ public class Main extends PluginBase {
     }
 
     public void tipsvariables() {
-        Api.registerVariables("tipsText", tipsText.class);
-        Api.registerVariables("tipsServer", tipsServer.class);
-        Api.registerVariables("tipsPlayer", tipsPlayer.class);
+        Api.registerVariables("BaseVariables", BaseVariables.class);
         loadSupportPlugins.loadSupportVariables(player);
     }
 
