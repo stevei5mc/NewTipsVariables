@@ -37,8 +37,6 @@ jobs:
       if: inputs.run_type == '批准PR'
       run: |
         ls -la
-        rm -rf ./*
-        ls -la
         gh pr checkout ${{ inputs.PR_ID }}
         ls -la
       env:
@@ -64,14 +62,14 @@ jobs:
     - name: 收集构建文件
       uses: actions/upload-artifact@v1
       with:
-        name: ${{ steps.get_info.outputs.repository_name }}-Dispatch-Build-${{ github.run_number}}
+        name: ${{ steps.get_info.outputs.repository_name }}-${{ steps.get_info.outputs.run_type_en }}-Build-${{ github.run_number}}
         path: staging
     - name: 发布预览版
       if: inputs.run_type == '发布预览版'
       uses: ncipollo/release-action@v1.14.0
       with:
-        tag: Preview-Build-${{ github.run_number}}
-        name: Preview-Build-${{ github.run_number}}
+        tag: ${{ steps.get_info.outputs.run_type_en }}-Build-${{ github.run_number}}
+        name: ${{ steps.get_info.outputs.run_type_en }}-Build-${{ github.run_number}}
         token: ${{ secrets.GITHUB_TOKEN }}
         prerelease: true
         body: |
