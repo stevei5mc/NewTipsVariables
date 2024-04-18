@@ -72,6 +72,7 @@ jobs:
         name: ${{ steps.get_info.outputs.run_type_en }}-Build-${{ github.run_number}}
         token: ${{ secrets.GITHUB_TOKEN }}
         prerelease: true
+        commit: ${{ steps.get_info.outputs.run_type_en }}-Build-${{ github.run_number}}
         body: |
           此版本为预览版
           相关更新关系日志请等待正式版发布后方可查看
