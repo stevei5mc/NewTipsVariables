@@ -31,7 +31,7 @@ jobs:
           echo "run_type_en=Preview" >> $GITHUB_OUTPUT
         fi
     - name: 拉取代码
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4.1.1
     # 必须先执行一次checkout才能执行这个
     - name: 拉取代码(批准PR专用)
       if: inputs.run_type == '批准PR'
