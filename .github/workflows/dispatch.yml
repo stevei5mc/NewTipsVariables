@@ -1,17 +1,50 @@
 name: dispatch
 on:
   workflow_dispatch:
+    inputs:
+      run_type:
+        description: '运行方式'
+        required: true
+        default: '构建快照'
+        type: choice
+        options:
+        - 构建快照
+        - 批准PR
+        - 发布预览版
+      PR_ID:
+        description: 需要批准的PR ID
+        required: false
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: 获取信息
       id: get_info
-      run: echo "repository_name=${GITHUB_REPOSITORY/${{ github.repository_owner }}\//}" >> $GITHUB_OUTPUT
+      run: |
+        echo "repository_name=${GITHUB_REPOSITORY/${{ github.repository_owner }}\//}" >> $GITHUB_OUTPUT
+        echo 本次运行方式: ${{ inputs.run_type }}
+        if [ "${{ inputs.run_type }}" == "构建快照" ]; then
+          echo "run_type_en=SNAPSHOT" >> $GITHUB_OUTPUT
+        elif [ "${{ inputs.run_type }}" == "批准PR" ]; then
+          echo "run_type_en=PR Approve" >> $GITHUB_OUTPUT
+        else
+          echo "run_type_en=Preview" >> $GITHUB_OUTPUT
+        fi
     - name: 拉取代码
       uses: actions/checkout@v3
+    # 必须先执行一次checkout才能执行这个
+    - name: 拉取代码(批准PR专用)
+      if: inputs.run_type == '批准PR'
+      run: |
+        ls -la
+        rm -rf ./*
+        ls -la
+        gh pr checkout ${{ inputs.PR_ID }}
+        ls -la
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: 安装java8
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4.2.1
       with:
         java-version: '8'
         distribution: 'temurin'
@@ -20,8 +53,29 @@ jobs:
       run: |
         mvn -B package --file pom.xml
         mkdir staging && cp target/*.jar staging
+    - name: 批准PR
+      if: inputs.run_type == '批准PR'
+      uses: hmarr/auto-approve-action@v4.0.0
+      with:
+        pull-request-number: ${{ inputs.PR_ID }}
+        review-message: |
+          编译已通过，批准通过
+          如果有新的提交则取消本次批准
     - name: 收集构建文件
       uses: actions/upload-artifact@v1
       with:
         name: ${{ steps.get_info.outputs.repository_name }}-Dispatch-Build-${{ github.run_number}}
         path: staging
+    - name: 发布预览版
+      if: inputs.run_type == '发布预览版'
+      uses: ncipollo/release-action@v1.14.0
+      with:
+        tag: Preview-Build-${{ github.run_number}}
+        name: Preview-Build-${{ github.run_number}}
+        token: ${{ secrets.GITHUB_TOKEN }}
+        prerelease: true
+        body: |
+          此版本为预览版
+          相关更新关系日志请等待正式版发布后方可查看
+          你也可以查看commit记录来获取更新日志
+        artifacts: ./staging/*.jar
