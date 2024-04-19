@@ -1,4 +1,6 @@
-#使用说明: https://github.com/stevei5mc/NewTipsVariables/blob/main/README.md
+#使用说明:
+#https://github.com/stevei5mc/NewTipsVariables/blob/main/README.md
+#https://gitee.com/stevei5mc/NewTipsVariables
 #配置文件版本，勿动
 version: 1
 # 更新功能(这个功能展示没有用)
@@ -9,7 +11,6 @@ updata:
     #自动更新(需开启检查更新但暂时没有用)
     auto: false
   in-config:
-    #检查更新(暂时没有用)
     check: false
     #自动更新(需开启检查更新但暂时没有用)
     auto: false
