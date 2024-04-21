@@ -12,15 +12,15 @@
 ```yml
 save-variables-doc: true
 ```
-> **1、该配置项启用后，服务器每次启动后都会生成新的变量文档**  
-> **2、若关闭后，就算删除变量文档也不会生成新的变量文档**  
-> **3、该配置项默认启用**
+1. 该配置项启用后，服务器每次启动后都会生成新的变量文档  
+2. 若关闭后，就算删除变量文档也不会生成新的变量文档
+3. 该配置项默认启用
 ### **debug功能**
 ```yml
 debug: false
 ```
-> 1、这个功能默认关闭并不在配置文件中，需要手动填写  
-> 2、把`debug: true`复制进`config.yml`即可启用
+1. 这个功能默认关闭并不在配置文件中，需要手动填写  
+2. 把`debug: true`复制进`config.yml`即可启用
 ## **[server.yml](../src/main/resources/server.yml)**
 > **服务器相关变量配置文件**
 ```yml
@@ -31,18 +31,18 @@ TPS:
   high_value: 15
   high_color: "§a"
 ```
-> **1、```color```设置显示的颜色，```low```、```medium```、```high```为显示的范围**  
-> **2、```value```是一个范围值，```medium```、```high```为可设置的范围值，```low```值只能为```0```**
+1. ```color```设置显示的颜色，```low```、```medium```、```high```为显示的范围 
+2. ```value```是一个范围值，```medium```、```high```为可设置的范围值，```low```值只能为```0```
 ## **[player.yml](../src/main/resources/player.yml)**
 > **玩家相关变量配置文件**
 ```yml
 Device:
   OS:
-    Android: "安卓"
-    iOS: "苹果"
-    macOS: "苹果但是电脑"
-    Fire_OS: "Fire_OS"
-    Gear_VR: "Gear_VR"
+    Android: "Android"
+    iOS: "iOS"
+    macOS: "macOS"
+    Fire_OS: "Fire OS"
+    Gear_VR: "Gear VR"
     HoloLens: "HoloLens"
     Windows_10: "Windows 10"
     Windows: "Windows"
@@ -51,13 +51,19 @@ Device:
     PlayStation: "PlayStation"
     Switch: "Switch"
     Xbox: "Xbox"
-    Windows_Phone: "windows但是手机"
+    Windows_Phone: "Windows Phone"
+  Controls:
+    Keyboard: Keyboard
+    Touch: Touch
+    pad: pad
+    motion_controller: motion_controller
   UIProfile:
     classic: "classic ui"
     pocket: "pocket ui"
 ```
-> 1、**```OS```玩家的设备系统**  
-> 2、**```UIProfile```玩家的设备UI**
+- **```OS```玩家的设备系统**  
+- **```Controls```获取玩家设备的操作方式**
+- **```UIProfile```玩家的设备UI**
 ```yml
 ping:
   low_color: "§a"
@@ -79,6 +85,6 @@ Food:
   high_value: 15
   high_color: "§a{0}§7/§a{1}"
 ```
-> **1、```color```设置显示的颜色，```low```、```medium```、```high```为显示的范围**  
-> **2、```value```是一个范围值，```medium```、```high```为可设置的范围值，```low```值只能为```0```**  
-> **3、```symbols```是用来设置分割符号的，例如: ```HP: 20/20```**
+1. ```color```设置显示的颜色，```low```、```medium```、```high```为显示的范围  
+1. ```value```是一个范围值，```medium```、```high```为可设置的范围值，```low```值只能为```0```
+1. ```symbols```是用来设置分割符号的，例如: ```HP: 20/20```

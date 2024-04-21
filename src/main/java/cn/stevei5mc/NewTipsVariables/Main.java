@@ -3,14 +3,13 @@ package cn.stevei5mc.NewTipsVariables;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.plugin.PluginManager;
 import tip.utils.Api;
-import cn.stevei5mc.NewTipsVariables.variables.tipsText;
-import cn.stevei5mc.NewTipsVariables.variables.tipsServer;
-import cn.stevei5mc.NewTipsVariables.variables.tipsPlayer;
-import cn.stevei5mc.NewTipsVariables.variables.tipsPlayerConfig;
-import cn.stevei5mc.NewTipsVariables.variables.tipsServerConfig;
+import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.loadSupportPlugins;
 import cn.nukkit.Player;
 import cn.nukkit.utils.Config;
+import cn.stevei5mc.NewTipsVariables.command.NewTipsVariablesCommand;
+import cn.stevei5mc.NewTipsVariables.utils.configUtils;
+import cn.nukkit.Server;
 
 public class Main extends PluginBase {
     public static Player player;
@@ -20,6 +19,12 @@ public class Main extends PluginBase {
     private Config configInPlayer;
     private Config worldName;
     private Config language;
+    public static boolean debug = false;
+    //定义配置文件的一些信息
+    public static int config1Version = 1; //config.yml
+    public static int config2Version = 1; //player.yml
+    public static int config3Version = 1; //server.yml
+    
     public static Main getInstance() {
         return instance;
     }
@@ -34,13 +39,15 @@ public class Main extends PluginBase {
         //判断需要的前置插件是否存在
         if (this.getServer().getPluginManager().getPlugin("Tips") != null) {
             //存在则加载该插件
+            this.getServer().getCommandMap().register("", new NewTipsVariablesCommand());//注册命令
+            configUtils.configUtils();
             this.deBugMode();//用于加载debug信息
             this.tipsvariables();//加载变量部分
             this.loadover();//加载完成显示的内容
         } else {
             //不存在作为卸载该插件
             this.getLogger().warning("§c未检测到前置插件§aTips§c，请安装§aTips§c再试!!!");
-            this.getLogger().warning("§b下载地址: §ehttps://ci.lanink.cn/job/Tips/");
+            this.getLogger().warning("§b下载地址: §ehttps://motci.cn/job/Tips/");
             this.onDisable();
         }
     }
@@ -77,17 +84,13 @@ public class Main extends PluginBase {
     public void deBugMode() {
         boolean deBug = this.config.getBoolean("debug", false); //这个功能默认关闭,不在config.yml中,需手动加上
         if (deBug) {
-            String debugPerfix = "§7[§cDEBUG§7] ";
-            this.getLogger().warning(debugPerfix + "§cdebug模式已开启");
+            debug = true;
+            this.getLogger().warning("§7[§cDEBUG§7] §cdebug模式已开启");
         }
     }
 
     public void tipsvariables() {
-        Api.registerVariables("tipsText", tipsText.class);
-        Api.registerVariables("tipsServer", tipsServer.class);
-        Api.registerVariables("tipsPlayer", tipsPlayer.class);
-        Api.registerVariables("tipsPlayerConfig", tipsPlayerConfig.class);
-        Api.registerVariables("tipsServerConfig", tipsServerConfig.class);
+        Api.registerVariables("BaseVariables", BaseVariables.class);
         loadSupportPlugins.loadSupportVariables(player);
     }
 
@@ -112,5 +115,11 @@ public class Main extends PluginBase {
     }
     public Config getLanguage() {
         return this.language;
+    }
+
+    //重载配置
+    public void reload() {
+        loadConfigRes();
+        configUtils.configUtils();
     }
 }

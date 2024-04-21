@@ -1,5 +1,13 @@
 name: NewTipsVariables
 main: cn.stevei5mc.NewTipsVariables.Main
-version: '1.0.0-beta7'
+version: '1.0.0-beta8'
 author: stevei5mc
 api: ["1.0.14"]
+
+permissions:
+  newtipsariables.admin:
+    description: "NewTipsVariables插件管理员权限"
+    default: op
+  newtipsariables.admin.reload:
+    description: "NewTipsVariables插件重载权限"
+    default: op

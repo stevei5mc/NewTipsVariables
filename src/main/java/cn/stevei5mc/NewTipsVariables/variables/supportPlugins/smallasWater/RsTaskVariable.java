@@ -26,7 +26,6 @@ public class RsTaskVariable extends BaseVariable {
               taskName = task.getTaskName();
            }
         }
-
         this.addStrReplaceString("{task-name}", taskName);
         this.addStrReplaceString("{task-count}", file.getCount() + "");
     }

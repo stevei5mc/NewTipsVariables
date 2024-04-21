@@ -1,4 +1,4 @@
-变量名           变量说明
+﻿变量名           变量说明
 玩家相关的变量:
 {XUID}           获取玩家的xuid
 {Player-Ui}      获取玩家客户端使用的UI
@@ -12,6 +12,9 @@
 {Player-Health}  玩家当前的血量
 {Player-World}   获取玩家所在的世界(需在world_name.yml配置)
 {Player-Controls}  获取玩家设备的操作方式
+{Player-Yaw}      获取玩家的Yaw值
+{Player-Pitch}    获取玩家的Pitch值
+{Player-HeadYaw}  获取玩家的HeadYaw值
 服务器相关变量:
 {Server-Ip}       获取服务器IP
 {Server-Tps}      获取服务器当前TPS

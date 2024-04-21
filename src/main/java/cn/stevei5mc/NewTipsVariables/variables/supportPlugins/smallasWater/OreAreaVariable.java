@@ -62,7 +62,6 @@ public class OreAreaVariable extends BaseVariable {
                         time = "§c未解锁矿区";
                     }
                 }
-
             }
             if(AreaMainClass.timer.containsKey(areaClass.getName())) {
                 reset = String.valueOf(AreaMainClass.timer.get(areaClass.getName()));
