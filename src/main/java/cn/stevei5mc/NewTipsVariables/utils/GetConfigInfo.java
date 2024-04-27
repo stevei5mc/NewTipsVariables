@@ -24,7 +24,7 @@ public class GetConfigInfo {
         return serverTps;
     }
     //获取玩家所在的世界名
-        public static String getPlayerWorld(Player player) {
+    public static String getPlayerWorld(Player player) {
         String worldName = player.getLevel().getFolderName();
         String levelName = Main.getInstance().getWorldName().getString(worldName);
         String unknownWorld = Main.getInstance().getLanguage().getString("Unknown_World").replace("{0}", worldName);
