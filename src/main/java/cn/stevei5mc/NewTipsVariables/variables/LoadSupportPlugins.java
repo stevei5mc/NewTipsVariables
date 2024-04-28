@@ -1,4 +1,4 @@
-package cn.stevei5mc.NewTipsVariables.variables.supportPlugins;
+package cn.stevei5mc.NewTipsVariables.variables;
 
 import tip.utils.Api;
 import cn.nukkit.Server;
@@ -12,7 +12,8 @@ import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.Healt
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.LevelAwakenSystemVariable;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.smallasWater.RSWeaponVariable;
 
-public class loadSupportPlugins{
+public class LoadSupportPlugins{
+    public static boolean pl5 = false;
     //加载相关插件的变量时的提示
     public static String debugPerfix = "§7[§cDEBUG§7] ";
     public static String successMsg = debugPerfix+"§a找到插件§e【§b{0}§e】§a相关变量已加载";
@@ -55,6 +56,7 @@ public class loadSupportPlugins{
         plugin = "HealthAPI";
         if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
             Api.registerVariables("HealthAPIVariable", HealthAPIVariable.class);
+            pl5 = true;
             if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
         } else if (debug) {
             Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));

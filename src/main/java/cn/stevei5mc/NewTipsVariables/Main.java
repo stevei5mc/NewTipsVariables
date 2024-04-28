@@ -4,7 +4,7 @@ import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.plugin.PluginManager;
 import tip.utils.Api;
 import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
-import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.loadSupportPlugins;
+import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
 import cn.nukkit.Player;
 import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.command.NewTipsVariablesCommand;
@@ -91,7 +91,7 @@ public class Main extends PluginBase {
 
     public void tipsvariables() {
         Api.registerVariables("BaseVariables", BaseVariables.class);
-        loadSupportPlugins.loadSupportVariables(player);
+        LoadSupportPlugins.loadSupportVariables(player);
     }
 
     public void loadover() {
