@@ -8,7 +8,7 @@ import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
 import cn.nukkit.Player;
 import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.command.NewTipsVariablesCommand;
-import cn.stevei5mc.NewTipsVariables.utils.configUtils;
+import cn.stevei5mc.NewTipsVariables.utils.ConfigUtils;
 import cn.nukkit.Server;
 
 public class Main extends PluginBase {
@@ -20,10 +20,6 @@ public class Main extends PluginBase {
     private Config worldName;
     private Config language;
     public static boolean debug = false;
-    //定义配置文件的一些信息
-    public static int config1Version = 1; //config.yml
-    public static int config2Version = 1; //player.yml
-    public static int config3Version = 1; //server.yml
     
     public static Main getInstance() {
         return instance;
@@ -40,7 +36,6 @@ public class Main extends PluginBase {
         if (this.getServer().getPluginManager().getPlugin("Tips") != null) {
             //存在则加载该插件
             this.getServer().getCommandMap().register("", new NewTipsVariablesCommand());//注册命令
-            configUtils.configUtils();
             this.deBugMode();//用于加载debug信息
             this.tipsvariables();//加载变量部分
             this.loadover();//加载完成显示的内容
@@ -69,6 +64,7 @@ public class Main extends PluginBase {
         this.configInPlayer = new Config(this.getDataFolder() + "/player.yml", Config.YAML);
         this.worldName = new Config(this.getDataFolder() + "/world_name.yml", Config.YAML);
         this.language = new Config(this.getDataFolder() + "/language.yml", Config.YAML);
+        ConfigUtils.checkConfig();
     }
 
     public void loadVarRes() {
@@ -120,6 +116,5 @@ public class Main extends PluginBase {
     //重载配置
     public void reload() {
         loadConfigRes();
-        configUtils.configUtils();
     }
 }
