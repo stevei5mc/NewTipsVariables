@@ -10,6 +10,9 @@
 ## **[config.yml](../src/main/resources/config.yml)**
 **主配置文件**
 ```yml
+#使用说明:
+#https://github.com/stevei5mc/NewTipsVariables/blob/main/README.md
+#https://gitee.com/stevei5mc/NewTipsVariables/blob/main/README.md
 #配置文件版本，勿动
 version: 1
 # 更新功能(这个功能展示没有用)
@@ -29,14 +32,19 @@ save-variables-doc: true
 debug: false
 ```
 1. `save-variables-doc` 该功能关闭后就算删除变量文档也不会生成新的变量文档
-2. `debug` 显示一些额外的信息
-![6](./image/debug.PNG)
-3. `updata -> in-config -> check` 配置文件版本检查
+2. `debug` 显示一些额外的信息  
+![6](./image/debug.PNG)  
+3. `updata -> in-config -> check` 配置文件版本检查  
 ![7](./image/check_config.PNG)
 ---
 ## **[server.yml](../src/main/resources/server.yml)**
-> **服务器相关变量配置文件**
+**服务器相关变量配置文件**
 ```yml
+#使用说明:
+#https://github.com/stevei5mc/NewTipsVariables/blob/main/README.md
+#https://gitee.com/stevei5mc/NewTipsVariables/blob/main/README.md
+#配置文件版本，勿动
+version: 1
 TPS:
   low_color: "§c"
   medium_value: 9
@@ -48,8 +56,13 @@ TPS:
 2. ```value```是一个范围值，```medium```、```high```为可设置的范围值，```low```值只能为```0```
 ---
 ## **[player.yml](../src/main/resources/player.yml)**
-> **玩家相关变量配置文件**
+**玩家相关变量配置文件**
 ```yml
+#使用说明:
+#https://github.com/stevei5mc/NewTipsVariables/blob/main/README.md
+#https://gitee.com/stevei5mc/NewTipsVariables/blob/main/README.md
+#配置文件版本，勿动
+version: 1
 Device:
   OS:
     Android: "Android"
@@ -74,11 +87,6 @@ Device:
   UIProfile:
     classic: "classic ui"
     pocket: "pocket ui"
-```
-- **```OS```玩家的设备系统**  
-- **```Controls```获取玩家设备的操作方式**
-- **```UIProfile```玩家的设备UI**
-```yml
 ping:
   low_color: "§a"
   medium_value: 80
@@ -94,12 +102,17 @@ HP:
 Food:
   empty_color: "§7{0}/{1}"
   low_color: "§c{0}§7/§c{1}"
-  medium_value: 9 
+  medium_value: 9
   medium_color: "§e{0}§7/§e{1}"
   high_value: 15
   high_color: "§a{0}§7/§a{1}"
 ```
-1. ```color```设置显示的颜色，```low```、```medium```、```high```为显示的范围  
-1. ```value```是一个范围值，```medium```、```high```为可设置的范围值，```low```值只能为```0```
-1. ```symbols```是用来设置分割符号的，例如: ```HP: 20/20```
+1. `color`设置显示的颜色，`low`、`medium`、`high`为显示的范围  
+2. `value`是一个范围值，`medium`、`high` 为可设置的范围值，`empty`值只能为`0`，`low`值只能为`0`或`1`
+- **`Device -> OS`玩家的设备系统**  
+- **`Device -> Controls`获取玩家设备的操作方式**
+- **`Device -> UIProfile`玩家的设备UI**
+- **`ping` 玩家的延迟**
+- **`HP`  玩家的血量**
+- **`Food` 玩家的饥饿值**
 ---

@@ -36,8 +36,7 @@ public class SmallasWaterPlugins extends BaseVariable {
             RsTask(); 
         }
         if (LoadSupportPlugins.pl4) {
-            OreAreaVarPlayer();
-            OreAreaVarArea();
+            OreArea();
         }
         if (LoadSupportPlugins.pl5) {
             HealthAPI();
@@ -49,13 +48,14 @@ public class SmallasWaterPlugins extends BaseVariable {
             LevelAwakenSystem();
         }
     }
-
+/**
+ * @author SmallasWater
+ */
     public void playerPoint() {
-        addStrReplaceString("{point}", String.format("%.2f", Point.myPoint(player))); //这个代码的是复制TipsVeriable的
+        addStrReplaceString("{point}", String.format("%.2f", Point.myPoint(player)));
     }
 
     public void RsTask() {
-        //这个代码的是复制TipsVeriable的
         PlayerFile file = PlayerFile.getPlayerFile(this.player.getName());
         LinkedList<PlayerTask> tasks = file.getInviteTasks();
         String taskName = "暂无";
@@ -69,15 +69,11 @@ public class SmallasWaterPlugins extends BaseVariable {
         this.addStrReplaceString("{task-count}", file.getCount() + "");
     }
 
-    public void OreAreaVarPlayer() {
-        //这个代码的是复制TipsVeriable的
+    public void OreArea() {
         PlayerClass playerClass = PlayerClass.getPlayerClass(player.getName());
         addStrReplaceString("{orearea-level-this}", playerClass.getMaxAreaLevel() + "");
         addStrReplaceString("{orearea-level-next}", playerClass.getMaxAreaLevel() + 1 + "");
-    }
-
-    //参考(复制但有改动) https://github.com/SmallasWater/OreArea/blob/master/src/main/java/ore/area/utils/OreAreaVariable.java
-    public void OreAreaVarArea() {
+        //参考(复制但有改动) https://github.com/SmallasWater/OreArea/blob/master/src/main/java/ore/area/utils/OreAreaVariable.java
         AreaClass areaClass = Tools.getDefaultArea(player, 2);
         String time = "§c不在范围，无法获取可使用时间";
         String reset = "§c不在范围,无法获取刷新时间";
@@ -97,7 +93,6 @@ public class SmallasWaterPlugins extends BaseVariable {
                 if(!areaClass.isKey()){
                     time = "§c未开启";
                 }else{
-                    PlayerClass playerClass = PlayerClass.getPlayerClass(player.getName());
                     if(playerClass.canKey(areaClass.getName())) {
                         if(areaClass.getUseTime() == -1) {
                             time = "§7无时限";
