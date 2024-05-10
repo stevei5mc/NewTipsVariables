@@ -21,7 +21,6 @@ public class ConfigUtils {
             } else {
                 Main.getInstance().getLogger().info("§aconfig.yml 版本是最新版");
             }
-            
             if (cpvl > cpvt) {
                 Main.getInstance().getLogger().warning("§eplayer.yml 版本不是最新版");
             } else if (cpvl < cpvt) {
@@ -29,7 +28,6 @@ public class ConfigUtils {
             } else {
                 Main.getInstance().getLogger().info("§aplayer.yml 版本是最新版");
             }
-
             if (csvt > csvt) {
                 Main.getInstance().getLogger().warning("§eserver.yml 版本不是最新版");
             } else if (csvt < csvt) {

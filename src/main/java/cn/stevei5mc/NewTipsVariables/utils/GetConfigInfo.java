@@ -52,7 +52,7 @@ public class GetConfigInfo {
                 playerMS = playerPingMediumColor + pingValue;
         }else {
             playerMS = playerPingLowColor + pingValue;
-        }      
+        }
         return playerMS;
     }
     //获取玩家的生命值状态

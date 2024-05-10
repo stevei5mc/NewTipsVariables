@@ -1,7 +1,6 @@
 package cn.stevei5mc.NewTipsVariables;
 
 import cn.nukkit.plugin.PluginBase;
-import cn.nukkit.plugin.PluginManager;
 import tip.utils.Api;
 import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
 import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
@@ -20,17 +19,17 @@ public class Main extends PluginBase {
     private Config worldName;
     private Config language;
     public static boolean debug = false;
-    
+
     public static Main getInstance() {
         return instance;
     }
-    
+
     public void onLoad() {
         instance = this;
         this.loadConfigRes();//加载配置文件
         this.loadVarRes();//加载变量文档
     }
-    
+
     public void onEnable() {
         //判断需要的前置插件是否存在
         if (this.getServer().getPluginManager().getPlugin("Tips") != null) {
@@ -48,12 +47,11 @@ public class Main extends PluginBase {
     }
 
     public void onDisable() {
-        this.getLogger().info("停止运行");
-        this.getLogger().info("§6感谢你的使用");
+        this.getLogger().info("已停止运行，感谢你的使用");
     }
 
     public void loadConfigRes() {
-        this.getDataFolder().mkdirs(); //创建插件文件夹
+        this.getDataFolder().mkdirs();
         this.saveDefaultConfig();
         this.saveResource("server.yml",false);
         this.saveResource("player.yml",false);
@@ -92,8 +90,7 @@ public class Main extends PluginBase {
 
     public void loadover() {
         this.getLogger().info("§a变量加载完成");
-        this.getLogger().warning("§c警告:");
-        this.getLogger().warning("§c本插件为免费且开源的一款插件，如果你是付费获取到的那么你就被骗了");
+        this.getLogger().warning("§c警告! §c本插件为免费且开源的一款插件，如果你是付费获取到的那么你就被骗了");
         this.getLogger().info("§a开源链接和使用方法: §bhttps://github.com/stevei5mc/NewTipsVariables");
     }
     
