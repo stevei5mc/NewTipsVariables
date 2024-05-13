@@ -65,6 +65,11 @@
 |{c}|玩家穿透|
 |{饰品}|玩家当前装备的饰品|
 |{pvp}|玩家PVP 状态 (暂时不可用)|
+### **[LuckPerms](https://luckperms.net/)**
+|变量名|变量介绍|
+|:-:|:-:|
+|{LuckPerms-prefix}|获取玩家的prefix(前缀)|
+|{LuckPerms-suffix}|获取玩家的suffix(后缀)|
 ---
 <!-- ## M
 ---

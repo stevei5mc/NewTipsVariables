@@ -6,6 +6,9 @@ import cn.nukkit.Player;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.economyApiVariable;
 import cn.stevei5mc.NewTipsVariables.Main;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.SmallasWaterPlugins;
+import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.LuckPermsVar;
+import net.luckperms.api.LuckPerms;
+import net.luckperms.api.LuckPermsProvider;
 
 public class LoadSupportPlugins{
     public static boolean pl1 = false;
@@ -15,16 +18,15 @@ public class LoadSupportPlugins{
     public static boolean pl6 = false;
     public static boolean pl7 = false;
     //加载相关插件的变量时的提示
-    public static String debugPerfix = "§7[§cDEBUG§7] ";
-    public static String successMsg = debugPerfix+"§a找到插件§e【§b{0}§e】§a相关变量已加载";
-    public static String failureMsg = debugPerfix+"§c无法找到插件§e【§b{0}§e】§c相关变量加载失败,请安装相关插件再试";
+    public static String perfix = "§7[§cDEBUG§7] ";
+    public static String successMsg = perfix+"§a找到插件§e【§b{0}§e】§a相关变量已加载";
+    public static String failureMsg = perfix+"§c无法找到插件§e【§b{0}§e】§c相关变量加载失败,请安装相关插件再试";
+    //需要加载的变量的插件
     public static void loadSupportVariables(Player player) {
         boolean debug = Main.debug;
         String plugin;
-        //需要加载的变量的插件
         plugin = "playerPoints";
         if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
-            //存在
             pl1 = true;
             if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
         } else if (debug) {
@@ -73,5 +75,12 @@ public class LoadSupportPlugins{
             Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
         }
         Api.registerVariables("SmallasWaterPlugins", SmallasWaterPlugins.class);
+        plugin = "LuckPerms";
+        if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
+            Api.registerVariables("LuckPermsVar", LuckPermsVar.class);
+            if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
+        } else if (debug) {
+            Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
+        }
     }
 }
