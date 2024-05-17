@@ -7,8 +7,6 @@ import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.economyApiVariable
 import cn.stevei5mc.NewTipsVariables.Main;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.SmallasWaterPlugins;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.LuckPermsVar;
-import net.luckperms.api.LuckPerms;
-import net.luckperms.api.LuckPermsProvider;
 
 public class LoadSupportPlugins{
     public static boolean pl1 = false;
