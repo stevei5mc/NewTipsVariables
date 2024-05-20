@@ -16,9 +16,9 @@ public class LoadSupportPlugins{
     public static boolean pl6 = false;
     public static boolean pl7 = false;
     //加载相关插件的变量时的提示
-    public static String perfix = "§7[§cDEBUG§7] ";
-    public static String successMsg = perfix+"§a找到插件§e【§b{0}§e】§a相关变量已加载";
-    public static String failureMsg = perfix+"§c无法找到插件§e【§b{0}§e】§c相关变量加载失败,请安装相关插件再试";
+    public static String prefix = "§7[§cDEBUG§7] ";
+    public static String successMsg = prefix+"§a找到插件§e【§b{0}§e】§a相关变量已加载";
+    public static String failureMsg = prefix+"§c无法找到插件§e【§b{0}§e】§c相关变量加载失败,请安装相关插件再试";
     //需要加载的变量的插件
     public static void loadSupportVariables(Player player) {
         boolean debug = Main.debug;
