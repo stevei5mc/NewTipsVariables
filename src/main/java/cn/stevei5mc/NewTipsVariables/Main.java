@@ -11,6 +11,7 @@ import cn.stevei5mc.NewTipsVariables.utils.ConfigUtils;
 import cn.nukkit.Server;
 
 public class Main extends PluginBase {
+    public static String debugPrefix = "§7[§cDEBUG§7] ";
     public static Player player;
     private static Main instance;
     private Config config;
@@ -35,9 +36,6 @@ public class Main extends PluginBase {
         if (this.getServer().getPluginManager().getPlugin("Tips") != null) {
             //存在则加载该插件
             this.getServer().getCommandMap().register("", new NewTipsVariablesCommand());//注册命令
-            if (config.getBoolean("debug", false)) {//从config.yml中获取debug为true则执行相关内容，如果无法获取则为false
-                this.deBugMode();
-            }
             this.tipsvariables();//加载变量部分
             this.loadover();//加载完成显示的内容
         } else {
@@ -64,7 +62,10 @@ public class Main extends PluginBase {
         this.configInPlayer = new Config(this.getDataFolder() + "/player.yml", Config.YAML);
         this.worldName = new Config(this.getDataFolder() + "/world_name.yml", Config.YAML);
         this.language = new Config(this.getDataFolder() + "/language.yml", Config.YAML);
-        if (config.getBoolean("updata.in-config.check")) {//从config.yml中获取debug为true则执行相关内容
+        if (config.getBoolean("debug", false)) {//从config.yml中获取debug为true则执行相关内容，如果无法获取则为false
+            this.deBugMode();
+        }
+        if (config.getBoolean("updata.in-config.check")) {//从config.yml中获取updata.in-config.check为true则执行相关内容
             ConfigUtils.checkVersion();
         }
     }
@@ -81,7 +82,7 @@ public class Main extends PluginBase {
 
     public void deBugMode() {
         debug = true;
-        this.getLogger().warning("§7[§cDEBUG§7] §cdebug模式已开启");
+        this.getLogger().warning(debugPrefix + "§cdebug模式已开启");
     }
 
     public void tipsvariables() {

@@ -19,9 +19,14 @@ public class ConfigUtils {
     }  
 
     public static void runCheck(String name, int latestVersion, int currentVersion) {
-        Main.getInstance().getLogger().info(name + " §aversion: "+ currentVersion);
+        String current = String.valueOf(currentVersion);
         if (currentVersion == 0) {
             currentVersion = 114514;//防止有人误把配置文件中的version配置项，如果无法获取数据则输入一个最大数
+            current = "null";
+        }
+        if (Main.debug) {
+            String msg = Main.debugPrefix + "{0} 当前版本: {1} 最新版本：{2}";
+            Main.getInstance().getLogger().info(msg.replace("{0}",name).replace("{1}",current).replace("{2}",String.valueOf(latestVersion)));//这个到时候再搞
         }
         if (currentVersion == latestVersion) {
             Main.getInstance().getLogger().info(name + " §a版本是最新版");
