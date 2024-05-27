@@ -71,9 +71,7 @@ public class Main extends PluginBase {
     }
 
     public void loadVarRes() {
-        boolean saveVariablesDoc = this.config.getBoolean("save-variables-doc");
-        if (saveVariablesDoc) {
-            //为true时就每次都加载最新的变量信息
+        if (config.getBoolean("save-variables-doc")) {//获取配置为true时就每次都加载最新的变量文档，为false则不会更新就算把变量文档删除了也不会更新
             this.saveResource("base-variables.txt",true);
             this.saveResource("SupportPluginsVariables.txt",true);
             this.getLogger().info("§a变量说明文件加载成功");
