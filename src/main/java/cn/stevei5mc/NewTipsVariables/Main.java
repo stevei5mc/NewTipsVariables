@@ -62,8 +62,10 @@ public class Main extends PluginBase {
         this.configInPlayer = new Config(this.getDataFolder() + "/player.yml", Config.YAML);
         this.worldName = new Config(this.getDataFolder() + "/world_name.yml", Config.YAML);
         this.language = new Config(this.getDataFolder() + "/language.yml", Config.YAML);
+        debug = false; //这个防止出现关闭debug功能reload配置文件后还需要重启服务器的问题
         if (config.getBoolean("debug", false)) {//从config.yml中获取debug为true则执行相关内容，如果无法获取则为false
-            this.deBugMode();
+            debug = true;
+            this.getLogger().warning(debugPrefix + "§cdebug模式已开启");
         }
         if (config.getBoolean("updata.in-config.check")) {//从config.yml中获取updata.in-config.check为true则执行相关内容
             ConfigUtils.checkVersion();
@@ -76,11 +78,6 @@ public class Main extends PluginBase {
             this.saveResource("SupportPluginsVariables.txt",true);
             this.getLogger().info("§a变量说明文件加载成功");
         }
-    }
-
-    public void deBugMode() {
-        debug = true;
-        this.getLogger().warning(debugPrefix + "§cdebug模式已开启");
     }
 
     public void tipsvariables() {
