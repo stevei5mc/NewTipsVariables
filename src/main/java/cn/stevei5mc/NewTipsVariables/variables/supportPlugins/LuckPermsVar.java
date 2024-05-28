@@ -19,15 +19,21 @@ public class LuckPermsVar extends BaseVariable {
         User user = LuckPermsProvider.get().getUserManager().getUser(player.getUniqueId());
         String pf = "";
         String sf = "";
+        String gp = "";
         String pfx = user.getCachedData().getMetaData().getPrefix();
         String sfx = user.getCachedData().getMetaData().getSuffix();
+        String gup = user.getPrimaryGroup();
         if (pfx != null) {
             pf = pfx;
         }
         if (sfx != null) {
             sf = sfx;
         }
+        if (gup != null) {
+            gp = gup;
+        }
         addStrReplaceString("{LuckPerms-prefix}", pf);
         addStrReplaceString("{LuckPerms-suffix}", sf);
+        addStrReplaceString("{LuckPerms-group}", gp);
     }
 }

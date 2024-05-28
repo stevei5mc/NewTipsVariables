@@ -11,43 +11,22 @@
 ](./SupportPluginsVariables.md)
 # **变量文档(支持的插件)**
 ---
-> **按插件的英文字母排序**  
-> **TipsVeriable 相关变量移值中,部分变量名有改动**
-
-<!-- ## A
+- **按插件的英文字母排序**  
+- **TipsVeriable 相关变量移值中,部分变量名有改动**
 ---
-## B
----
-## C
----
-## D
---- -->
-## **E**
-### **[EconomyAPI](https://github.com/Nukkit-coders/EconomyAPI)**
+## **[EconomyAPI](https://github.com/Nukkit-coders/EconomyAPI)**
 |变量名|变量介绍|
 |:-:|:-:|
 |{economyApi-money}|玩家金钱数量|
 ---
-<!-- ## F
----
-## G
---- -->
-## **H**
-### **[HealthAPI](https://github.com/SmallasWater/HealthAPI)**
+## **[HealthAPI](https://github.com/SmallasWater/HealthAPI)**
 |变量名|变量介绍|
 |:-:|:-:|
 |{h}|玩家血量|
 |{mh}|玩家血量上限|
 |{hb}|玩家血量百分比|
 ---
-<!-- ## I
----
-## J
----
-## K
---- -->
-## **L**
-### **[LevelAwakenSystem](https://github.com/SmallasWater/LevelAwakenSystem)**
+## **[LevelAwakenSystem](https://github.com/SmallasWater/LevelAwakenSystem)**
 |变量名|变量介绍|
 |:-:|:-:|
 |{属性}|玩家的RPG属性|
@@ -65,18 +44,14 @@
 |{c}|玩家穿透|
 |{饰品}|玩家当前装备的饰品|
 |{pvp}|玩家PVP 状态 (暂时不可用)|
-### **[LuckPerms](https://luckperms.net/)**
+## **[LuckPerms](https://luckperms.net/)**
 |变量名|变量介绍|
 |:-:|:-:|
 |{LuckPerms-prefix}|获取玩家的prefix(前缀)|
 |{LuckPerms-suffix}|获取玩家的suffix(后缀)|
+|{LuckPerms-group}|获取玩家所在的权限组|
 ---
-<!-- ## M
----
-## N
---- -->
-## **O**
-### **[OreArea](https://github.com/SmallasWater/OreArea)**
+## **[OreArea](https://github.com/SmallasWater/OreArea)**
 **注意: 变量`{orearea-time-use}`在有限时的矿区会有BUG(到秒就不动了)**
 |变量名|变量介绍|
 |:-:|:-:|
@@ -86,21 +61,18 @@
 |{orearea-time-reset}|获取玩家所在的刷新时间|
 |{orearea-name}|获取玩家所在的矿区等级|
 ---
-## **P**
-### **[playerPoints](https://github.com/SmallasWater/PlayerPoints)**
+## **[playerPoints](https://github.com/SmallasWater/PlayerPoints)**
 |变量名|变量介绍|
 |:-:|:-:|
 |{point}|获取玩家的点券数量|
 ---
-<!-- ## Q
---- -->
-## R
-### **[RsTask](https://github.com/MemoriesOfTime/RSTask)**
+## **[RsTask](https://github.com/MemoriesOfTime/RSTask)**
 |变量名|变量介绍|
 |:-:|:-:|
 |{task-name}|正在进行中的任务 (显示第一个)|
 |{task-count}|玩家任务积分|
-### **[RsWeapon](https://github.com/SmallasWater/RsWeapon)**
+---
+## **[RsWeapon](https://github.com/SmallasWater/RsWeapon)**
 |变量名|变量介绍|
 |:-:|:-:|
 |{武器名称}|玩家手持武器的名称|
@@ -120,19 +92,3 @@
 |{we-dkick}|玩家盔甲抗击退值|
 |{we-todamage}|玩家盔甲反伤百分比|
 ---
-<!-- ## S
----
-## T
----
-## U
----
-## V
----
-## W
----
-## X
----
-## Y
----
-## Z
---- -->
