@@ -8,9 +8,9 @@ public class ConfigUtils {
     public static int cpvl = 1; //player.yml
     public static int csvl = 1; //server.yml
     //获取配置文件当前的版本号
-    public static int ccvt = Main.getInstance().getConfig().getInt("version"); //config.yml
-    public static int cpvt = Main.getInstance().getConfigInPlayer().getInt("version"); //player.yml
-    public static int csvt = Main.getInstance().getConfigInServer().getInt("version"); //server.yml
+    public static int ccvt = Main.getInstance().getConfig().getInt("version",0); //config.yml
+    public static int cpvt = Main.getInstance().getConfigInPlayer().getInt("version",0); //player.yml
+    public static int csvt = Main.getInstance().getConfigInServer().getInt("version",0); //server.yml
 
     public static void checkVersion() {
         runCheck("config.yml", ccvl, ccvt);
