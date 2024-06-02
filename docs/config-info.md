@@ -26,7 +26,7 @@ updata:
   in-config:
     #检查更新
     check: false
-    #自动更新(需开启检查更新但暂时没有用)
+    #自动更新(需开启检查更新)
     auto: false
 # 是否释放新的变量说明文档
 save-variables-doc: true
@@ -35,7 +35,8 @@ debug: false
 1. `save-variables-doc` 该功能关闭后就算删除变量文档也不会生成新的变量文档
 2. `debug` 显示一些额外的信息  
 ![6](./image/debug.PNG)  
-3. `updata -> in-config -> check` 配置文件版本检查  
+3. `updata -> in-config -> check` 配置文件版本检查
+4. `updata -> in-config -> auto` 配置文件自动更新(需开启检查更新)**注意： 开启后配置文件将强制更新不会保留原来的配置**  
 ![7](./image/check_config.PNG)
 ---
 ## **[server.yml](../src/main/resources/server.yml)**

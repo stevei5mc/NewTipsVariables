@@ -12,6 +12,7 @@ import cn.nukkit.Server;
 
 public class Main extends PluginBase {
     public static String debugPrefix = "§7[§cDEBUG§7] ";
+    public static String updataPrefix = "§7[§cUPDATA§7] ";
     public static Player player;
     private static Main instance;
     private Config config;
