@@ -30,6 +30,9 @@ public class Main extends PluginBase {
         instance = this;
         this.loadConfigRes();//加载配置文件
         this.loadVarRes();//加载变量文档
+        if (config.getBoolean("updata.in-config.check")) {//从config.yml中获取updata.in-config.check为true则执行相关内容
+            ConfigUtils.checkVersion();
+        }
     }
 
     public void onEnable() {
@@ -67,9 +70,6 @@ public class Main extends PluginBase {
         if (config.getBoolean("debug", false)) {//从config.yml中获取debug为true则执行相关内容，如果无法获取则为false
             debug = true;
             this.getLogger().warning(debugPrefix + "§cdebug模式已开启");
-        }
-        if (config.getBoolean("updata.in-config.check")) {//从config.yml中获取updata.in-config.check为true则执行相关内容
-            ConfigUtils.checkVersion();
         }
     }
 
