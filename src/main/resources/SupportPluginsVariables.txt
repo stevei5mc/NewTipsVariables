@@ -4,12 +4,10 @@ NewTipsVariables(变量文档)
 
 EconomyAPI
 {economyApi-money} 玩家金钱数量
-
 HealthAPI
 {h}   玩家血量
 {mh}  玩家血量上限
 {hb}  玩家血量百分比
-
 LevelAwakenSystem
 {属性}    玩家的RPG属性
 {天赋}    玩家评分
@@ -26,7 +24,10 @@ LevelAwakenSystem
 {c}       玩家穿透
 {饰品}    玩家当前装备的饰品
 {pvp}     玩家PVP 状态 (暂时不可用)
-
+LuckPerms
+{LuckPerms-prefix}    获取玩家的prefix(前缀)
+{LuckPerms-suffix}    获取玩家的suffix(后缀)
+{LuckPerms-group}     获取玩家所在的权限组
 OreArea
 {orearea-level-this}   获取玩家的矿区等级
 {orearea-level-next}   获取玩家的矿区下一等级
@@ -35,7 +36,6 @@ OreArea
 {orearea-name}         获取玩家所在的矿区等级
 playerPoints
 {point}  获取玩家的点券数量
-
 RsTask
 {task-name}       正在进行中的任务 (显示第一个)
 {task-count}      玩家任务积分

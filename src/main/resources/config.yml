@@ -11,8 +11,10 @@ updata:
     #自动更新(需开启检查更新但暂时没有用)
     auto: false
   in-config:
-    check: false
+    #检查更新
+    check: true
     #自动更新(需开启检查更新但暂时没有用)
     auto: false
 # 是否释放新的变量说明文档
 save-variables-doc: true
+debug: false

@@ -3,6 +3,9 @@ package cn.stevei5mc.NewTipsVariables.utils;
 import cn.stevei5mc.NewTipsVariables.Main;
 import cn.nukkit.Player;
 import cn.nukkit.Server;
+import healthapi.PlayerHealth;
+import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
+
 public class GetConfigInfo {
     //获取服务器TPS
     public static String getServerTps(Player player) {
@@ -24,7 +27,7 @@ public class GetConfigInfo {
         return serverTps;
     }
     //获取玩家所在的世界名
-        public static String getPlayerWorld(Player player) {
+    public static String getPlayerWorld(Player player) {
         String worldName = player.getLevel().getFolderName();
         String levelName = Main.getInstance().getWorldName().getString(worldName);
         String unknownWorld = Main.getInstance().getLanguage().getString("Unknown_World").replace("{0}", worldName);
@@ -49,7 +52,7 @@ public class GetConfigInfo {
                 playerMS = playerPingMediumColor + pingValue;
         }else {
             playerMS = playerPingLowColor + pingValue;
-        }      
+        }
         return playerMS;
     }
     //获取玩家的生命值状态
@@ -60,9 +63,19 @@ public class GetConfigInfo {
         int playerHealthHgihValue = Main.getInstance().getConfigInPlayer().getInt("HP.high_value");//hgih值
         String playerHealthHgihColor = Main.getInstance().getConfigInPlayer().getString("HP.high_color");
         String playerHealth;
-        float healthValue = player.getHealth();
-        String healthValue2 = String.valueOf(healthValue);
-        String healthMaxValue = String.valueOf(player.getMaxHealth());
+        double healthValue;
+        String healthValue2;
+        String healthMaxValue;
+        if (LoadSupportPlugins.pl5) {
+            PlayerHealth health = PlayerHealth.getPlayerHealth(player);
+            healthValue = health.getHealth();
+            healthValue2 = String.valueOf(healthValue);
+            healthMaxValue = String.valueOf(health.getMaxHealth());
+        }else {
+            healthValue = player.getHealth();
+            healthValue2 = String.valueOf(healthValue);
+            healthMaxValue = String.valueOf(player.getMaxHealth());
+        }
         //low=1
         if (healthValue >= playerHealthHgihValue) {
             playerHealth = playerHealthHgihColor.replace("{0}",healthValue2).replace("{1}",healthMaxValue);
