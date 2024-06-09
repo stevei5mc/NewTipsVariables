@@ -1,0 +1,48 @@
+name: PR Approve
+on:
+  workflow_dispatch:
+    inputs:
+      PR_ID:
+        description: 需要批准的PR ID
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 获取信息
+      id: get_info
+      run: |
+        echo "repository_name=${GITHUB_REPOSITORY/${{ github.repository_owner }}\//}" >> $GITHUB_OUTPUT
+    - name: 拉取代码
+      uses: actions/checkout@v4.1.6
+    # 必须先执行一次checkout才能执行这个
+    - name: 拉取代码(批准PR专用)
+      run: |
+        ls -la
+        gh pr checkout ${{ inputs.PR_ID }}
+        ls -la
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: 安装java8
+      uses: actions/setup-java@v4.2.1
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
+    - name: 构建
+      run: |
+        mvn -B package --file pom.xml
+        mkdir staging && cp target/*.jar staging
+    - name: 批准PR
+      if: inputs.run_type == '批准PR'
+      uses: hmarr/auto-approve-action@v4.0.0
+      with:
+        pull-request-number: ${{ inputs.PR_ID }}
+        review-message: |
+          编译已通过，批准通过
+          如果有新的提交则取消本次批准
+    - name: 收集构建文件
+      uses: actions/upload-artifactv@v4.3.3
+      with:
+        name: ${{ steps.get_info.outputs.repository_name }}-${{ steps.get_info.outputs.run_type_en }}-Build-${{ github.run_number}}
+        path: staging

@@ -18,13 +18,24 @@
 |:-:|:-:|:-:|:-:|
 |/newtipsariables|newtipsariables.admin|主命令|OP|
 |/newtipsariables reload|newtipsariables.admin.reload|重载配置文件|OP|
-### **变量介绍**
-**[文字相关变量][i2] [玩家相关变量][i3] [服务器相关变量][i4] [支持的插件][i1]**
+### **变量介绍文档**
+- **[文字相关变量][i2]**
+- **[玩家相关变量][i3]**
+- **[服务器相关变量][i4]**
+- **[支持的插件][i1]**
 ### **[配置文件使用说明][i5]**
+### **配置文件版本号**
+|名称|config.yml|player.yml|server.yml|
+|:-:|:-:|:-:|:-:|
+|版本号|1|1|1|
 ## **使用方法**
 1. **将插件放进`plugins`文件夹**  
 2. **需确保安装[Tips](https://motci.cn/job/Tips/)插件后重启服务器**  
 3. **在`./plugins/NewTipsVariables`文件夹中的`.txt`文件获取相关变量介绍，也可在本页面获取相关的变量介绍**  
+## **注意事项及建议**
+1. **不建议开启配置文件的自动更新，如果开启后配置文件有更新会覆盖式更新就会导致原有的配置丢失**
+2. **预计发布beta10之后如果没有问题发布正式版该版本，有问题或者需求请及时提出[issue](https://github.com/stevei5mc/NewTipsVariables/issues)**
+3. **建议备份好已经配置好的配置文件以备不时之需**
 
 [i1]: ./docs/SupportPluginsVariables.md "点击查看变量文档"
 [i2]: ./docs/text-variables.md "点击查看变量文档"
