@@ -42,7 +42,7 @@ jobs:
           编译已通过，批准通过
           如果有新的提交则取消本次批准
     - name: 收集构建文件
-      uses: actions/upload-artifactv@v4.3.3
+      uses: actions/upload-artifact@v4.3.3
       with:
         name: ${{ steps.get_info.outputs.repository_name }}-${{ steps.get_info.outputs.run_type_en }}-Build-${{ github.run_number}}
         path: staging
