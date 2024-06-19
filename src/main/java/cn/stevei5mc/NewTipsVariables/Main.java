@@ -92,6 +92,7 @@ public class Main extends PluginBase {
         this.getLogger().info("§a开源链接和使用方法: §bhttps://github.com/stevei5mc/NewTipsVariables");
     }
     
+    //这些都是用在非主类获取配置文件信息用的
     public Config getConfig() {
         return this.config;
     }

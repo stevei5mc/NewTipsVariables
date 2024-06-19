@@ -1,4 +1,4 @@
-package cn.stevei5mc.NewTipsVariables.command.newTipsVariables;
+package cn.stevei5mc.NewTipsVariables.command.sub;
 
 import cn.stevei5mc.NewTipsVariables.command.BaseSubCommand;
 import cn.nukkit.command.CommandSender;

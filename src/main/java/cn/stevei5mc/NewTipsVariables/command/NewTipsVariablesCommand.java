@@ -1,6 +1,6 @@
 package cn.stevei5mc.NewTipsVariables.command;
 
-import cn.stevei5mc.NewTipsVariables.command.newTipsVariables.ReloadCommand;
+import cn.stevei5mc.NewTipsVariables.command.sub.ReloadCommand;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 

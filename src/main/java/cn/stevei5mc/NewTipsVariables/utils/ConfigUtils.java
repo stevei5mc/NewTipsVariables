@@ -20,6 +20,7 @@ public class ConfigUtils {
 
     }  
 
+    //执行版本检查
     public static void runCheck(String name, int latestVersion, int currentVersion) {
         String current = String.valueOf(currentVersion);
         if (currentVersion == 0) {
@@ -41,6 +42,7 @@ public class ConfigUtils {
         }
     }
 
+    //执行更新操作
     private static void runUpdata(String name) {
         if (Main.getInstance().getConfig().getBoolean("updata.in-config.auto")) {
             Main.getInstance().saveResource(name,true);
