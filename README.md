@@ -11,8 +11,8 @@
 - **该插件可以为Tips提供更多的变量内容**  
 - **目前该插件正处于`beta`测试阶段如果有问题请及时提交[issues](https://github.com/stevei5mc/NewTipsVariables/issues)**  
 - **如果你有开发能力可以为其提供[PR](https://github.com/stevei5mc/NewTipsVariables/pulls)来增加更多变量或修复问题**
-### **支持下列插件的**
-**[EconomyAPI][i1] [HealthAPI][i1] [LevelAwakenSystem][i1] [OreArea][i1] [playerPoints][i1] [RsTask][i1] [RsWeapon][i1]** 
+### **[支持下列插件](./docs/SupportPluginsVariables.md "点击查看变量文档")**
+**EconomyAPI HealthAPI LevelAwakenSystem OreArea playerPoints RsTask RsWeapon LuckPerms** 
 ### **命令与权限节点**
 |命令|权限节点|权限介绍|默认权限|
 |:-:|:-:|:-:|:-:|
@@ -22,9 +22,8 @@
 - **[文字相关变量][i2]**
 - **[玩家相关变量][i3]**
 - **[服务器相关变量][i4]**
-- **[支持的插件][i1]**
-### **[配置文件使用说明][i5]**
-### **配置文件版本号**
+- **[支持下列插件](./docs/SupportPluginsVariables.md "点击查看变量文档")**
+### **[配置文件使用说明及版本号][i5]**
 |名称|config.yml|player.yml|server.yml|
 |:-:|:-:|:-:|:-:|
 |版本号|1|1|1|
@@ -37,7 +36,6 @@
 2. **预计发布beta10之后如果没有问题发布正式版该版本，有问题或者需求请及时提出[issue](https://github.com/stevei5mc/NewTipsVariables/issues)**
 3. **建议备份好已经配置好的配置文件以备不时之需**
 
-[i1]: ./docs/SupportPluginsVariables.md "点击查看变量文档"
 [i2]: ./docs/text-variables.md "点击查看变量文档"
 [i3]: ./docs/player-variables.md "点击查看变量文档"
 [i4]: ./docs/server-variables.md "点击查看变量文档"
