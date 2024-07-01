@@ -41,8 +41,9 @@ public class Main extends PluginBase {
             //存在则加载该插件
             this.getServer().getCommandMap().register("", new NewTipsVariablesCommand());//注册命令
             this.tipsvariables();//加载变量部分
+            this.getLogger().info("§a变量加载完成");
             Server.getInstance().getScheduler().scheduleDelayedTask(this, () -> {
-                this.getLogger().info("§a变量加载完成");
+                ConfigUtils.reloadConfig();
                 this.getLogger().warning("§c警告! §c本插件为免费且开源的一款插件，如果你是付费获取到的那么你就被骗了");
                 this.getLogger().info("§a开源链接和使用方法: §bhttps://github.com/stevei5mc/NewTipsVariables");
             },20);
@@ -88,10 +89,6 @@ public class Main extends PluginBase {
     public void tipsvariables() {
         Api.registerVariables("BaseVariables", BaseVariables.class);
         LoadSupportPlugins.loadSupportVariables(player);
-    }
-
-    public void loadover() {
-
     }
     
     //这些都是用在非主类获取配置文件信息用的
