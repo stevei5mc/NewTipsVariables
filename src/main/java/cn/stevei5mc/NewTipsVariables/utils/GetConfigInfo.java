@@ -49,7 +49,7 @@ public class GetConfigInfo {
         if (pingValue >= playerPingHgihValue) {
             playerMS = playerPingHgihColor + pingValue;
         }else if (pingValue >= playerPingMediumValue) {
-                playerMS = playerPingMediumColor + pingValue;
+            playerMS = playerPingMediumColor + pingValue;
         }else {
             playerMS = playerPingLowColor + pingValue;
         }

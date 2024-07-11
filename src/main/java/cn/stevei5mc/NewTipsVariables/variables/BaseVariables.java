@@ -47,12 +47,9 @@ public class BaseVariables extends BaseVariable {
         addStrReplaceString("{XUID}", String.valueOf(player.getLoginChainData().getXUID()));
         addStrReplaceString("{Player-Lang}", player.getLoginChainData().getLanguageCode());
         addStrReplaceString("{Player-Uuid}", String.valueOf(player.getLoginChainData().getClientUUID()));
-        int yaw = (int) player.getYaw();
-        addStrReplaceString("{Player-Yaw}",String.valueOf(yaw));
-        int pitch = (int) player.getPitch();
-        addStrReplaceString("{Player-Pitch}",String.valueOf(pitch));
-        int headYaw = (int) player.getHeadYaw();
-        addStrReplaceString("{Player-HeadYaw}",String.valueOf(headYaw));
+        addStrReplaceString("{Player-Yaw}",String.valueOf((int) player.getYaw()));
+        addStrReplaceString("{Player-Pitch}",String.valueOf((int) player.getPitch()));
+        addStrReplaceString("{Player-HeadYaw}",String.valueOf((int) player.getHeadYaw()));
         addStrReplaceString("{Player-World}", GetConfigInfo.getPlayerWorld(player));
         addStrReplaceString("{Player-Ping}", GetConfigInfo.getPlayerPing(player));
         addStrReplaceString("{Player-Health}", GetConfigInfo.getPlayerHealth(player));

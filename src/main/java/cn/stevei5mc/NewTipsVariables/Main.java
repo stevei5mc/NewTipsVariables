@@ -90,7 +90,7 @@ public class Main extends PluginBase {
         Api.registerVariables("BaseVariables", BaseVariables.class);
         LoadSupportPlugins.loadSupportVariables(player);
     }
-    
+
     //这些都是用在非主类获取配置文件信息用的
     public Config getConfig() {
         return this.config;
