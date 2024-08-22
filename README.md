@@ -28,9 +28,11 @@
 |:-:|:-:|:-:|:-:|
 |版本号|1|1|1|
 ## **使用方法**
-1. **将插件放进`plugins`文件夹**  
-2. **需确保安装[Tips](https://motci.cn/job/Tips/)插件后重启服务器**  
-3. **在`./plugins/NewTipsVariables`文件夹中的`.txt`文件获取相关变量介绍，也可在本页面获取相关的变量介绍**  
+|使用步骤|使用说明|
+|:-:|:-|
+|1|将插件放进`plugins`文件夹|
+|2|确保安装前置插件[Tips](https://motci.cn/job/Tips/)后重启（启动）服务器|
+|3|在`./plugins/NewTipsVariables`文件夹中的`.txt`文件获取相关变量介绍，也可在本页面获取相关的变量介绍就可以在Tips中使用同时也可以在支持Tips变量的插件中使用|
 ## **注意事项及建议**
 1. **不建议开启配置文件的自动更新，如果开启后配置文件有更新会覆盖式更新就会导致原有的配置丢失**
 2. **预计发布beta10之后如果没有问题发布正式版该版本，有问题或者需求请及时提出[issue](https://github.com/stevei5mc/NewTipsVariables/issues)**

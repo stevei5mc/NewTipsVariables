@@ -5,6 +5,7 @@ import cn.nukkit.Player;
 import cn.nukkit.Server;
 import healthapi.PlayerHealth;
 import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
+import cn.nukkit.utils.Config;
 
 public class GetConfigInfo {
     /**
@@ -36,12 +37,23 @@ public class GetConfigInfo {
     */
     public static String getPlayerWorld(Player player) {
         String worldName = player.getLevel().getFolderName();
-        String levelName = Main.getInstance().getWorldName().getString(worldName);
+        String levelName = getWorldName(worldName); // 使用我们的新方法获取世界名
         String unknownWorld = Main.getInstance().getLanguage().getString("Unknown_World").replace("{0}", worldName);
         if (levelName == "") {
             levelName = unknownWorld;
         }
         return levelName;
+    }
+
+    private static String getWorldName(String worldName) {
+        Config worldConfig = Main.getInstance().getWorldName();
+        // 遍历所有配置项，寻找匹配的世界名
+        for (String key : worldConfig.getKeys()) {
+            if (worldName.matches(key.replace("*", ".*"))) { // 使用正则表达式处理通配符
+                return worldConfig.getString(key);
+            }
+        }
+        return ""; // 如果没有找到匹配的世界名，返回空字符串
     }
 
     /**
