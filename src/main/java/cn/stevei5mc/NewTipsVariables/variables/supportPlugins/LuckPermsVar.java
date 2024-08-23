@@ -2,12 +2,14 @@ package cn.stevei5mc.NewTipsVariables.variables.supportPlugins;
 
 import cn.nukkit.Player;
 import tip.utils.variables.BaseVariable;
+import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.model.user.User;
-import net.luckperms.api.LuckPermsProvider;
+import net.luckperms.api.model.group.Group;
+import java.util.OptionalInt;
 
 public class LuckPermsVar extends BaseVariable {
-    public LuckPerms luckperms;
+    public static LuckPerms luckperms = LoadSupportPlugins.getLP();
     public LuckPermsVar(Player player) {
         super(player);
     }
@@ -16,24 +18,26 @@ public class LuckPermsVar extends BaseVariable {
     }
 
     public void lpvar() {
-        User user = LuckPermsProvider.get().getUserManager().getUser(player.getUniqueId());
+        User user = luckperms.getUserManager().getUser(player.getUniqueId());
         String pf = "";
         String sf = "";
         String gp = "";
-        String pfx = user.getCachedData().getMetaData().getPrefix();
-        String sfx = user.getCachedData().getMetaData().getSuffix();
-        String gup = user.getPrimaryGroup();
-        if (pfx != null) {
-            pf = pfx;
+        if (user.getCachedData().getMetaData().getPrefix() != null) {
+            pf = user.getCachedData().getMetaData().getPrefix();
         }
-        if (sfx != null) {
-            sf = sfx;
+        if (user.getCachedData().getMetaData().getSuffix() != null) {
+            sf = user.getCachedData().getMetaData().getSuffix();
         }
-        if (gup != null) {
-            gp = gup;
+        if (user.getPrimaryGroup() != null) {
+            gp = user.getPrimaryGroup();
         }
+        Group group = luckperms.getGroupManager().getGroup(user.getPrimaryGroup());
+        OptionalInt weight = group.getWeight();
+        int weight2 = weight.orElse(0);
+        
         addStrReplaceString("{LuckPerms-prefix}", pf);
         addStrReplaceString("{LuckPerms-suffix}", sf);
         addStrReplaceString("{LuckPerms-group}", gp);
+        addStrReplaceString("{LuckPerms-group-weight}", String.valueOf(weight2));
     }
 }

@@ -7,8 +7,15 @@ import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.economyApiVariable
 import cn.stevei5mc.NewTipsVariables.Main;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.SmallasWaterPlugins;
 import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.LuckPermsVar;
+import net.luckperms.api.LuckPerms;
+import net.luckperms.api.LuckPermsProvider;
 
 public class LoadSupportPlugins{
+    private static LuckPerms luckperms;
+    public static LuckPerms getLP() {
+        return luckperms;
+    }
+
     public static boolean pl1 = false;
     public static boolean pl3 = false;
     public static boolean pl4 = false;
@@ -74,6 +81,7 @@ public class LoadSupportPlugins{
         Api.registerVariables("SmallasWaterPlugins", SmallasWaterPlugins.class);
         plugin = "LuckPerms";
         if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
+            luckperms = LuckPermsProvider.get();
             Api.registerVariables("LuckPermsVar", LuckPermsVar.class);
             if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
         } else if (debug) {

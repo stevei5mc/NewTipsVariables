@@ -45,6 +45,7 @@
 |{饰品}|玩家当前装备的饰品|
 |{pvp}|玩家PVP 状态 (暂时不可用)|
 ## **[LuckPerms](https://luckperms.net/)**
+- **LuckPerms相关变量名请以该文档为准，仅有部分变量名跟官方给出的变量名一至**
 |变量名|变量介绍|
 |:-:|:-:|
 |{LuckPerms-prefix}|获取玩家的prefix(前缀)|
