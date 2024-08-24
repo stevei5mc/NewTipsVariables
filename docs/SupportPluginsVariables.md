@@ -1,6 +1,4 @@
 [![0](https://img.shields.io/badge/%3C%3D-%E8%BF%94%E5%9B%9E-a?style=plastic&color=yellow)](.././README.md)
-[![1](https://img.shields.io/badge/doc-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E-a?style=plastic&color=blue)
-](./config-info.md)
 [![2](https://img.shields.io/badge/%E5%8F%98%E9%87%8F-%E6%96%87%E5%AD%97%E7%9B%B8%E5%85%B3-a?style=plastic&color=blue)
 ](./text-variables.md)
 [![3](https://img.shields.io/badge/%E5%8F%98%E9%87%8F-%E7%8E%A9%E5%AE%B6%E7%9B%B8%E5%85%B3-a?style=plastic&color=blue)
@@ -51,6 +49,8 @@
 |{LuckPerms-prefix}|获取玩家的prefix(前缀)|
 |{LuckPerms-suffix}|获取玩家的suffix(后缀)|
 |{LuckPerms-group}|获取玩家所在的权限组|
+|{LuckPerms-group-weight}|获取所在的权限组的权重|
+
 ---
 ## **[OreArea](https://github.com/SmallasWater/OreArea)**
 **注意: 变量`{orearea-time-use}`在有限时的矿区会有BUG(到秒就不动了)**

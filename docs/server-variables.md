@@ -1,5 +1,4 @@
 [![0](https://img.shields.io/badge/%3C%3D-%E8%BF%94%E5%9B%9E-a?style=plastic&color=yellow)](.././README.md)
-[![1](https://img.shields.io/badge/doc-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E-a?style=plastic&color=blue)](./config-info.md)
 [![2](https://img.shields.io/badge/%E5%8F%98%E9%87%8F-%E6%96%87%E5%AD%97%E7%9B%B8%E5%85%B3-a?style=plastic&color=blue)](./text-variables.md)
 [![3](https://img.shields.io/badge/%E5%8F%98%E9%87%8F-%E7%8E%A9%E5%AE%B6%E7%9B%B8%E5%85%B3-a?style=plastic&color=blue)](./player-variables.md)
 [![4](https://img.shields.io/badge/%E5%8F%98%E9%87%8F-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%B8%E5%85%B3-a?style=plastic)](./server-variables.md)
