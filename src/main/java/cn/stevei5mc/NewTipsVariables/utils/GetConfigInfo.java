@@ -32,8 +32,8 @@ public class GetConfigInfo {
     }
 
     /**
-     * 获取玩家所在的世界名
-     * @return 玩家所在的世界名
+     * 获取玩家所在的世界的世界名
+     * @return 玩家所在的世界的世界名
     */
     public static String getPlayerWorld(Player player) {
         String worldName = player.getLevel().getFolderName();
@@ -45,15 +45,15 @@ public class GetConfigInfo {
         return levelName;
     }
 
+    //获取玩家所在的世界的世界名(这部分代码是用来处理通配符的)
     private static String getWorldName(String worldName) {
         Config worldConfig = Main.getInstance().getWorldName();
-        // 遍历所有配置项，寻找匹配的世界名
         for (String key : worldConfig.getKeys()) {
             if (worldName.matches(key.replace("*", ".*"))) { // 使用正则表达式处理通配符
                 return worldConfig.getString(key);
             }
         }
-        return ""; // 如果没有找到匹配的世界名，返回空字符串
+        return "";
     }
 
     /**

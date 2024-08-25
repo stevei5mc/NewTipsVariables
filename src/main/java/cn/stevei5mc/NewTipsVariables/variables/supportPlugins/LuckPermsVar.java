@@ -19,6 +19,8 @@ public class LuckPermsVar extends BaseVariable {
 
     public void lpvar() {
         User user = luckperms.getUserManager().getUser(player.getUniqueId());
+        Group group = luckperms.getGroupManager().getGroup(user.getPrimaryGroup());
+
         String pf = "";
         String sf = "";
         String gp = "";
@@ -31,7 +33,6 @@ public class LuckPermsVar extends BaseVariable {
         if (user.getPrimaryGroup() != null) {
             gp = user.getPrimaryGroup();
         }
-        Group group = luckperms.getGroupManager().getGroup(user.getPrimaryGroup());
         OptionalInt weight = group.getWeight();
         int weight2 = weight.orElse(0);
         

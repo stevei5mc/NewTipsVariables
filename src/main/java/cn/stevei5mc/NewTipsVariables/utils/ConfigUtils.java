@@ -37,15 +37,15 @@ public class ConfigUtils {
             main.getLogger().info(name + " §a版本是最新版");
         } else if (currentVersion < latestVersion) {
             main.getLogger().warning(name + " §e版本不是最新版, 请及时更新配置文件，如果开启自动更新可以无视该消息");
-            runUpdata(name);
+            //runUpdata(name);
         } else {
             main.getLogger().error(name + " §c版本出现了错误，需要修复配置文件，如果开启自动更新可以无视该消息");
-            runUpdata(name);
+            resetConfig(name);
         }
     }
 
-    //执行更新操作
-    private static void runUpdata(String name) {
+    //重置配置文件
+    private static void resetConfig(String name) {
         if (main.getConfig().getBoolean("updata.in-config.auto")) {
             main.saveResource(name,true);
             main.getLogger().info(Main.updataPrefix + name + " §a更新成功");
