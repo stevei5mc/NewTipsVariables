@@ -6,6 +6,7 @@ import cn.nukkit.Server;
 import healthapi.PlayerHealth;
 import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
 import cn.nukkit.utils.Config;
+import cn.stevei5mc.NewTipsVariables.utils.PluginsState;
 
 public class GetConfigInfo {
     /**
@@ -93,7 +94,7 @@ public class GetConfigInfo {
         double healthValue;
         String healthValue2;
         String healthMaxValue;
-        if (LoadSupportPlugins.pl5) {
+        if (PluginsState.getInstance().healthAPI) {
             PlayerHealth health = PlayerHealth.getPlayerHealth(player);
             healthValue = health.getHealth();
             healthValue2 = String.valueOf(healthValue);

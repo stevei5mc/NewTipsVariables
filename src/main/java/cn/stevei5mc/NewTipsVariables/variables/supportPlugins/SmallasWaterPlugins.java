@@ -34,19 +34,19 @@ public class SmallasWaterPlugins extends BaseVariable {
         if (ps.playerPoints) {
             playerPoint();
         }
-        if (ps.RsTask) {
+        if (ps.rSTask) {
             RsTask(); 
         }
-        if (ps.OreArea) {
+        if (ps.oreArea) {
             OreArea();
         }
-        if (ps.HealthAPI) {
+        if (ps.healthAPI) {
             HealthAPI();
         }
-        if (ps.RSWeapon) {
+        if (ps.rSWeapon) {
             RSWeapon();
         }
-        if (ps.LevelAwakenSystem) {
+        if (ps.levelAwakenSystem) {
             LevelAwakenSystem();
         }
     }
