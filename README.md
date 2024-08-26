@@ -160,4 +160,3 @@ Food:
 [i2]: ./docs/text-variables.md "点击查看变量文档"
 [i3]: ./docs/player-variables.md "点击查看变量文档"
 [i4]: ./docs/server-variables.md "点击查看变量文档"
-[i5]: ./docs/config-info.md "点击查看配置文件相关介绍"

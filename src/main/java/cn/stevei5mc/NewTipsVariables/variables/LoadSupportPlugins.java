@@ -16,18 +16,13 @@ public class LoadSupportPlugins{
         return luckperms;
     }
 
-    public static boolean pl1 = false;
-    public static boolean pl3 = false;
-    public static boolean pl4 = false;
-    public static boolean pl5 = false;
-    public static boolean pl6 = false;
-    public static boolean pl7 = false;
     //加载相关插件的变量时的提示
     public static String successMsg = Main.debugPrefix+"§a找到插件§e【§b{0}§e】§a相关变量已加载";
     public static String failureMsg = Main.debugPrefix+"§c无法找到插件§e【§b{0}§e】§c相关变量加载失败,请安装相关插件再试";
+    
     //需要加载的变量的插件
     public static void loadSupportVariables(Player player) {
-        boolean debug = Main.debug;
+        /* boolean debug = Main.debug;
         String plugin;
         plugin = "playerPoints";
         if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
@@ -87,5 +82,5 @@ public class LoadSupportPlugins{
         } else if (debug) {
             Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
         }
-    }
+    } */
 }
