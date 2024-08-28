@@ -9,5 +9,8 @@ permissions:
     description: "NewTipsVariables插件管理员权限"
     default: op
   newtipsariables.admin.reload:
-    description: "NewTipsVariables插件重载权限"
+    description: "插件重载权限"
+    default: op
+  newtipsariables.admin.checkstate:
+    description: "检查插件状态"
     default: op

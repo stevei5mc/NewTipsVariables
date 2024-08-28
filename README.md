@@ -18,6 +18,7 @@
 |:-:|:-:|:-:|:-:|
 |/newtipsariables|newtipsariables.admin|主命令|OP|
 |/newtipsariables reload|newtipsariables.admin.reload|重载配置文件|OP|
+|/newtipsariables checkstatus|newtipsariables.admin.checkstate|检查插件状态|OP|
 ### **变量介绍文档**
 - **[文字相关变量][i2]**
 - **[玩家相关变量][i3]**
