@@ -20,8 +20,9 @@ public class NewTipsVariablesCommand extends BaseCommand {
 
     @Override
     public void sendHelp(CommandSender sender) {
+        String cmdname = "§a/newtipsariables ";
         sender.sendMessage("§b=== NewTipsVariables ===");
-        sender.sendMessage("§a/newtipsariables reload §e重载配置文件");
-        sender.sendMessage("§a/newtipsariables checkstatus §e检查插件的状态");
+        sender.sendMessage(cmdname+"reload §e重载配置文件");
+        sender.sendMessage(cmdname+"checkstatus §e检查插件的状态");
     }
 }

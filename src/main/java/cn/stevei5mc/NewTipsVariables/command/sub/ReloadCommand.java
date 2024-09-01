@@ -4,9 +4,6 @@ import cn.stevei5mc.NewTipsVariables.command.BaseSubCommand;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.command.data.CommandParameter;
 
-/**
- * @author LT_Name
- */
 public class ReloadCommand extends BaseSubCommand {
 
     public ReloadCommand(String name) {

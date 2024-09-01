@@ -21,16 +21,14 @@ public class LoadSupportPlugins{
     //需要加载的变量的插件
     public static void loadSupportVariables(Player player) {
         PluginsState ps = PluginsState.getInstance();
-        String successMsg = Main.debugPrefix+"§a找到插件§e【§b{0}§e】§a相关变量已加载";
-        String failureMsg = Main.debugPrefix+"§c无法找到插件§e【§b{0}§e】§c相关变量加载失败,请安装相关插件再试";
         boolean debug = Main.debug;
         List<String> pluginList = Arrays.asList("playerPoints","EconomyAPI","OreArea","RSTask","HealthAPI","LevelAwakenSystem","RSWeapon","LuckPerms");
         for(String plugin: pluginList){
             if (Server.getInstance().getPluginManager().getPlugin(plugin) != null) {
                 ps.setPluginState(plugin);
-                if (debug) {Main.getInstance().getLogger().info(successMsg.replace("{0}",plugin));}
+                if (debug) {Main.getInstance().getLogger().info(Main.debugPrefix+"§a找到插件§e【§b"+plugin+"§e】§a相关变量已加载");}
             } else if (debug) {
-                Main.getInstance().getLogger().info(failureMsg.replace("{0}",plugin));
+                Main.getInstance().getLogger().info(Main.debugPrefix+"§a无法找到插件§e【§b"+plugin+"§e】§a相相关变量加载失败,请安装相关插件再试");
             }
         }
         Api.registerVariables("SmallasWaterPlugins", SmallasWaterPlugins.class);
