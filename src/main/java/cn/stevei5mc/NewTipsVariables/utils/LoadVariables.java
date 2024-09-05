@@ -1,25 +1,25 @@
-package cn.stevei5mc.NewTipsVariables.variables;
+package cn.stevei5mc.NewTipsVariables.utils;
 
 import tip.utils.Api;
 import cn.nukkit.Server;
 import cn.nukkit.Player;
-import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.economyApiVariable;
+import cn.stevei5mc.NewTipsVariables.variables.EconomyApiVariable;
 import cn.stevei5mc.NewTipsVariables.Main;
-import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.SmallasWaterPlugins;
-import cn.stevei5mc.NewTipsVariables.variables.supportPlugins.LuckPermsVar;
+import cn.stevei5mc.NewTipsVariables.variables.SmallasWaterPlugins;
+import cn.stevei5mc.NewTipsVariables.variables.LuckPermsVar;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import cn.stevei5mc.NewTipsVariables.utils.PluginsState;
 import java.util.*;
 
-public class LoadSupportPlugins{
+public class LoadVariables{
     private static LuckPerms luckperms;
     public static LuckPerms getLP() {
         return luckperms;
     }
     
     //需要加载的变量的插件
-    public static void loadSupportVariables(Player player) {
+    public static void pluginVariables() {
         PluginsState ps = PluginsState.getInstance();
         boolean debug = Main.debug;
         List<String> pluginList = Arrays.asList("playerPoints","EconomyAPI","OreArea","RSTask","HealthAPI","LevelAwakenSystem","RSWeapon","LuckPerms");
@@ -33,7 +33,7 @@ public class LoadSupportPlugins{
         }
         Api.registerVariables("SmallasWaterPlugins", SmallasWaterPlugins.class);
         if (ps.economyAPI) {
-            Api.registerVariables("economyApiVariable", economyApiVariable.class);
+            Api.registerVariables("EconomyApiVariable", EconomyApiVariable.class);
         }
         if (ps.luckPerms) {
             luckperms = LuckPermsProvider.get();

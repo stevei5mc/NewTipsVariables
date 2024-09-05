@@ -1,15 +1,15 @@
-package cn.stevei5mc.NewTipsVariables.variables.supportPlugins;
+package cn.stevei5mc.NewTipsVariables.variables;
 
 import cn.nukkit.Player;
 import tip.utils.variables.BaseVariable;
-import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
+import cn.stevei5mc.NewTipsVariables.utils.LoadVariables;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.model.group.Group;
 import java.util.OptionalInt;
 
 public class LuckPermsVar extends BaseVariable {
-    public static LuckPerms luckperms = LoadSupportPlugins.getLP();
+    public static LuckPerms luckperms = LoadVariables.getLP();
     public LuckPermsVar(Player player) {
         super(player);
     }

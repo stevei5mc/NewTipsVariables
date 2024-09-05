@@ -3,8 +3,7 @@ package cn.stevei5mc.NewTipsVariables;
 import cn.nukkit.plugin.PluginBase;
 import tip.utils.Api;
 import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
-import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
-import cn.nukkit.Player;
+import cn.stevei5mc.NewTipsVariables.utils.LoadVariables;
 import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.command.NewTipsVariablesCommand;
 import cn.stevei5mc.NewTipsVariables.utils.ConfigUtils;
@@ -13,7 +12,6 @@ import cn.nukkit.Server;
 public class Main extends PluginBase {
     public static String debugPrefix = "§7[§cDEBUG§7] ";
     public static String updataPrefix = "§7[§cUPDATA§7] ";
-    public static Player player;
     private static Main instance;
     private Config config;
     private Config configInServer;
@@ -88,7 +86,7 @@ public class Main extends PluginBase {
 
     public void tipsvariables() {
         Api.registerVariables("BaseVariables", BaseVariables.class);
-        LoadSupportPlugins.loadSupportVariables(player);
+        LoadVariables.pluginVariables();
     }
 
     //这些都是用在非主类获取配置文件信息用的

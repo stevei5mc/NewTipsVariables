@@ -4,7 +4,6 @@ import cn.stevei5mc.NewTipsVariables.Main;
 import cn.nukkit.Player;
 import cn.nukkit.Server;
 import healthapi.PlayerHealth;
-import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
 import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.utils.PluginsState;
 
