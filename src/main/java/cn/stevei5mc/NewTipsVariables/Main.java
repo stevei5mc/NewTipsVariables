@@ -8,6 +8,7 @@ import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.command.NewTipsVariablesCommand;
 import cn.stevei5mc.NewTipsVariables.utils.ConfigUtils;
 import cn.nukkit.Server;
+import cn.nukkit.plugin.Plugin;
 
 public class Main extends PluginBase {
     public static String debugPrefix = "§7[§cDEBUG§7] ";
@@ -44,6 +45,11 @@ public class Main extends PluginBase {
                 ConfigUtils.reloadConfig();
                 this.getLogger().warning("§c警告! §c本插件为免费且开源的一款插件，如果你是付费获取到的那么你就被骗了");
                 this.getLogger().info("§a开源链接和使用方法: §bhttps://github.com/stevei5mc/NewTipsVariables");
+                Plugin pl = getServer().getPluginManager().getPlugin("UnicodeVariables");
+                if (pl != null) {
+                    Server.getInstance().getPluginManager().disablePlugin(pl);
+                    getLogger().info("§c插件UnicodeVariables的功能已合并到本插件，插件UnicodeVariables不再接受维护，你可以将其删除掉来使用本插件的相关功能"); 
+                }
             },20);
         } else {
             //不存在作为卸载该插件
