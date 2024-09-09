@@ -37,13 +37,12 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
         bodyFile: ./docs/changelogs/${{ steps.get_info.outputs.VERSION }}.md
         artifacts: ./staging/*.*
-    # 这个暂时没有用
+    #这个暂时没有用
     # - name: 发布至minebbs
-    #   uses: HuoHuas001/Minebbs-Auto-Release@v1.0.6
+    #   uses: engsr6982/upload-minebbs@v1.2.0
     #   with: 
-    #     resources: '1'
-    #     token: ${{ secrets.MINEBBSKEY }}
-    #     title: ${{ steps.get_info.outputs.VERSION }}
-    #     new_version: ${{ steps.get_info.outputs.VERSION }}
-    #     description_file: ./docs/changelogs/${{ steps.get_info.outputs.VERSION }}.md
-    #     file_url: 'https://github.com/${{ github.repository }}/releases/latest'
+    #     minebbs_token: ${{ secrets.MINEBBS_TOKEN }}
+    #     resource_id: "12345"
+    #     upload_file: ./staging/*.*
+    #     update_title: ${{ steps.get_info.outputs.VERSION }}
+    #     update_version: ${{ steps.get_info.outputs.VERSION }}

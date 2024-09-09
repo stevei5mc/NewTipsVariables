@@ -28,6 +28,7 @@ LuckPerms
 {LuckPerms-prefix}    获取玩家的prefix(前缀)
 {LuckPerms-suffix}    获取玩家的suffix(后缀)
 {LuckPerms-group}     获取玩家所在的权限组
+{LuckPerms-group-weight}     获取所在的权限组的权重
 OreArea
 {orearea-level-this}   获取玩家的矿区等级
 {orearea-level-next}   获取玩家的矿区下一等级

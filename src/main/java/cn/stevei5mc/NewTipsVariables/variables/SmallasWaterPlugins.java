@@ -1,4 +1,4 @@
-package cn.stevei5mc.NewTipsVariables.variables.supportPlugins;
+package cn.stevei5mc.NewTipsVariables.variables;
 
 import cn.nukkit.Player;
 import tip.utils.variables.BaseVariable;
@@ -21,7 +21,7 @@ import AwakenSystem.data.DamageMath;
 import AwakenSystem.data.defaultAPI;
 import AwakenSystem.data.baseAPI;
 import AwakenSystem.utils.nbtItems;
-import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
+import cn.stevei5mc.NewTipsVariables.utils.PluginsState;
 
 public class SmallasWaterPlugins extends BaseVariable {
     public SmallasWaterPlugins(Player player) {
@@ -29,22 +29,23 @@ public class SmallasWaterPlugins extends BaseVariable {
     }
 
     public void strReplace() {
-        if (LoadSupportPlugins.pl1) {
+        PluginsState ps = PluginsState.getInstance();
+        if (ps.playerPoints) {
             playerPoint();
         }
-        if (LoadSupportPlugins.pl3) {
+        if (ps.rSTask) {
             RsTask(); 
         }
-        if (LoadSupportPlugins.pl4) {
+        if (ps.oreArea) {
             OreArea();
         }
-        if (LoadSupportPlugins.pl5) {
+        if (ps.healthAPI) {
             HealthAPI();
         }
-        if (LoadSupportPlugins.pl6) {
+        if (ps.rSWeapon) {
             RSWeapon();
         }
-        if (LoadSupportPlugins.pl7) {
+        if (ps.levelAwakenSystem) {
             LevelAwakenSystem();
         }
     }

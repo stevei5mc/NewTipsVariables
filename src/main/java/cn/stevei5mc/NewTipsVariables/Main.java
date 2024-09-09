@@ -3,17 +3,16 @@ package cn.stevei5mc.NewTipsVariables;
 import cn.nukkit.plugin.PluginBase;
 import tip.utils.Api;
 import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
-import cn.stevei5mc.NewTipsVariables.variables.LoadSupportPlugins;
-import cn.nukkit.Player;
+import cn.stevei5mc.NewTipsVariables.utils.LoadVariables;
 import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.command.NewTipsVariablesCommand;
 import cn.stevei5mc.NewTipsVariables.utils.ConfigUtils;
 import cn.nukkit.Server;
+import cn.nukkit.plugin.Plugin;
 
 public class Main extends PluginBase {
     public static String debugPrefix = "§7[§cDEBUG§7] ";
     public static String updataPrefix = "§7[§cUPDATA§7] ";
-    public static Player player;
     private static Main instance;
     private Config config;
     private Config configInServer;
@@ -41,7 +40,17 @@ public class Main extends PluginBase {
             //存在则加载该插件
             this.getServer().getCommandMap().register("", new NewTipsVariablesCommand());//注册命令
             this.tipsvariables();//加载变量部分
-            this.loadover();//加载完成显示的内容
+            this.getLogger().info("§a变量加载完成");
+            Server.getInstance().getScheduler().scheduleDelayedTask(this, () -> {
+                ConfigUtils.reloadConfig();
+                this.getLogger().warning("§c警告! §c本插件为免费且开源的一款插件，如果你是付费获取到的那么你就被骗了");
+                this.getLogger().info("§a开源链接和使用方法: §bhttps://github.com/stevei5mc/NewTipsVariables");
+                Plugin pl = getServer().getPluginManager().getPlugin("UnicodeVariables");
+                if (pl != null) {
+                    Server.getInstance().getPluginManager().disablePlugin(pl);
+                    getLogger().info("§c插件UnicodeVariables的功能已合并到本插件，插件UnicodeVariables不再接受维护，你可以将其删除掉来使用本插件的相关功能"); 
+                }
+            },20);
         } else {
             //不存在作为卸载该插件
             this.getLogger().warning("§c未检测到前置插件§aTips§c，请安装§aTips§c再试!!!");
@@ -83,15 +92,10 @@ public class Main extends PluginBase {
 
     public void tipsvariables() {
         Api.registerVariables("BaseVariables", BaseVariables.class);
-        LoadSupportPlugins.loadSupportVariables(player);
+        LoadVariables.pluginVariables();
     }
 
-    public void loadover() {
-        this.getLogger().info("§a变量加载完成");
-        this.getLogger().warning("§c警告! §c本插件为免费且开源的一款插件，如果你是付费获取到的那么你就被骗了");
-        this.getLogger().info("§a开源链接和使用方法: §bhttps://github.com/stevei5mc/NewTipsVariables");
-    }
-    
+    //这些都是用在非主类获取配置文件信息用的
     public Config getConfig() {
         return this.config;
     }

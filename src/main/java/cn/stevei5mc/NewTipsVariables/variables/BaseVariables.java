@@ -15,6 +15,7 @@ public class BaseVariables extends BaseVariable {
         text();
         player();
         server();
+        unicode();
     }
 
     public void text() {
@@ -47,12 +48,9 @@ public class BaseVariables extends BaseVariable {
         addStrReplaceString("{XUID}", String.valueOf(player.getLoginChainData().getXUID()));
         addStrReplaceString("{Player-Lang}", player.getLoginChainData().getLanguageCode());
         addStrReplaceString("{Player-Uuid}", String.valueOf(player.getLoginChainData().getClientUUID()));
-        int yaw = (int) player.getYaw();
-        addStrReplaceString("{Player-Yaw}",String.valueOf(yaw));
-        int pitch = (int) player.getPitch();
-        addStrReplaceString("{Player-Pitch}",String.valueOf(pitch));
-        int headYaw = (int) player.getHeadYaw();
-        addStrReplaceString("{Player-HeadYaw}",String.valueOf(headYaw));
+        addStrReplaceString("{Player-Yaw}",String.valueOf((int) player.getYaw()));
+        addStrReplaceString("{Player-Pitch}",String.valueOf((int) player.getPitch()));
+        addStrReplaceString("{Player-HeadYaw}",String.valueOf((int) player.getHeadYaw()));
         addStrReplaceString("{Player-World}", GetConfigInfo.getPlayerWorld(player));
         addStrReplaceString("{Player-Ping}", GetConfigInfo.getPlayerPing(player));
         addStrReplaceString("{Player-Health}", GetConfigInfo.getPlayerHealth(player));
@@ -72,5 +70,20 @@ public class BaseVariables extends BaseVariable {
             addStrReplaceString("{WorldOnline@"+ level.getFolderName() +"}", String.valueOf(level.getPlayers().size()));
         }
         addStrReplaceString("{Server-Tps}", GetConfigInfo.getServerTps(player));
+    }
+
+    public void unicode() {
+        String start = "\\ue000";
+        String end = "\\uf8ff";
+        //解析起始和结束的Unicode码点（code point），从字符串的第三个字符开始，以16进制进行解析。
+        int startCodePoint = Integer.parseInt(start.substring(3), 16);
+        int endCodePoint = Integer.parseInt(end.substring(3), 16);
+        //从起始码点遍历到结束码点。
+        for (int i = startCodePoint; i <= endCodePoint; i++) {
+            String hex = String.format("%04X", i);
+            String key = "{" + hex.toUpperCase() + "}"; //生成替换的键（将16进制数转换为大写并放在大括号内）
+            String value = "\\u" + hex.toLowerCase(); //生成替换的值（将16进制数转换为小写并加上Unicode转义前缀）
+            addStrReplaceString(key, value);
+        }
     }
 }
