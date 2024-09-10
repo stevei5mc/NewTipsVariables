@@ -154,3 +154,8 @@ Food:
 2. **预计1.0.0-beta10之后如果没有问题发布正式版该版本，有问题或者需求请及时提出[issue](https://github.com/stevei5mc/NewTipsVariables/issues)**
 3. **建议备份好已经配置好的配置文件以备不时之需**
 4. **1.0.0-beta10之后合并了[UnicodeVariables](https://github.com/stevei5mc/UnicodeVariables)插件的相关功能，更新至1.0.0-beta10就可以删除[UnicodeVariables](https://github.com/stevei5mc/UnicodeVariables)了**
+
+## **使用预览**
+|![1](docs/image/1.PNG)|![2](docs/image/2.JPG)|
+|-|-|
+|![3](docs/image/3.PNG)|![4](docs/image/4.JPG)|

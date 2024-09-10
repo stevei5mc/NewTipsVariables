@@ -1,4 +1,6 @@
 [![0](https://img.shields.io/badge/%3C%3D-%E8%BF%94%E5%9B%9E-a?style=plastic&color=yellow)](.././README.md)
+[![1](https://img.shields.io/badge/%E5%8F%98%E9%87%8F-%E5%9F%BA%E7%A1%80%E5%8F%98%E9%87%8F-%E5%95%8A?style=plastic&color=blue
+)](./base-variables.md)
 [![5](https://img.shields.io/badge/%E5%8F%98%E9%87%8F-%E6%94%AF%E6%8C%81%E7%9A%84%E6%8F%92%E4%BB%B6-a?style=plastic)
 ](./SupportPluginsVariables.md)
 # **变量文档(支持的插件)**
