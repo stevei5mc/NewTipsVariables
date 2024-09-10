@@ -29,24 +29,26 @@ public class SmallasWaterPlugins extends BaseVariable {
     }
 
     public void strReplace() {
-        PluginsState ps = PluginsState.getInstance();
-        if (ps.playerPoints) {
-            playerPoint();
-        }
-        if (ps.rSTask) {
-            RsTask(); 
-        }
-        if (ps.oreArea) {
-            OreArea();
-        }
-        if (ps.healthAPI) {
-            HealthAPI();
-        }
-        if (ps.rSWeapon) {
-            RSWeapon();
-        }
-        if (ps.levelAwakenSystem) {
-            LevelAwakenSystem();
+        if (player != null && player.isOnline()) {
+            PluginsState ps = PluginsState.getInstance();
+            if (ps.playerPoints) {
+                playerPoint();
+            }
+            if (ps.rSTask) {
+                RsTask(); 
+            }
+            if (ps.oreArea) {
+                OreArea();
+            }
+            if (ps.healthAPI) {
+                HealthAPI();
+            }
+            if (ps.rSWeapon) {
+                RSWeapon();
+            }
+            if (ps.levelAwakenSystem) {
+                LevelAwakenSystem();
+            }
         }
     }
 /**

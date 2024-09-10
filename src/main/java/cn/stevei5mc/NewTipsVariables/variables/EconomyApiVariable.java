@@ -10,7 +10,9 @@ public class EconomyApiVariable extends BaseVariable {
     }
 
     public void strReplace() {
-        economyApi();
+        if (player != null && player.isOnline()) {
+            economyApi();
+        }
     }
 
     public void economyApi() {

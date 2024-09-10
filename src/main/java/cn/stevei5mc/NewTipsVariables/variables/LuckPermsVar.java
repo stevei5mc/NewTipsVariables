@@ -14,7 +14,9 @@ public class LuckPermsVar extends BaseVariable {
         super(player);
     }
     public void strReplace() {
-        lpvar();
+        if (player != null && player.isOnline()) {
+            lpvar();
+        }
     }
 
     public void lpvar() {
