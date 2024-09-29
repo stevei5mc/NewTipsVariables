@@ -28,6 +28,7 @@ public class Main extends PluginBase {
     public void onLoad() {
         instance = this;
         this.loadConfigRes();//加载配置文件
+        this.saveConfig();
         this.loadVarRes();//加载变量文档
         if (config.getBoolean("updata.in-config.check")) {//从config.yml中获取updata.in-config.check为true则执行相关内容
             ConfigUtils.checkVersion();
@@ -63,13 +64,16 @@ public class Main extends PluginBase {
         this.getLogger().info("已停止运行，感谢你的使用");
     }
 
-    public void loadConfigRes() {
+    public void saveConfig() {
         this.getDataFolder().mkdirs();
         this.saveDefaultConfig();
         this.saveResource("server.yml",false);
         this.saveResource("player.yml",false);
         this.saveResource("world_name.yml",false);
         this.saveResource("language.yml",false);
+    }
+
+    public void loadConfigRes() {
         this.config = new Config(this.getDataFolder() + "/config.yml", Config.YAML);
         this.configInServer = new Config(this.getDataFolder() + "/server.yml", Config.YAML);
         this.configInPlayer = new Config(this.getDataFolder() + "/player.yml", Config.YAML);
