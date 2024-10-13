@@ -9,7 +9,7 @@
 ## **插件介绍**
 ### **前言**
 - **该插件可以为Tips提供更多的变量内容**  
-- **有问题请及时提交[issues](https://github.com/stevei5mc/NewTipsVariables/issues)**  
+- **有问题请及时提交[issues](https://github.com/stevei5mc/NewTipsVariables/issues)，如果有bug不反馈我怎知道并修复呢？**  
 - **如果你有开发能力可以为其提供[PR](https://github.com/stevei5mc/NewTipsVariables/pulls)来增加更多变量或修复问题**
 ### **命令与权限节点**
 |命令|权限节点|权限介绍|默认权限|
@@ -150,9 +150,9 @@ Food:
 |2|确保安装前置插件[Tips](https://motci.cn/job/Tips/)后重启（启动）服务器|
 |3|在`./plugins/NewTipsVariables`文件夹中的`.txt`文件获取相关变量介绍，也可在本页面获取相关的变量介绍就可以在Tips中使用同时也可以在支持Tips变量的插件中使用|
 ## **注意事项及建议**
-1. **请不要随意的改动配置文件的版本号，否则带来的后果一切自负**
+1. **请不要随意的改动配置文件的版本号，否则带来的后果一切自负！！！**
 2. **建议备份好已经配置好的配置文件以备不时之需**
-3. **1.0.0-beta10之后合并了[UnicodeVariables](https://github.com/stevei5mc/UnicodeVariables)插件的相关功能，更新至1.0.0-beta10就可以删除[UnicodeVariables](https://github.com/stevei5mc/UnicodeVariables)了**
+3. **1.0.0-beta10之后合并了[UnicodeVariables](https://github.com/stevei5mc/UnicodeVariables)插件的相关功能，更新至1.0.0-beta10及以上版本即可删除[UnicodeVariables](https://github.com/stevei5mc/UnicodeVariables)了**
 
 ## **使用预览**
 |![1](docs/image/1.PNG)|![2](docs/image/2.JPG)|
