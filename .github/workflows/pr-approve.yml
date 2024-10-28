@@ -34,7 +34,6 @@ jobs:
         mvn -B package --file pom.xml
         mkdir staging && cp target/*.jar staging
     - name: 批准PR
-      if: inputs.run_type == '批准PR'
       uses: hmarr/auto-approve-action@v4.0.0
       with:
         pull-request-number: ${{ inputs.PR_ID }}
