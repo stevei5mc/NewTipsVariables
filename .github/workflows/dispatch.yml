@@ -1,0 +1,78 @@
+name: Dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      PR_Approve:
+        description: 'PR Approve'
+        required: false
+        default: false
+        type: boolean
+      PR_ID:
+        description: 'PR Approve ID'
+        required: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 获取信息
+      id: get_info
+      run: |
+        echo "repository_name=${GITHUB_REPOSITORY/${{ github.repository_owner }}\//}" >> $GITHUB_OUTPUT
+        echo "url=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> $GITHUB_OUTPUT
+    - name: 拉取代码
+      uses: actions/checkout@v4.1.1
+      with:
+        submodules: true
+    - name: 拉取代码(批准PR专用)
+      if: ${{ inputs.PR_Approve }}
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        ls -la
+        gh pr checkout ${{ inputs.PR_ID }}
+        ls -la
+    - name: 安装java8
+      uses: actions/setup-java@v4.2.1
+      with:
+        java-version: '8'
+        distribution: 'temurin'
+        cache: maven
+    - name: 构建
+      run: |
+        mvn -B package --file pom.xml
+        mkdir staging
+        cp target/*.jar staging
+    - name: 准备资源
+      run: |
+        pwd
+        cp ./script/server_script/Windows/*.bat staging
+        cp ./script/server_script/Linux/*.sh staging
+        cd ./staging
+        zip -r Windows-script.zip ./*.bat
+        zip -r Linux-script.zip ./*.sh
+        ls -la
+        cd ../
+        mkdir github_artifact
+        cp ./staging/*.zip github_artifact
+        cp ./staging/*.jar github_artifact
+        ls -la
+    - name: 收集构建文件
+      uses: actions/upload-artifact@v4.3.3
+      with:
+        name: ${{ steps.get_info.outputs.repository_name }}-SNAPSHOT-Build-${{ github.run_number}}
+        path: github_artifact
+    - name: 批准PR
+      if: ${{ inputs.PR_Approve }}
+      uses: hmarr/auto-approve-action@v4.0.0
+      with:
+        pull-request-number: ${{ inputs.PR_ID }}
+        review-message: |
+          构建成功，本PR获得批准合并。如果有新的提交则自动取消本次批准！
+          非常感谢您对本次作出的贡献。
+
+          The build was successful, and this PR was approved for merging. 
+          If there is a new submission, this approval will be automatically canceled.
+          Thank you very much for your contribution to this event。
+
+          ${{ steps.get_info.outputs.url }}

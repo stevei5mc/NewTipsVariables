@@ -6,10 +6,8 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
-.mvn/*
-
-# Eclipse m2e generated files
-# Eclipse Core
+.mvn/
+.idea/
 .project
-# JDT-specific (Eclipse Java Development Tools)
 .classpath
+*.iml
