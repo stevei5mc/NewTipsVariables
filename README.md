@@ -33,19 +33,13 @@
 #https://github.com/stevei5mc/NewTipsVariables/blob/main/README.md
 #https://gitee.com/stevei5mc/NewTipsVariables/blob/main/README.md
 #配置文件版本，勿动
-version: 1
+version: 2
 # 更新功能(这个功能展示没有用)
-updata:
-  in-plugin:
-    #检查更新(暂时没有用)
-    check: false
-    #自动更新(需开启检查更新但暂时没有用)
-    auto: false
-  in-config:
-    #检查更新
-    check: false
-    #自动更新(需开启检查更新)
-    auto: false
+updata-plugin:
+  #检查更新(暂时没有用)
+  check: false
+  #自动更新(需开启检查更新但暂时没有用)
+  auto: false
 # 是否释放新的变量说明文档
 save-variables-doc: true
 debug: false

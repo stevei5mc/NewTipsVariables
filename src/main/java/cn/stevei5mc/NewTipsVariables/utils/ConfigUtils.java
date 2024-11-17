@@ -1,61 +1,77 @@
 package cn.stevei5mc.NewTipsVariables.utils;
 
+import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.Main;
-import cn.nukkit.Server;
+
+import java.util.HashMap;
 
 public class ConfigUtils {
     private static Main main = Main.getInstance();
-    private static boolean r = false;
+    private static boolean reload = false;
     //定义配置文件的最新版本号
-    public static int ccvl = 1; //config.yml
-    public static int cpvl = 1; //player.yml
-    public static int csvl = 1; //server.yml
+    private static final int latestConfigVersion = 2; //config.yml
+    private static final int latestPlayerConfigVersion = 1; //player.yml
+    private static final int latestServerConfigVersion = 1; //server.yml
+    private static final String configVersionError = "§c配置文件 {1} 版本出现异常，将对其进行重置";
+    private static final String configVersionNotLatest = "Se检测到配置文件 {1} 不是最新的版本，将对其进行更新";
+    private static final String configIsLatestVersion = "配置文件 {1} 是最新版本";
 
-    public static void checkVersion() {
-        //获取配置文件当前的版本号
-        int ccvt = main.getConfig().getInt("version",0); //config.yml
-        int cpvt = main.getConfigInPlayer().getInt("version",0); //player.yml
-        int csvt = main.getConfigInServer().getInt("version",0); //server.yml
-        runCheck("config.yml", ccvl, ccvt);
-        runCheck("player.yml", cpvl, cpvt);
-        runCheck("server.yml", csvl, csvt);
-
-    }  
-
-    //执行版本检查
-    public static void runCheck(String name, int latestVersion, int currentVersion) {
-        String current = String.valueOf(currentVersion);
-        if (currentVersion == 0) {
-            currentVersion = 114514;//防止有人误把配置文件中的version配置项，如果无法获取数据则输入一个最大数
-            current = "null";
-        }
-        if (Main.debug) {
-            String msg = Main.debugPrefix + "{0} 当前版本: {1} 最新版本：{2}";
-            main.getLogger().info(msg.replace("{0}",name).replace("{1}",current).replace("{2}",String.valueOf(latestVersion)));//这个到时候再搞
-        }
-        if (currentVersion == latestVersion) {
-            main.getLogger().info(name + " §a版本是最新版");
-        } else if (currentVersion < latestVersion) {
-            main.getLogger().warning(name + " §e版本不是最新版, 请及时更新配置文件，如果开启自动更新可以无视该消息");
-            //runUpdata(name);
-        } else {
-            main.getLogger().error(name + " §c版本出现了错误，需要修复配置文件，如果开启自动更新可以无视该消息");
-            resetConfig(name);
+    public static void updateDefaultConfig() {
+        Config config = main.getConfig();
+        int latest = latestConfigVersion;
+        if (config.getInt("version",1) == latest){
+            main.getLogger().info(configIsLatestVersion.replace("{1}","config.yml"));
+        }else if(config.getInt("version",1) < latest) {
+            main.getLogger().warning(configVersionNotLatest.replace("{1}","config.yml"));
+            reload = true;
+            if (config.getInt("version",1) < 2) {
+                config.set("version",2);
+                if (config.exists("updata")) {
+                    config.remove("updata");
+                }
+                if (!config.exists("update-plugin")) {
+                    HashMap<String, Boolean> map = new HashMap<>();
+                    map.put("check", false);
+                    map.put("auto",false);
+                    config.set("update-plugin",map);
+                }
+                config.save();
+            }
+        }else {
+            main.getLogger().error(configVersionError.replace("{1}","config.yml"));
+            main.saveResource("config.yml",true);
         }
     }
 
-    //重置配置文件
-    private static void resetConfig(String name) {
-        if (main.getConfig().getBoolean("updata.in-config.auto")) {
-            main.saveResource(name,true);
-            main.getLogger().info(Main.updataPrefix + name + " §a更新成功");
-            r = true;
+    public static void updateServerConfig() {
+        Config config = main.getConfigInServer();
+        if (config.getInt("version",1) == latestServerConfigVersion){
+            main.getLogger().info(configIsLatestVersion.replace("{1}","server.yml"));
+        }else if(config.getInt("version",1) < latestServerConfigVersion) {
+            main.getLogger().warning(configVersionNotLatest.replace("{1}","server.yml"));
+            reload = true;
+        }else {
+            main.getLogger().error(configVersionError.replace("{1}","server.yml"));
+            main.saveResource("server.yml",true);
+        }
+    }
+
+    public static void updatePlayerConfig() {
+        Config config = main.getConfigInPlayer();
+        if (config.getInt("version",1) == latestPlayerConfigVersion){
+            main.getLogger().info(configIsLatestVersion.replace("{1}","player.yml"));
+        }else if(config.getInt("version",1) < latestPlayerConfigVersion) {
+            main.getLogger().warning(configVersionNotLatest.replace("{1}","player.yml"));
+            reload = true;
+        }else {
+            main.getLogger().error(configVersionError.replace("{1}","player.yml"));
+            main.saveResource("player.yml",true);
         }
     }
 
     public static void reloadConfig() {
-        if (r) {
+        if (reload) {
             main.getServer().dispatchCommand(main.getServer().getConsoleSender(), "NewTipsVariables reload");
-        }        
+        }
     }
 }
