@@ -3,6 +3,7 @@ package cn.stevei5mc.NewTipsVariables.utils;
 import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.Main;
 
+import java.io.File;
 import java.util.HashMap;
 
 public class ConfigUtils {
@@ -38,7 +39,9 @@ public class ConfigUtils {
                 config.save();
             }
         }else {
+            reload = true;
             main.getLogger().error(configVersionError.replace("{1}","config.yml"));
+            config.save(new File(main.getDataFolder() + "/config.yml.bak"));
             main.saveResource("config.yml",true);
         }
     }
@@ -49,9 +52,10 @@ public class ConfigUtils {
             main.getLogger().info(configIsLatestVersion.replace("{1}","server.yml"));
         }else if(config.getInt("version",1) < latestServerConfigVersion) {
             main.getLogger().warning(configVersionNotLatest.replace("{1}","server.yml"));
-            reload = true;
         }else {
+            reload = true;
             main.getLogger().error(configVersionError.replace("{1}","server.yml"));
+            config.save(new File(main.getDataFolder() + "/server.yml.bak"));
             main.saveResource("server.yml",true);
         }
     }
@@ -64,7 +68,9 @@ public class ConfigUtils {
             main.getLogger().warning(configVersionNotLatest.replace("{1}","player.yml"));
             reload = true;
         }else {
+            reload = true;
             main.getLogger().error(configVersionError.replace("{1}","player.yml"));
+            config.save(new File(main.getDataFolder() + "/player.yml.bak"));
             main.saveResource("player.yml",true);
         }
     }
@@ -72,6 +78,7 @@ public class ConfigUtils {
     public static void reloadConfig() {
         if (reload) {
             main.getServer().dispatchCommand(main.getServer().getConsoleSender(), "NewTipsVariables reload");
+            reload = false;
         }
     }
 }
