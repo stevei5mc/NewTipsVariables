@@ -1,8 +1,8 @@
 package cn.stevei5mc.NewTipsVariables.command;
 
-import cn.stevei5mc.NewTipsVariables.Main;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.command.data.CommandParameter;
+import cn.stevei5mc.NewTipsVariables.Main;
 
 /**
  * @author SmallasWater

@@ -1,9 +1,8 @@
 package cn.stevei5mc.NewTipsVariables.command;
 
-import cn.stevei5mc.NewTipsVariables.command.sub.ReloadCommand;
-import cn.stevei5mc.NewTipsVariables.command.sub.CheckStateCommand;
-import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
+import cn.stevei5mc.NewTipsVariables.command.sub.CheckStateCommand;
+import cn.stevei5mc.NewTipsVariables.command.sub.ReloadCommand;
 
 /**
  * @author lt_name

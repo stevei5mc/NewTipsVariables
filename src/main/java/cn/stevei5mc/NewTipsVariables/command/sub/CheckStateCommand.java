@@ -1,8 +1,8 @@
 package cn.stevei5mc.NewTipsVariables.command.sub;
 
-import cn.stevei5mc.NewTipsVariables.command.BaseSubCommand;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.command.data.CommandParameter;
+import cn.stevei5mc.NewTipsVariables.command.BaseSubCommand;
 import cn.stevei5mc.NewTipsVariables.utils.PluginsState;
 
 public class CheckStateCommand extends BaseSubCommand {

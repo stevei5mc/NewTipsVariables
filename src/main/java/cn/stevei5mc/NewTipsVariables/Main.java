@@ -1,14 +1,14 @@
 package cn.stevei5mc.NewTipsVariables;
 
+import cn.nukkit.Server;
+import cn.nukkit.plugin.Plugin;
 import cn.nukkit.plugin.PluginBase;
-import tip.utils.Api;
-import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
-import cn.stevei5mc.NewTipsVariables.utils.LoadVariables;
 import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.command.NewTipsVariablesCommand;
 import cn.stevei5mc.NewTipsVariables.utils.ConfigUtils;
-import cn.nukkit.Server;
-import cn.nukkit.plugin.Plugin;
+import cn.stevei5mc.NewTipsVariables.utils.LoadVariables;
+import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
+import tip.utils.Api;
 
 public class Main extends PluginBase {
     public static String debugPrefix = "§7[§cDEBUG§7] ";

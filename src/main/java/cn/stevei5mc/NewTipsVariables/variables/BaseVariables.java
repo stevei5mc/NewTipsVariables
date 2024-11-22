@@ -1,10 +1,10 @@
 package cn.stevei5mc.NewTipsVariables.variables;
 
 import cn.nukkit.Player;
-import tip.utils.variables.BaseVariable;
 import cn.nukkit.Server;
 import cn.nukkit.level.Level;
 import cn.stevei5mc.NewTipsVariables.utils.GetConfigInfo;
+import tip.utils.variables.BaseVariable;
 
 public class BaseVariables extends BaseVariable {
     public BaseVariables(Player player) {

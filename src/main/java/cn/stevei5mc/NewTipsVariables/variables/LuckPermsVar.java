@@ -1,11 +1,12 @@
 package cn.stevei5mc.NewTipsVariables.variables;
 
 import cn.nukkit.Player;
-import tip.utils.variables.BaseVariable;
 import cn.stevei5mc.NewTipsVariables.utils.LoadVariables;
 import net.luckperms.api.LuckPerms;
-import net.luckperms.api.model.user.User;
 import net.luckperms.api.model.group.Group;
+import net.luckperms.api.model.user.User;
+import tip.utils.variables.BaseVariable;
+
 import java.util.OptionalInt;
 
 public class LuckPermsVar extends BaseVariable {

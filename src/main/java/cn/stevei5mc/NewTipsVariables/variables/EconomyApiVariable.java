@@ -1,8 +1,8 @@
 package cn.stevei5mc.NewTipsVariables.variables;
 
 import cn.nukkit.Player;
-import tip.utils.variables.BaseVariable;
 import me.onebone.economyapi.EconomyAPI;
+import tip.utils.variables.BaseVariable;
 
 public class EconomyApiVariable extends BaseVariable {
     public EconomyApiVariable(Player player) {
