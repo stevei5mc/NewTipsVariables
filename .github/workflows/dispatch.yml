@@ -43,20 +43,6 @@ jobs:
         mvn -B package --file pom.xml
         mkdir staging
         cp target/*.jar staging
-    - name: 准备资源
-      run: |
-        pwd
-        cp ./script/server_script/Windows/*.bat staging
-        cp ./script/server_script/Linux/*.sh staging
-        cd ./staging
-        zip -r Windows-script.zip ./*.bat
-        zip -r Linux-script.zip ./*.sh
-        ls -la
-        cd ../
-        mkdir github_artifact
-        cp ./staging/*.zip github_artifact
-        cp ./staging/*.jar github_artifact
-        ls -la
     - name: 收集构建文件
       uses: actions/upload-artifact@v4.3.3
       with:
