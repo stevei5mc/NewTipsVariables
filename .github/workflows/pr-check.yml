@@ -10,6 +10,14 @@ jobs:
       run: echo "repository_name=${GITHUB_REPOSITORY/${{ github.repository_owner }}\//}" >> $GITHUB_OUTPUT
     - name: 拉取代码
       uses: actions/checkout@v4.1.6
+    - name: Extractor pom.xml gav info 
+      uses: andreacomo/maven-gav-extractor@v2.0.1
+      id: getPomInfo
+    - name: Show get pom.xml gav info
+      run: |
+        echo Group id: ${{ steps.getPomInfo.outputs.group-id }}
+        echo Artifact id: ${{ steps.getPomInfo.outputs.artifact-id }}
+        echo Version: ${{ steps.getPomInfo.outputs.version }}
     - name: 安装java8
       uses: actions/setup-java@v4.2.1
       with:
