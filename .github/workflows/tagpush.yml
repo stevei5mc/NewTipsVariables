@@ -30,7 +30,9 @@ jobs:
         echo Version: ${{ steps.getPomInfo.outputs.version }}
     - name: 修复pom.xml错误的版本号
       if: steps.getPomInfo.outputs.version != steps.get_info.outputs.version
-      run: mvn versions:set -DnewVersion=${{ steps.get_info.outputs.version }}
+      run: |
+        echo "::warning::pom.xml中的版本 ${{ steps.getPomInfo.outputs.version }} 与Git标签版本 ${{ steps.get_info.outputs.version }} 不匹配，请尝试修复"
+        mvn versions:set -DnewVersion=${{ steps.get_info.outputs.version }}
     - name: 安装java8
       uses: actions/setup-java@v4.2.1
       with:
