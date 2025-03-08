@@ -55,7 +55,7 @@ public class Main extends PluginBase {
         } else {
             //不存在作为卸载该插件
             this.getLogger().warning("§c未检测到前置插件§aTips§c，请安装§aTips§c再试!!!");
-            this.getLogger().warning("§b下载地址: §ehttps://motci.cn/job/Tips/");
+            this.getLogger().warning("§b下载地址: §ehttps://motci.cn/job/GameCore/ 或 https://ci.lanink.cn/job/GameCore/");
             this.onDisable();
         }
     }
