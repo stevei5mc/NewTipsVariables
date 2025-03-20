@@ -21,12 +21,15 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Extractor pom.xml gav info 
-      uses: andreacomo/maven-gav-extractor@v2.0.1
       id: getPomInfo
+      run: |
+        echo "groupId=$(mvn help:evaluate -f ${{ env.pomPath }} -Dexpression=project.groupId -q -DforceStdout)" >> $GITHUB_OUTPUT
+        echo "artifactId=$(mvn help:evaluate -f ${{ env.pomPath }} -Dexpression=project.artifactId -q -DforceStdout)" >> $GITHUB_OUTPUT
+        echo "version=$(mvn help:evaluate -f ${{ env.pomPath }} -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_OUTPUT
     - name: Show get pom.xml gav info
       run: |
-        echo Group id: ${{ steps.getPomInfo.outputs.group-id }}
-        echo Artifact id: ${{ steps.getPomInfo.outputs.artifact-id }}
+        echo Group id: ${{ steps.getPomInfo.outputs.groupId }}
+        echo Artifact id: ${{ steps.getPomInfo.outputs.artifactId }}
         echo Version: ${{ steps.getPomInfo.outputs.version }}
     - name: 修复pom.xml错误的版本号
       if: steps.getPomInfo.outputs.version != steps.get_info.outputs.version
