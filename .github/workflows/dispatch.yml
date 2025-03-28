@@ -61,7 +61,7 @@ jobs:
       uses: actions/upload-artifact@v4.3.3
       with:
         name: ${{ steps.get_info.outputs.repository_name }}-SNAPSHOT-Build-${{ github.run_number}}
-        path: github_artifact
+        path: staging
     - name: 批准PR
       if: ${{ inputs.PR_Approve }}
       uses: hmarr/auto-approve-action@v4.0.0

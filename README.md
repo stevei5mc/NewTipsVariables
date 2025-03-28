@@ -147,8 +147,3 @@ Food:
 1. **请不要随意的改动配置文件的版本号，否则带来的后果一切自负！！！**
 2. **建议备份好已经配置好的配置文件以备不时之需**
 3. **1.0.0-beta10之后合并了[UnicodeVariables](https://github.com/stevei5mc/UnicodeVariables)插件的相关功能，更新至1.0.0-beta10及以上版本即可删除[UnicodeVariables](https://github.com/stevei5mc/UnicodeVariables)了**
-
-## **使用预览**
-|![1](docs/image/1.PNG)|![2](docs/image/2.JPG)|
-|-|-|
-|![3](docs/image/3.PNG)|![4](docs/image/4.JPG)|
