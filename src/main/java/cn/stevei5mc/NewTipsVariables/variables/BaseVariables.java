@@ -77,14 +77,14 @@ public class BaseVariables extends BaseVariable {
     public void unicode() {
         String start = "\\ue000";
         String end = "\\uf8ff";
-        //解析起始和结束的Unicode码点（code point），从字符串的第三个字符开始，以16进制进行解析。
-        int startCodePoint = Integer.parseInt(start.substring(3), 16);
-        int endCodePoint = Integer.parseInt(end.substring(3), 16);
-        //从起始码点遍历到结束码点。
+        // 解析起始和结束的Unicode码点（code point），从字符串的第三个字符开始，以16进制进行解析。
+        int startCodePoint = Integer.parseInt(start.substring(2), 16);
+        int endCodePoint = Integer.parseInt(end.substring(2), 16);
+        // 从起始码点遍历到结束码点。
         for (int i = startCodePoint; i <= endCodePoint; i++) {
             String hex = String.format("%04X", i);
-            String key = "{" + hex.toUpperCase() + "}"; //生成替换的键（将16进制数转换为大写并放在大括号内）
-            String value = "\\u" + hex.toLowerCase(); //生成替换的值（将16进制数转换为小写并加上Unicode转义前缀）
+            String key = "{" + hex.toUpperCase() + "}"; // 生成替换的键（将16进制数转换为大写并放在大括号内）
+            String value = new String(Character.toChars(i)); // 将键对应的值转为unicode码
             addStrReplaceString(key, value);
         }
     }
