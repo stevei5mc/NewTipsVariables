@@ -9,7 +9,7 @@
 ## **插件介绍**
 ### **前言**
 - **该插件可以为Tips提供更多的变量内容**  
-- **有问题请及时提交[issues](https://github.com/stevei5mc/NewTipsVariables/issues)，如果有bug不反馈我怎知道并修复呢？**  
+- **有问题请及时提交[issues](https://github.com/stevei5mc/NewTipsVariables/issues)**  
 - **如果你有开发能力可以为其提供[PR](https://github.com/stevei5mc/NewTipsVariables/pulls)来增加更多变量或修复问题**
 ### **命令与权限节点**
 |命令|权限节点|权限介绍|默认权限|

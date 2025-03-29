@@ -36,11 +36,6 @@ jobs:
       run: |
         echo "::warning::pom.xml中的版本 ${{ steps.getPomInfo.outputs.version }} 与Git标签版本 ${{ steps.get_info.outputs.version }} 不匹配，尝试修复"
         mvn versions:set -DnewVersion=${{ steps.get_info.outputs.version }}
-    - name: 安装java8
-      uses: actions/setup-java@v4.2.1
-      with:
-        java-version: '8'
-        distribution: 'temurin'
         cache: maven
     - name: 构建
       run: |
