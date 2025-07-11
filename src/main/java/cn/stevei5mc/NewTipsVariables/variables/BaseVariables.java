@@ -71,7 +71,7 @@ public class BaseVariables extends BaseVariable {
         for (Level level : Server.getInstance().getLevels().values()) {
             addStrReplaceString("{WorldOnline@"+ level.getFolderName() +"}", String.valueOf(level.getPlayers().size()));
         }
-        addStrReplaceString("{Server-Tps}", GetConfigInfo.getServerTps(player));
+        addStrReplaceString("{Server-Tps}", GetConfigInfo.getServerTps());
     }
 
     public void unicode() {

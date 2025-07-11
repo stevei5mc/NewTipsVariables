@@ -11,7 +11,7 @@ public class GetConfigInfo {
      * 获取服务器TPS
      * @return 服务器TPS
     */
-    public static String getServerTps(Player player) {
+    public static String getServerTps() {
         String serverTpslowColor = Main.getInstance().getConfigInServer().getString("TPS.low_color");//low值
         int serverTpsMediumValue = Main.getInstance().getConfigInServer().getInt("TPS.medium_value");//medium值
         String serverTpsMediumColor = Main.getInstance().getConfigInServer().getString("TPS.medium_color");
