@@ -107,13 +107,13 @@
                 <executions>
                     <execution>
                         <id>add-version</id>
-                        <phase>process-sources</phase>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>replace</goal>
                         </goals>
                         <configuration>
                             <includes>
-                                <include>${project.basedir}/src/main/resources/plugin.yml</include>
+                                <include>${project.basedir}/target/classes/plugin.yml</include>
                             </includes>
                             <replacements>
                                 <replacement>
