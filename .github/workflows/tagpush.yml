@@ -50,7 +50,7 @@ jobs:
         name: ${{ steps.get_info.outputs.repository_name }}-Release-${{ steps.get_info.outputs.VERSION }}
         path: staging 
     - name: 发布新版本
-      uses: ncipollo/release-action@v1.1
+      uses: ncipollo/release-action@v1
       with:
         tag: ${{ steps.get_info.outputs.VERSION }}
         name: ${{ steps.get_info.outputs.VERSION }}
