@@ -8,6 +8,7 @@ import cn.stevei5mc.NewTipsVariables.command.NewTipsVariablesCommand;
 import cn.stevei5mc.NewTipsVariables.utils.ConfigUtils;
 import cn.stevei5mc.NewTipsVariables.utils.LoadVariables;
 import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
+import lombok.Getter;
 import tip.utils.Api;
 
 public class Main extends PluginBase {
@@ -15,9 +16,13 @@ public class Main extends PluginBase {
     public static String updataPrefix = "§7[§cUPDATA§7] ";
     private static Main instance;
     private Config config;
+    @Getter
     private Config configInServer;
+    @Getter
     private Config configInPlayer;
+    @Getter
     private Config worldName;
+    @Getter
     private Config language;
     public static boolean debug = false;
 
@@ -97,23 +102,6 @@ public class Main extends PluginBase {
     public void tipsVariables() {
         Api.registerVariables("BaseVariables", BaseVariables.class);
         LoadVariables.pluginVariables();
-    }
-
-    //这些都是用在非主类获取配置文件信息用的
-    public Config getConfig() {
-        return this.config;
-    }
-    public Config getConfigInServer() {
-        return this.configInServer;
-    }
-    public Config getConfigInPlayer() {
-        return this.configInPlayer;
-    }
-    public Config getWorldName() {
-        return this.worldName;
-    }
-    public Config getLanguage() {
-        return this.language;
     }
 
     //重载配置
