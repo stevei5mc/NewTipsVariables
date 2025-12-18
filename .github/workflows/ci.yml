@@ -14,34 +14,36 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     outputs:
-      version: ${{ steps.getVersion.outputs.version }}
-      artifactName:
+      version: ${{ steps.getInfo.outputs.version }}
+      repoName: ${{ steps.getInfo.outputs.repoName }}
+      artifactName: ${{ steps.getInfo.outputs.artifactName }}
+      actionUrl: ${{ steps.getInfo.outputs.actionUrl }}
     steps:
     - name: 获取信息
       id: getInfo
-      run: |
-        echo "repositoryName=${GITHUB_REPOSITORY/${{ github.repository_owner }}\//}" >> $GITHUB_OUTPUT
-        echo "actionUrl=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" >> $GITHUB_OUTPUT
-    - name: 获取版本
-      if: github.event_name == 'push' && startsWith('github.ref', 'refs/tags/')
-      id: getVersion
-      run: echo "version=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_OUTPUT
-    - name: 设置 artifact 的名称
-      id: getArtifactName
       uses: actions/github-script@v8
       with:
         script: |
           const onEventName = "${{ github.event_name }}";
           const refName = "${{ github.ref }}";
-          let artifactName = "${{ steps.getInfo.outputs.repositoryName }}-CI-Dispatch-Build-${{ github.run_number }}";
+          let repoName = "${{ github.repository }}";
+          repoName.replace("${{ github.repository_owner }}/", "");
+          let artifactName = `${repoName}-CI-Dispatch-Build-${{ github.run_number }}`;
+
           if (onEventName == "pull_request") {
-            artifactName = "${{ steps.getInfo.outputs.repositoryName }}-CI-PR_${{ github.event.pull_request.number }}-Build-${{ github.run_number }}";
+            artifactName = `${repoName}-CI-PR_${{ github.event.pull_request.number }}-Build-${{ github.run_number }}`;
           }
+
           if(onEventName == "push" && refName.startwith("refs/tags/")){
-            artifactName = "${{ steps.getInfo.outputs.repositoryName }}-Release-${{ steps.getVersion.outputs.version }}";
+            artifactName = `${repoName}-Release-${{ steps.getVersion.outputs.version }}`;
+            const version = refName.replace("refs/tags/", "");
+            core.setOutput('version', `${version}`);
+            core.info(`Release version: ${version}`);
           }
-          core.info(`Artifact name: ${artifactName}`);
-          core.setOutput('name', `${artifactName}`);
+
+          core.setOutput('repoName', `${repoName}`);
+          core.setOutput('artifactName', `${artifactName}`);
+          core.setOutput('actionUrl', '${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}');
     - name: 拉取代码
       uses: actions/checkout@v6
     - name: 安装java8
@@ -61,7 +63,7 @@ jobs:
         echo "groupId=$(mvn help:evaluate -Dexpression=project.groupId -q -DforceStdout)" >> $GITHUB_OUTPUT
         echo "artifactId=$(mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout)" >> $GITHUB_OUTPUT
         echo "version=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)" >> $GITHUB_OUTPUT
-    - name: 输出获取到的 pom.xml 的信息Ｉ
+    - name: 输出获取到的 pom.xml 的信息
       run: |
         echo Group id: ${{ steps.getPomInfo.outputs.groupId }}
         echo Artifact id: ${{ steps.getPomInfo.outputs.artifactd }}
