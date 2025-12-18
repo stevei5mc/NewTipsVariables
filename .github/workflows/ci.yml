@@ -76,7 +76,7 @@ jobs:
     - name: 收集构建文件
       uses: actions/upload-artifact@v6
       with:
-        name: ${{ steps.getArtifactName.outputs.name }}
+        name: ${{ steps.getInfo.outputs.name }}
         path: staging
 
   release:
