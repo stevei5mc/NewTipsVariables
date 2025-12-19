@@ -27,7 +27,7 @@ jobs:
           const onEventName = "${{ github.event_name }}";
           const refName = "${{ github.ref }}";
           let repoName = "${{ github.repository }}";
-          repoName.replace("${{ github.repository_owner }}/", "");
+          repoName = repoName.replace("${{ github.repository_owner }}/", "");
           let artifactName = `${repoName}-CI-Dispatch-Build-${{ github.run_number }}`;
 
           if (onEventName == "pull_request") {
