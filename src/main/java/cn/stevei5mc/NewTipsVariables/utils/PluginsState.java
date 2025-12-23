@@ -1,9 +1,31 @@
 package cn.stevei5mc.NewTipsVariables.utils;
 
+import cn.stevei5mc.NewTipsVariables.Main;
+import lombok.Getter;
+
+import java.util.HashMap;
+
 public class PluginsState {
     
     private static PluginsState instance;
+    @Getter
+    private static HashMap<String, Boolean> pluginsStates;
+    private static Main main = Main.getInstance();
 
+
+    public static void initPluginStates() {
+        pluginsStates = new HashMap<>();
+        for (PluginsListEnum plugin: PluginsListEnum.values()) {
+            try{
+                Class.forName(plugin.getMainClass());
+                pluginsStates.put(plugin.getName(), true);
+                main.getLogger().info(Main.debugPrefix + "§a找到插件§e【§b" + plugin.getName() + "§e】§a相关变量已加载");
+            }catch (Exception ignore) {
+                pluginsStates.put(plugin.getName(), false);
+                main.getLogger().info(Main.debugPrefix + "§a无法找到插件§e【§b" + plugin.getName() + "§e】§a相相关变量加载失败,请安装相关插件再试");
+            }
+        }
+    }
 
     public static PluginsState getInstance() {
         if (instance == null) {
@@ -22,35 +44,4 @@ public class PluginsState {
     public boolean rSWeapon = false;
     public boolean luckPerms = false;
 
-    public void setPluginState(String pluginName) {
-        switch (pluginName) {
-            case "playerPoints":
-                playerPoints = true;
-                break;
-            case "EconomyAPI":
-                economyAPI = true;
-                break;
-            case "OreArea":
-                oreArea = true;
-                break;
-            case "RSTask":
-                rSTask = true;
-                break;
-            case "HealthAPI":
-                healthAPI = true;
-                break;
-            case "LevelAwakenSystem":
-                levelAwakenSystem = true;
-                break;
-            case "RSWeapon":
-                rSWeapon = true;
-                break;
-            case "LuckPerms":
-                luckPerms = true;
-                break;
-            default:
-                // 对于其他插件，不做任何操作，因为没有必要
-                break;
-        }
-    }
 }
