@@ -27,6 +27,10 @@ public class PluginsState {
         }
     }
 
+    public static boolean getPluginState(String pluginName) {
+        return pluginsStates.getOrDefault(pluginName, false);
+    }
+
     public static PluginsState getInstance() {
         if (instance == null) {
             instance = new PluginsState();
@@ -36,12 +40,10 @@ public class PluginsState {
 
     // 插件的状态
     public boolean playerPoints = false;
-    public boolean economyAPI = false;
     public boolean oreArea = false;
     public boolean rSTask = false;
     public boolean healthAPI = false;
     public boolean levelAwakenSystem = false;
     public boolean rSWeapon = false;
-    public boolean luckPerms = false;
 
 }

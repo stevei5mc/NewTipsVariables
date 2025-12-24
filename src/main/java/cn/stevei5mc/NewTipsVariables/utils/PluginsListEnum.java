@@ -3,7 +3,7 @@ package cn.stevei5mc.NewTipsVariables.utils;
 public enum PluginsListEnum {
 
 //    PLAYER_POINTS("playerPoints"),
-//    ECONOMY_API("EconomyAPI"),
+    ECONOMY_API("EconomyAPI", "me.onebone.economyapi.EconomyAPI"),
 //    ORE_AREA("OreArea"),
 //    RS_TASK("RSTask"),
 //    HEALTH_API("HealthAPI"),
