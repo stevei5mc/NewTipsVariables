@@ -10,7 +10,7 @@ import cn.stevei5mc.NewTipsVariables.command.sub.ReloadCommand;
 public class NewTipsVariablesCommand extends BaseCommand {
 
     public NewTipsVariablesCommand() {
-        super("NewTipsVariables", "NewTipsVariables 命令");
+        super("newtipsvariables", "NewTipsVariables 命令");
         this.setPermission("newtipsariables.admin");
         this.addSubCommand(new ReloadCommand("reload"));
         this.addSubCommand(new CheckStateCommand("checkstatus"));
@@ -19,7 +19,7 @@ public class NewTipsVariablesCommand extends BaseCommand {
 
     @Override
     public void sendHelp(CommandSender sender) {
-        String cmdname = "§a/newtipsariables ";
+        String cmdname = "§a/newtipsvariables ";
         sender.sendMessage("§b=== NewTipsVariables ===");
         sender.sendMessage(cmdname+"reload §e重载配置文件");
         sender.sendMessage(cmdname+"checkstatus §e检查插件的状态");

@@ -3,6 +3,7 @@ package cn.stevei5mc.NewTipsVariables.command.sub;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.command.data.CommandParameter;
 import cn.stevei5mc.NewTipsVariables.command.BaseSubCommand;
+import cn.stevei5mc.NewTipsVariables.utils.PluginsListEnum;
 import cn.stevei5mc.NewTipsVariables.utils.PluginsState;
 
 public class CheckStateCommand extends BaseSubCommand {
@@ -23,16 +24,11 @@ public class CheckStateCommand extends BaseSubCommand {
 
     @Override
     public boolean execute(CommandSender sender, String label, String[] args) {
-        PluginsState ps = PluginsState.getInstance();
-        sender.sendMessage("Plugins loading status");
-        sender.sendMessage("playerPoints = " + ps.playerPoints);
-        sender.sendMessage("EconomyAPI = " + ps.economyAPI);
-        sender.sendMessage("OreArea = " + ps.oreArea);
-        sender.sendMessage("RSTask = " + ps.rSTask);
-        sender.sendMessage("HealthAPI = " + ps.healthAPI);
-        sender.sendMessage("LevelAwakenSystem = " + ps.levelAwakenSystem);
-        sender.sendMessage("RSWeapon = " + ps.rSWeapon);
-        sender.sendMessage("LuckPerms = " + ps.luckPerms);
+        for (PluginsListEnum plugin : PluginsListEnum.values()) {
+            String name = plugin.getName();
+            boolean state = PluginsState.getPluginState(name);
+            sender.sendMessage("§b" + name + "§7=§a" + state);
+        }
         return true;
     }
 
