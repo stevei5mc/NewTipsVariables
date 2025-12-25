@@ -6,6 +6,7 @@ import AwakenSystem.data.defaultAPI;
 import AwakenSystem.utils.nbtItems;
 import cn.nukkit.Player;
 import cn.nukkit.item.Item;
+import cn.stevei5mc.NewTipsVariables.utils.PluginsListEnum;
 import cn.stevei5mc.NewTipsVariables.utils.PluginsState;
 import com.task.utils.tasks.PlayerFile;
 import com.task.utils.tasks.taskitems.PlayerTask;
@@ -30,23 +31,22 @@ public class SmallasWaterPlugins extends BaseVariable {
 
     public void strReplace() {
         if (player != null && player.isOnline()) {
-            PluginsState ps = PluginsState.getInstance();
-            if (ps.playerPoints) {
+            if (PluginsState.getPluginState(PluginsListEnum.PLAYER_POINTS.getName())) {
                 playerPoint();
             }
-            if (ps.rSTask) {
+            if (PluginsState.getPluginState(PluginsListEnum.RS_TASK.getName())) {
                 RsTask(); 
             }
-            if (ps.oreArea) {
+            if (PluginsState.getPluginState(PluginsListEnum.ORE_AREA.getName())) {
                 OreArea();
             }
-            if (ps.healthAPI) {
+            if (PluginsState.getPluginState(PluginsListEnum.HEALTH_API.getName())) {
                 HealthAPI();
             }
-            if (ps.rSWeapon) {
+            if (PluginsState.getPluginState(PluginsListEnum.RS_WEAPON.getName())) {
                 RSWeapon();
             }
-            if (ps.levelAwakenSystem) {
+            if (PluginsState.getPluginState(PluginsListEnum.LEVEL_AWAKEN_SYSTEM.getName())) {
                 LevelAwakenSystem();
             }
         }

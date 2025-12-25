@@ -2,13 +2,13 @@ package cn.stevei5mc.NewTipsVariables.utils;
 
 public enum PluginsListEnum {
 
-//    PLAYER_POINTS("playerPoints"),
+    PLAYER_POINTS("playerPoints", "net.player.PlayerPoint"),
     ECONOMY_API("EconomyAPI", "me.onebone.economyapi.EconomyAPI"),
-//    ORE_AREA("OreArea"),
-//    RS_TASK("RSTask"),
-//    HEALTH_API("HealthAPI"),
-//    LEVEL_AWAKEN_SYSTEM("LevelAwakenSystem"),
-//    RS_WEAPON("RSWeapon"),
+    ORE_AREA("OreArea", "ore.area.AreaMainClass"),
+    RS_TASK("RSTask", "com.task.RsTask"),
+    HEALTH_API("HealthAPI", "healthapi.HealthMainClass"),
+    LEVEL_AWAKEN_SYSTEM("LevelAwakenSystem", "AwakenSystem.AwakenSystem"),
+    RS_WEAPON("RSWeapon", "weapon.RsWeapon"),
     LUCK_PERMS("LuckPerms", "net.luckperms.api.LuckPermsProvider");
 
     private final String name;

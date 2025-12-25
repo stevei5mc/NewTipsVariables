@@ -22,9 +22,7 @@ public class LoadVariables{
     public static void pluginVariables() {
         PluginsState.initPluginStates();
 
-        PluginsState ps = PluginsState.getInstance();
-        boolean debug = Main.debug;
-//        Api.registerVariables("SmallasWaterPlugins", SmallasWaterPlugins.class);
+        Api.registerVariables("SmallasWaterPlugins", SmallasWaterPlugins.class);
         if (PluginsState.getPluginState(PluginsListEnum.ECONOMY_API.getName())) {
             Api.registerVariables("EconomyApiVariable", EconomyApiVariable.class);
         }
