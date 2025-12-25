@@ -43,7 +43,7 @@ public class Main extends PluginBase {
     public void onEnable() {
         //判断需要的前置插件是否存在
         try{
-            Class.forName("tip.Main");
+            Class.forName("tip.utils.variables.BaseVariable");
             //存在则加载该插件
             this.getServer().getCommandMap().register("", new NewTipsVariablesCommand());//注册命令
             this.tipsVariables();//加载变量部分

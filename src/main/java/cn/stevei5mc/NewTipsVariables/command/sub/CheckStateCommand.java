@@ -27,7 +27,8 @@ public class CheckStateCommand extends BaseSubCommand {
         for (PluginsListEnum plugin : PluginsListEnum.values()) {
             String name = plugin.getName();
             boolean state = PluginsState.getPluginState(name);
-            sender.sendMessage("§b" + name + "§7=§a" + state);
+            String color = state ? "§a" : "§c";
+            sender.sendMessage("§b" + name + "§7=" + color + state);
         }
         return true;
     }
