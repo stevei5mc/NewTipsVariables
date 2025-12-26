@@ -1,16 +1,11 @@
 package cn.stevei5mc.NewTipsVariables.utils;
 
-import cn.nukkit.Server;
-import cn.stevei5mc.NewTipsVariables.Main;
 import cn.stevei5mc.NewTipsVariables.variables.EconomyApiVariable;
 import cn.stevei5mc.NewTipsVariables.variables.LuckPermsVar;
 import cn.stevei5mc.NewTipsVariables.variables.SmallasWaterPlugins;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import tip.utils.Api;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class LoadVariables{
     private static LuckPerms luckperms;
