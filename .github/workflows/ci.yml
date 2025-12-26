@@ -6,7 +6,6 @@ on:
       - '[0-9]+.[0-9]+.[0-9]+'
       - '[0-9]+.[0-9]+.[0-9]+-beta[0-9]+'
   pull_request:
-    branches: [master]
   workflow_dispatch:
 
 jobs:
