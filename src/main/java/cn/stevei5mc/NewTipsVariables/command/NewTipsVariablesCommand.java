@@ -4,9 +4,6 @@ import cn.nukkit.command.CommandSender;
 import cn.stevei5mc.NewTipsVariables.command.sub.CheckStateCommand;
 import cn.stevei5mc.NewTipsVariables.command.sub.ReloadCommand;
 
-/**
- * @author lt_name
- */
 public class NewTipsVariablesCommand extends BaseCommand {
 
     public NewTipsVariablesCommand() {
