@@ -26,7 +26,7 @@ public class PluginsState {
             main.getLogger().info(Main.debugPrefix + "§a找到插件§e【§b" + plugin.getName() + "§e】§a相关变量已加载");
         }catch (Exception ignore) {
             setPluginsState(plugin.getName(), false);
-            main.getLogger().info(Main.debugPrefix + "§a无法找到插件§e【§b" + plugin.getName() + "§e】§a相关变量加载失败,请安装相关插件再试");
+            main.getLogger().info(Main.debugPrefix + "§c无法找到插件§e【§b" + plugin.getName() + "§e】§c相关变量加载失败,请安装相关插件再试");
         }
     }
 
