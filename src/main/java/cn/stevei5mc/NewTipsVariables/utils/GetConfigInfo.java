@@ -15,7 +15,7 @@ public class GetConfigInfo {
         String serverTpslowColor = Main.getInstance().getConfigInServer().getString("TPS.low_color");//low值
         int serverTpsMediumValue = Main.getInstance().getConfigInServer().getInt("TPS.medium_value");//medium值
         String serverTpsMediumColor = Main.getInstance().getConfigInServer().getString("TPS.medium_color");
-        int serverTpsHgihValue = Main.getInstance().getConfigInServer().getInt("TPS.high_value");//hgih值
+        int serverTpsHgihValue = Main.getInstance().getConfigInServer().getInt("TPS.high_value");//high值
         String serverTpsHgihColor = Main.getInstance().getConfigInServer().getString("TPS.high_color");
         String serverTps;
         float tpsValue = Server.getInstance().getTicksPerSecond();
@@ -92,7 +92,7 @@ public class GetConfigInfo {
         double healthValue;
         String healthValue2;
         String healthMaxValue;
-        if (PluginsState.getInstance().healthAPI) {
+        if (PluginsState.getPluginState(PluginsListEnum.HEALTH_API.getName())) {
             PlayerHealth health = PlayerHealth.getPlayerHealth(player);
             healthValue = health.getHealth();
             healthValue2 = String.valueOf(healthValue);

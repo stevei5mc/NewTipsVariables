@@ -1,56 +1,44 @@
 package cn.stevei5mc.NewTipsVariables.utils;
 
+import cn.stevei5mc.NewTipsVariables.Main;
+import lombok.Getter;
+
+import java.util.HashMap;
+
 public class PluginsState {
-    
-    private static PluginsState instance;
+
+    @Getter
+    private static HashMap<String, Boolean> pluginsState;
+    private static final Main main = Main.getInstance();
 
 
-    public static PluginsState getInstance() {
-        if (instance == null) {
-            instance = new PluginsState();
+    public static void initPluginStates() {
+        pluginsState = new HashMap<>();
+        for (PluginsListEnum plugin: PluginsListEnum.values()) {
+            checkPluginState(plugin);
         }
-        return instance;
     }
 
-    // 插件的状态
-    public boolean playerPoints = false;
-    public boolean economyAPI = false;
-    public boolean oreArea = false;
-    public boolean rSTask = false;
-    public boolean healthAPI = false;
-    public boolean levelAwakenSystem = false;
-    public boolean rSWeapon = false;
-    public boolean luckPerms = false;
+    public static void checkPluginState(PluginsListEnum plugin) {
+        try{
+            Class.forName(plugin.getMainClass());
+            setPluginsState(plugin.getName(), true);
+            main.getLogger().info(Main.debugPrefix + "§a找到插件§e【§b" + plugin.getName() + "§e】§a相关变量已加载");
+        }catch (Exception ignore) {
+            setPluginsState(plugin.getName(), false);
+            main.getLogger().info(Main.debugPrefix + "§c无法找到插件§e【§b" + plugin.getName() + "§e】§c相关变量加载失败,请安装相关插件再试");
+        }
+    }
 
-    public void setPluginState(String pluginName) {
-        switch (pluginName) {
-            case "playerPoints":
-                playerPoints = true;
-                break;
-            case "EconomyAPI":
-                economyAPI = true;
-                break;
-            case "OreArea":
-                oreArea = true;
-                break;
-            case "RSTask":
-                rSTask = true;
-                break;
-            case "HealthAPI":
-                healthAPI = true;
-                break;
-            case "LevelAwakenSystem":
-                levelAwakenSystem = true;
-                break;
-            case "RSWeapon":
-                rSWeapon = true;
-                break;
-            case "LuckPerms":
-                luckPerms = true;
-                break;
-            default:
-                // 对于其他插件，不做任何操作，因为没有必要
-                break;
+    public static boolean getPluginState(String pluginName) {
+        return pluginsState.getOrDefault(pluginName, false);
+    }
+
+    private static void setPluginsState(String pluginName, boolean state) {
+        if(pluginsState.containsKey(pluginName)) {
+            pluginsState.replace(pluginName, state);
+        }else {
+            pluginsState.put(pluginName, state);
         }
     }
 }
