@@ -24,7 +24,7 @@ public class CheckStateCommand extends BaseSubCommand {
 
     @Override
     public boolean execute(CommandSender sender, String label, String[] args) {
-        sender.sendMessage("§bNewTipsVariables 支持插件的状态列表");
+        sender.sendMessage("§bNewTipsVariables 支持插件的状态列表:");
         for (PluginsListEnum plugin : PluginsListEnum.values()) {
             String name = plugin.getName();
             boolean state = PluginsState.getPluginState(name);

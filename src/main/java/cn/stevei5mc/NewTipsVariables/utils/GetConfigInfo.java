@@ -60,16 +60,16 @@ public class GetConfigInfo {
      * @return 玩家的延迟
     */
     public static String getPlayerPing(Player player) {
-        String playerPingLowColor = Main.getInstance().getConfigInPlayer().getString("ping.low_color");//low值
+        String playerPingLowColor = Main.getInstance().getConfigInPlayer().getString("ping.low_color");// low color
         int playerPingMediumValue = Main.getInstance().getConfigInPlayer().getInt("ping.medium_value");//medium值
         String playerPingMediumColor = Main.getInstance().getConfigInPlayer().getString("ping.medium_color");
-        int playerPingHgihValue = Main.getInstance().getConfigInPlayer().getInt("ping.high_value");//hgih值
-        String playerPingHgihColor = Main.getInstance().getConfigInPlayer().getString("ping.high_color");
+        int playerPingHighValue = Main.getInstance().getConfigInPlayer().getInt("ping.high_value");//high值
+        String playerPingHighColor = Main.getInstance().getConfigInPlayer().getString("ping.high_color");
         String playerMS;
         int pingValue = player.getPing();
         //low=0
-        if (pingValue >= playerPingHgihValue) {
-            playerMS = playerPingHgihColor + pingValue;
+        if (pingValue >= playerPingHighValue) {
+            playerMS = playerPingHighColor + pingValue;
         }else if (pingValue >= playerPingMediumValue) {
             playerMS = playerPingMediumColor + pingValue;
         }else {
