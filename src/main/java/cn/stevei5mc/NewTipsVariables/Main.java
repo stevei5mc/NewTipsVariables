@@ -42,7 +42,8 @@ public class Main extends PluginBase {
 
     public void onEnable() {
         //判断需要的前置插件是否存在
-        if (this.getServer().getPluginManager().getPlugin("Tips") != null) {
+        try{
+            Class.forName("tip.utils.variables.BaseVariable");
             //存在则加载该插件
             this.getServer().getCommandMap().register("", new NewTipsVariablesCommand());//注册命令
             this.tipsVariables();//加载变量部分
@@ -54,10 +55,10 @@ public class Main extends PluginBase {
                 Plugin pl = getServer().getPluginManager().getPlugin("UnicodeVariables");
                 if (pl != null) {
                     Server.getInstance().getPluginManager().disablePlugin(pl);
-                    getLogger().info("§c插件UnicodeVariables的功能已合并到本插件，插件UnicodeVariables不再接受维护，你可以将其删除掉来使用本插件的相关功能"); 
+                    getLogger().info("§c插件UnicodeVariables的功能已合并到本插件，插件UnicodeVariables不再接受维护，你可以将其删除掉来使用本插件的相关功能");
                 }
             },20);
-        } else {
+        }catch (Exception ignore) {
             //不存在作为卸载该插件
             this.getLogger().warning("§c未检测到前置插件§aTips§c，请安装§aTips§c再试!!!");
             this.getLogger().warning("§b下载地址: §ehttps://motci.cn/job/GameCore/ 或 https://ci.lanink.cn/job/GameCore/");

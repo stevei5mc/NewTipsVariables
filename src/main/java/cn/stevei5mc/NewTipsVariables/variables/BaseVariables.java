@@ -12,11 +12,11 @@ public class BaseVariables extends BaseVariable {
     }
 
     public void strReplace() {
+        text();
+        unicode();
+        server();
         if (player != null && player.isOnline()) {
-            text();
             player();
-            server();
-            unicode();
         }
     }
 

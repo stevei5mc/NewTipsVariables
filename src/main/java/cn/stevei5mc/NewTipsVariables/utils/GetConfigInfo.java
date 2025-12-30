@@ -15,7 +15,7 @@ public class GetConfigInfo {
         String serverTpslowColor = Main.getInstance().getConfigInServer().getString("TPS.low_color");//low值
         int serverTpsMediumValue = Main.getInstance().getConfigInServer().getInt("TPS.medium_value");//medium值
         String serverTpsMediumColor = Main.getInstance().getConfigInServer().getString("TPS.medium_color");
-        int serverTpsHgihValue = Main.getInstance().getConfigInServer().getInt("TPS.high_value");//hgih值
+        int serverTpsHgihValue = Main.getInstance().getConfigInServer().getInt("TPS.high_value");//high值
         String serverTpsHgihColor = Main.getInstance().getConfigInServer().getString("TPS.high_color");
         String serverTps;
         float tpsValue = Server.getInstance().getTicksPerSecond();
@@ -60,16 +60,16 @@ public class GetConfigInfo {
      * @return 玩家的延迟
     */
     public static String getPlayerPing(Player player) {
-        String playerPingLowColor = Main.getInstance().getConfigInPlayer().getString("ping.low_color");//low值
+        String playerPingLowColor = Main.getInstance().getConfigInPlayer().getString("ping.low_color");// low color
         int playerPingMediumValue = Main.getInstance().getConfigInPlayer().getInt("ping.medium_value");//medium值
         String playerPingMediumColor = Main.getInstance().getConfigInPlayer().getString("ping.medium_color");
-        int playerPingHgihValue = Main.getInstance().getConfigInPlayer().getInt("ping.high_value");//hgih值
-        String playerPingHgihColor = Main.getInstance().getConfigInPlayer().getString("ping.high_color");
+        int playerPingHighValue = Main.getInstance().getConfigInPlayer().getInt("ping.high_value");//high值
+        String playerPingHighColor = Main.getInstance().getConfigInPlayer().getString("ping.high_color");
         String playerMS;
         int pingValue = player.getPing();
         //low=0
-        if (pingValue >= playerPingHgihValue) {
-            playerMS = playerPingHgihColor + pingValue;
+        if (pingValue >= playerPingHighValue) {
+            playerMS = playerPingHighColor + pingValue;
         }else if (pingValue >= playerPingMediumValue) {
             playerMS = playerPingMediumColor + pingValue;
         }else {
@@ -92,7 +92,7 @@ public class GetConfigInfo {
         double healthValue;
         String healthValue2;
         String healthMaxValue;
-        if (PluginsState.getInstance().healthAPI) {
+        if (PluginsState.getPluginState(PluginsListEnum.HEALTH_API.getName())) {
             PlayerHealth health = PlayerHealth.getPlayerHealth(player);
             healthValue = health.getHealth();
             healthValue2 = String.valueOf(healthValue);
