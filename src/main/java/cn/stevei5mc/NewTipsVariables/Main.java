@@ -11,9 +11,14 @@ import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
 import lombok.Getter;
 import tip.utils.Api;
 
+import java.io.File;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.net.URLDecoder;
+
 public class Main extends PluginBase {
     public static String debugPrefix = "§7[§cDEBUG§7] ";
-    public static String updataPrefix = "§7[§cUPDATA§7] ";
+    public static String updataPrefix = "§7[§cUPDATE§7] ";
     private static Main instance;
     private Config config;
     @Getter
@@ -44,6 +49,7 @@ public class Main extends PluginBase {
         //判断需要的前置插件是否存在
         try{
             Class.forName("tip.utils.variables.BaseVariable");
+            deleteUnicodeVariables();
             //存在则加载该插件
             this.getServer().getCommandMap().register("", new NewTipsVariablesCommand());//注册命令
             this.tipsVariables();//加载变量部分
@@ -52,11 +58,6 @@ public class Main extends PluginBase {
                 ConfigUtils.reloadConfig();
                 this.getLogger().warning("§c警告! §c本插件为免费且开源的，如果您付费获取获取的，则有可能被误导");
                 this.getLogger().info("§a开源链接和使用方法: §bhttps://github.com/stevei5mc/NewTipsVariables");
-                Plugin pl = getServer().getPluginManager().getPlugin("UnicodeVariables");
-                if (pl != null) {
-                    Server.getInstance().getPluginManager().disablePlugin(pl);
-                    getLogger().info("§c插件UnicodeVariables的功能已合并到本插件，插件UnicodeVariables不再接受维护，你可以将其删除掉来使用本插件的相关功能");
-                }
             },20);
         }catch (Exception ignore) {
             //不存在作为卸载该插件
@@ -108,5 +109,30 @@ public class Main extends PluginBase {
     //重载配置
     public void reload() {
         loadConfigRes();
+    }
+
+    private void deleteUnicodeVariables() {
+        try {
+            Class.forName("cn.stevei5mc.UnicodeVariables.main");
+            Plugin plugin = this.getServer().getPluginManager().getPlugin("UnicodeVariables");
+            File file = null;
+            ClassLoader pluginClass = plugin.getClass().getClassLoader();
+            try {
+                if (pluginClass instanceof URLClassLoader) {
+                    URLClassLoader pluginClassL = (URLClassLoader) pluginClass;
+                    URL url = pluginClassL.getURLs()[0];
+                    file = new File(URLDecoder.decode(url.getFile(), "UTF-8"));
+                }
+            }catch (Exception ignore) {}
+            if (file != null) {
+                plugin.onDisable();
+                try {
+                    ((URLClassLoader) pluginClass).close();
+                }catch (Exception ignore) {}
+                file.delete();
+            }
+            getLogger().warning("§c插件UnicodeVariables的功能已合并到本插件，插件UnicodeVariables不再维护！！！");
+            getLogger().warning("§cUnicodeVariables将会自动删除，如果无法自动删除请将其手动删除！！！");
+        }catch (Exception ignore) {}
     }
 }
