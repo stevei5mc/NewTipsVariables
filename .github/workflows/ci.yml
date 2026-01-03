@@ -50,7 +50,12 @@ jobs:
       with:
         java-version: '8'
         distribution: 'temurin'
-        cache: maven
+    - name: 缓存本地 maven 仓库
+      uses: actions/cache@v5
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-maven-
     - name: 设置 pom.xml 的版本号
       if: github.event_name == 'push' && startsWith('github.ref', 'refs/tags/')
       run: |
@@ -91,8 +96,10 @@ jobs:
       with:
         name: ${{ needs.build.outputs.artifactName }}
         path: staging
+    - name: 列出需要发布的文件
+      run: ls -lah ./staging
     - name: 发布新版本
-      uses: ncipollo/release-action@v1.14.0
+      uses: ncipollo/release-action@v1
       with:
         tag: ${{ needs.build.outputs.version }}
         name: ${{ needs.build.outputs.version }}
