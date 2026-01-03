@@ -33,7 +33,7 @@ jobs:
             artifactName = `${repoName}-CI-PR_${{ github.event.pull_request.number }}-Build-${{ github.run_number }}`;
           }
 
-          if(onEventName == "push" && refName.startwith("refs/tags/")){
+          if(onEventName == "push" && refName.startsWith("refs/tags/")){
             artifactName = `${repoName}-Release-${{ steps.getVersion.outputs.version }}`;
             const version = refName.replace("refs/tags/", "");
             core.setOutput('version', `${version}`);
