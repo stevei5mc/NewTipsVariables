@@ -60,7 +60,7 @@ jobs:
       if: github.event_name == 'push' && startsWith('${{ github.ref }}', 'refs/tags/')
       run: |
         echo "::warning::对 pom.xml 中 project 版本号进行设置，设置的版本号为 ${{ steps.getVersion.outputs.version }}"
-        mvn versions:set -DnewVersion=${{ steps.getVersion.outputs.version }}
+        mvn versions:set -DnewVersion=${{ steps.getInfo.outputs.version }}
     - name: 获取 pom.xml 的信息
       id: getPomInfo
       run: |
