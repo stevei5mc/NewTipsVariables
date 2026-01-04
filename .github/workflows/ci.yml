@@ -57,7 +57,7 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-maven-
     - name: 设置 pom.xml 的版本号
-      if: github.event_name == 'push' && startsWith('github.ref', 'refs/tags/')
+      if: github.event_name == 'push' && startsWith('${{ github.ref }}', 'refs/tags/')
       run: |
         echo "::warning::对 pom.xml 中 project 版本号进行设置，设置的版本号为 ${{ steps.getVersion.outputs.version }}"
         mvn versions:set -DnewVersion=${{ steps.getVersion.outputs.version }}
@@ -85,7 +85,7 @@ jobs:
 
   release:
     runs-on: ubuntu-slim
-    if: github.event_name == 'push' && startsWith('github.ref', 'refs/tags/')
+    if: github.event_name == 'push' && startsWith('${{ github.ref }}', 'refs/tags/')
     needs: build
     timeout-minutes: 5
     steps:
