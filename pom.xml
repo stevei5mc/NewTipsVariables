@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>cn.stevei5mc</groupId>
     <artifactId>NewTipsVariables</artifactId>
-    <version>1.1.0-SNAPSHOT</version>  <!-- 在发布版本时会由对应的脚本替换成正确的版本号 -->
+    <version>1.2.0-SNAPSHOT</version>  <!-- 在发布版本时会由对应的脚本替换成正确的版本号 -->
 
     <repositories>
         <repository>
