@@ -4,7 +4,7 @@ import cn.nukkit.Server;
 import cn.nukkit.plugin.Plugin;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
-import cn.stevei5mc.NewTipsVariables.command.NewTipsVariablesCommand;
+import cn.stevei5mc.NewTipsVariables.command.MainCmd;
 import cn.stevei5mc.NewTipsVariables.utils.ConfigUtils;
 import cn.stevei5mc.NewTipsVariables.utils.LoadVariables;
 import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
@@ -51,7 +51,7 @@ public class Main extends PluginBase {
             Class.forName("tip.utils.variables.BaseVariable");
             deleteUnicodeVariables();
             //存在则加载该插件
-            this.getServer().getCommandMap().register("", new NewTipsVariablesCommand());//注册命令
+            this.getServer().getCommandMap().register("", new MainCmd());//注册命令
             this.tipsVariables();//加载变量部分
             this.getLogger().info("§a变量加载完成");
             Server.getInstance().getScheduler().scheduleDelayedTask(this, () -> {

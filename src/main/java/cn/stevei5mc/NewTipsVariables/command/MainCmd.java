@@ -4,32 +4,33 @@ import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandSender;
 import cn.nukkit.command.data.CommandParameter;
 import cn.stevei5mc.NewTipsVariables.Main;
+import cn.stevei5mc.NewTipsVariables.command.sub.CheckStateCommand;
+import cn.stevei5mc.NewTipsVariables.command.sub.ReloadCommand;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * @author SmallasWater
- */
-public abstract class BaseCommand extends Command {
+public class MainCmd extends Command {
 
     private final ArrayList<BaseSubCommand> subCommand = new ArrayList<>();
     private final ConcurrentHashMap<String, Integer> subCommands = new ConcurrentHashMap<>();
-    protected final Main main = Main.getInstance();
+    private final Main main = Main.getInstance();
 
-    public BaseCommand(String name, String description) {
-        super(name.toLowerCase(), description);
+    public MainCmd() {
+        super("newtipsvariables", "NewTipsVariables 命令");
+        this.setPermission("newtipsariables.admin");
+        this.addSubCommand(new ReloadCommand("reload"));
+        this.addSubCommand(new CheckStateCommand("checkstatus"));
+        this.loadCommandBase();
     }
 
-    /**
-     * 判断权限
-     * @param sender 玩家
-     * @return 是否拥有权限
-     */
-    public boolean hasPermission(CommandSender sender) {
-        return sender.hasPermission(this.getPermission());
+    public void sendHelp(CommandSender sender) {
+        String cmdName = "§a/" + getName();
+        sender.sendMessage("§bNewTipsVariables 命令帮助");
+        sender.sendMessage(cmdName + "reload §e重载配置文件");
+        sender.sendMessage(cmdName +" checkstatus §e检查插件的状态");
     }
 
     @Override
@@ -59,11 +60,9 @@ public abstract class BaseCommand extends Command {
         return true;
     }
 
-    /**
-     * 发送帮助
-     * @param sender 玩家
-     * */
-    public abstract void sendHelp(CommandSender sender);
+    public boolean hasPermission(CommandSender sender) {
+        return sender.hasPermission(this.getPermission());
+    }
 
     protected void addSubCommand(BaseSubCommand cmd) {
         this.subCommand.add(cmd);
