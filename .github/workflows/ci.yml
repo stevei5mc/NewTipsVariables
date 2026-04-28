@@ -73,8 +73,7 @@ jobs:
         echo Artifact id: ${{ steps.getPomInfo.outputs.artifactd }}
         echo Version: ${{ steps.getPomInfo.outputs.version }}
     - name: 构建
-      run: |
-        mvn -B package --file pom.xml
+      run: mvn -B package --file pom.xml
     - name: 整理文件
       run: mkdir staging && cp target/*.jar staging && ls -lah ./staging
     - name: 收集构建文件

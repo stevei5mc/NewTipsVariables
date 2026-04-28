@@ -19,8 +19,9 @@ public class MainCmd extends Command {
     private final Main main = Main.getInstance();
 
     public MainCmd() {
-        super("newtipsvariables", "NewTipsVariables 命令");
+        super("newtipsvariables", "NewTipsVariables 插件命令");
         this.setPermission("newtipsariables.admin");
+        this.setAliases("ntipsvar");
         this.addSubCommand(new ReloadCommand("reload"));
         this.addSubCommand(new CheckStateCommand("checkstatus"));
         this.loadCommandBase();
@@ -81,5 +82,10 @@ public class MainCmd extends Command {
             parameters.addAll(Arrays.asList(subCommand.getParameters()));
             this.commandParameters.put(subCommand.getName(), parameters.toArray(new CommandParameter[0]));
         }
+    }
+
+    @Override
+    public void setAliases(String... aliases) {
+        super.setAliases(aliases);
     }
 }
