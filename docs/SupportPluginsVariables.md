@@ -63,12 +63,6 @@
 |:-:|:-:|
 |{point}|获取玩家的点券数量|
 ---
-## **[RsTask](https://github.com/MemoriesOfTime/RSTask)**
-|变量名|变量介绍|
-|:-:|:-:|
-|{task-name}|正在进行中的任务 (显示第一个)|
-|{task-count}|玩家任务积分|
----
 ## **[RsWeapon](https://github.com/SmallasWater/RsWeapon)**
 |变量名|变量介绍|
 |:-:|:-:|

@@ -34,9 +34,6 @@ public class SmallasWaterPlugins extends BaseVariable {
             if (PluginsState.getPluginState(PluginsListEnum.PLAYER_POINTS.getName())) {
                 playerPoint();
             }
-            if (PluginsState.getPluginState(PluginsListEnum.RS_TASK.getName())) {
-                RsTask(); 
-            }
             if (PluginsState.getPluginState(PluginsListEnum.ORE_AREA.getName())) {
                 OreArea();
             }
@@ -56,20 +53,6 @@ public class SmallasWaterPlugins extends BaseVariable {
  */
     public void playerPoint() {
         addStrReplaceString("{point}", String.format("%.2f", Point.myPoint(player)));
-    }
-
-    public void RsTask() {
-        PlayerFile file = PlayerFile.getPlayerFile(this.player.getName());
-        LinkedList<PlayerTask> tasks = file.getInviteTasks();
-        String taskName = "暂无";
-        if (tasks.size() > 0) {
-            PlayerTask task = (PlayerTask)tasks.get(0);
-            if (task != null) {
-              taskName = task.getTaskName();
-            }
-        }
-        this.addStrReplaceString("{task-name}", taskName);
-        this.addStrReplaceString("{task-count}", file.getCount() + "");
     }
 
     public void OreArea() {
