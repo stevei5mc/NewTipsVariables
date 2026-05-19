@@ -8,8 +8,6 @@ import cn.nukkit.Player;
 import cn.nukkit.item.Item;
 import cn.stevei5mc.NewTipsVariables.utils.PluginsListEnum;
 import cn.stevei5mc.NewTipsVariables.utils.PluginsState;
-import com.task.utils.tasks.PlayerFile;
-import com.task.utils.tasks.taskitems.PlayerTask;
 import healthapi.PlayerHealth;
 import net.player.api.Point;
 import ore.area.AreaMainClass;
@@ -22,7 +20,6 @@ import weapon.items.Weapon;
 import weapon.utils.PlayerAddAttributes;
 
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 
 public class SmallasWaterPlugins extends BaseVariable {
     public SmallasWaterPlugins(Player player) {
@@ -174,7 +171,7 @@ public class SmallasWaterPlugins extends BaseVariable {
             try {
                 PlayerAddAttributes playerAddAttributes = new PlayerAddAttributes();
                 this.string = playerAddAttributes.getStrReplace(this.player, this.string);
-            } catch (Exception var22) {}
+            } catch (Exception ign) {}
                 this.addStrReplaceString("{头盔}", hetName);
                 this.addStrReplaceString("{头盔宝石}", hSize + "");
                 this.addStrReplaceString("{胸甲}", chestName);
