@@ -32,16 +32,16 @@ public class SmallasWaterPlugins extends BaseVariable {
                 playerPoint();
             }
             if (PluginsState.getPluginState(PluginsListEnum.ORE_AREA.getName())) {
-                OreArea();
+                oreArea();
             }
             if (PluginsState.getPluginState(PluginsListEnum.HEALTH_API.getName())) {
-                HealthAPI();
+                healthAPI();
             }
             if (PluginsState.getPluginState(PluginsListEnum.RS_WEAPON.getName())) {
-                RSWeapon();
+                rsWeapon();
             }
             if (PluginsState.getPluginState(PluginsListEnum.LEVEL_AWAKEN_SYSTEM.getName())) {
-                LevelAwakenSystem();
+                levelAwakenSystem();
             }
         }
     }
@@ -52,7 +52,7 @@ public class SmallasWaterPlugins extends BaseVariable {
         addStrReplaceString("{point}", String.format("%.2f", Point.myPoint(player)));
     }
 
-    public void OreArea() {
+    public void oreArea() {
         PlayerClass playerClass = PlayerClass.getPlayerClass(player.getName());
         addStrReplaceString("{orearea-level-this}", playerClass.getMaxAreaLevel() + "");
         addStrReplaceString("{orearea-level-next}", playerClass.getMaxAreaLevel() + 1 + "");
@@ -104,14 +104,12 @@ public class SmallasWaterPlugins extends BaseVariable {
         addStrReplaceString("{orearea-name}", name);
     }
 
-    public void HealthAPI() {
+    public void healthAPI() {
         PlayerHealth health = PlayerHealth.getPlayerHealth(this.player);
-        addStrReplaceString("{h}", String.format("%.1f", health.getHealth()));
-        addStrReplaceString("{mh}", health.getMaxHealth() + "");
         addStrReplaceString("{hb}", String.format("%.2f", health.getHealthPercentage() * 100.0D));
     }
 
-    public void RSWeapon() {
+    public void rsWeapon() {
         try {
             Item item = this.player.getInventory().getItemInHand();
             Weapon weapon = Weapon.getInstance(item);
@@ -171,7 +169,7 @@ public class SmallasWaterPlugins extends BaseVariable {
             try {
                 PlayerAddAttributes playerAddAttributes = new PlayerAddAttributes();
                 this.string = playerAddAttributes.getStrReplace(this.player, this.string);
-            } catch (Exception ign) {}
+            } catch (Exception ignore) {}
                 this.addStrReplaceString("{头盔}", hetName);
                 this.addStrReplaceString("{头盔宝石}", hSize + "");
                 this.addStrReplaceString("{胸甲}", chestName);
@@ -188,10 +186,10 @@ public class SmallasWaterPlugins extends BaseVariable {
                 this.addStrReplaceString("{we-kick}", String.format("%.2f", PlayerAddAttributes.getKick(this.player)));
                 this.addStrReplaceString("{we-dkick}", String.format("%.2f", PlayerAddAttributes.getDKick(this.player)));
                 this.addStrReplaceString("{we-todamage}", PlayerAddAttributes.getToDamage(this.player) + "");
-        } catch (Exception var23) {}
+        } catch (Exception ignore) {}
     }
 
-    public void LevelAwakenSystem() {
+    public void levelAwakenSystem() {
         Item item = this.player.getInventory().getItem(35);
         String add = null;
         if (nbtItems.can_use(this.player, item)) {

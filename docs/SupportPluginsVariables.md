@@ -16,8 +16,6 @@
 ## **[HealthAPI](https://github.com/SmallasWater/HealthAPI)**
 |变量名|变量介绍|
 |:-:|:-:|
-|{h}|玩家血量|
-|{mh}|玩家血量上限|
 |{hb}|玩家血量百分比|
 ---
 ## **[LevelAwakenSystem](https://github.com/SmallasWater/LevelAwakenSystem)**
@@ -62,6 +60,10 @@
 |变量名|变量介绍|
 |:-:|:-:|
 |{point}|获取玩家的点券数量|
+---
+## **[RsTask](https://github.com/MemoriesOfTime/RSTask)**
+- **在`1.2.0`版本移除相关支持**
+- **由于`RSTask`本身已对接Tips插件，更新`RSTask`可使用相关变量**
 ---
 ## **[RsWeapon](https://github.com/SmallasWater/RsWeapon)**
 |变量名|变量介绍|
