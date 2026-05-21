@@ -5,7 +5,7 @@ NewTipsVariables(变量文档)
 EconomyAPI
 {economyApi-money} 玩家金钱数量
 HealthAPI
-{hb}  玩家血量百分比
+{healthApi-percentage}  玩家血量百分比
 LevelAwakenSystem
 {属性}    玩家的RPG属性
 {天赋}    玩家评分

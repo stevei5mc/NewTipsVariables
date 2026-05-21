@@ -106,7 +106,7 @@ public class SmallasWaterPlugins extends BaseVariable {
 
     public void healthAPI() {
         PlayerHealth health = PlayerHealth.getPlayerHealth(this.player);
-        addStrReplaceString("{hb}", String.format("%.2f", health.getHealthPercentage() * 100.0D));
+        addStrReplaceString("{healthApi-percentage}", String.format("%.2f", health.getHealthPercentage() * 100.0D));
     }
 
     public void rsWeapon() {
