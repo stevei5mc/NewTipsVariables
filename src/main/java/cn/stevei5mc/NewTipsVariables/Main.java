@@ -38,8 +38,8 @@ public class Main extends PluginBase {
 
     public void onLoad() {
         instance = this;
-        this.loadConfigRes();//加载配置文件
         this.saveConfig();
+        this.loadConfigRes();//加载配置文件
         this.loadVarRes();//加载变量文档
         ConfigUtils.updateDefaultConfig();
         ConfigUtils.updateServerConfig();
