@@ -65,8 +65,8 @@ public class GetConfigInfo {
     }
 
     /**
-     * 获取玩家的生命值状态
-     * @return 玩家的生命值状态
+     * 获取玩家的生命值的当前值和最大值状态
+     * @return 玩家的生命值当前值和最大值状态
     */
     public static String getPlayerHealth(Player player) {
         double currentHealth;

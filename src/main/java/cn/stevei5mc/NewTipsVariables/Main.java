@@ -7,6 +7,7 @@ import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.command.MainCmd;
 import cn.stevei5mc.NewTipsVariables.utils.ConfigUtils;
 import cn.stevei5mc.NewTipsVariables.utils.LoadVariables;
+import cn.stevei5mc.NewTipsVariables.utils.enums.ConfigInfoEnum;
 import cn.stevei5mc.NewTipsVariables.variables.BaseVariables;
 import lombok.Getter;
 import tip.utils.Api;
@@ -72,20 +73,17 @@ public class Main extends PluginBase {
     }
 
     public void saveConfig() {
-        this.getDataFolder().mkdirs();
-        this.saveDefaultConfig();
-        this.saveResource("server.yml",false);
-        this.saveResource("player.yml",false);
-        this.saveResource("world_name.yml",false);
-        this.saveResource("language.yml",false);
+        for (ConfigInfoEnum configInfo : ConfigInfoEnum.values()) {
+            this.saveResource(configInfo.getName(), false);
+        }
     }
 
     public void loadConfigRes() {
-        this.config = new Config(this.getDataFolder() + "/config.yml", Config.YAML);
-        this.configInServer = new Config(this.getDataFolder() + "/server.yml", Config.YAML);
-        this.configInPlayer = new Config(this.getDataFolder() + "/player.yml", Config.YAML);
-        this.worldName = new Config(this.getDataFolder() + "/world_name.yml", Config.YAML);
-        this.language = new Config(this.getDataFolder() + "/language.yml", Config.YAML);
+        this.config = new Config(this.getDataFolder() + ConfigInfoEnum.DEFAULT_CONFIG.getPath(), Config.YAML);
+        this.configInServer = new Config(this.getDataFolder() + ConfigInfoEnum.SERVER_VAR_INFO_CONFIG.getPath(), Config.YAML);
+        this.configInPlayer = new Config(this.getDataFolder() + ConfigInfoEnum.PLAYER_VAR_INFO_CONFIG.getPath(), Config.YAML);
+        this.worldName = new Config(this.getDataFolder() + ConfigInfoEnum.WORLD_NAME_CONFIG.getPath(), Config.YAML);
+        this.language = new Config(this.getDataFolder() + ConfigInfoEnum.LANGUAGE_CONFIG.getPath(), Config.YAML);
         debug = false; //这个防止出现关闭debug功能reload配置文件后还需要重启服务器的问题
         if (config.getBoolean("debug", false)) {//从config.yml中获取debug为true则执行相关内容，如果无法获取则为false
             debug = true;

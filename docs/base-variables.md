@@ -25,7 +25,7 @@
 |{Device-Os}|获取玩家设备的系统||
 |{{Player-Uuid}|获取玩家的uuid||
 |{Player-Ping}|获取玩家当前的延迟||
-|{Player-Food}|获取玩家当前的饥饿度||
+|{Player-Food}|玩家的当前和最大血量||
 |{Player-Health}|获取玩家当前的血量||
 |{Player-World}|获取玩家所在的世界|**需在world_name.yml配置相关内容方可生效**|
 |{Player-Controls}|获取玩家设备的操作方式||
