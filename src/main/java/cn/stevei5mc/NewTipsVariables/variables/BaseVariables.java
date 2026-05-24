@@ -3,7 +3,8 @@ package cn.stevei5mc.NewTipsVariables.variables;
 import cn.nukkit.Player;
 import cn.nukkit.Server;
 import cn.nukkit.level.Level;
-import cn.stevei5mc.NewTipsVariables.utils.GetConfigInfo;
+import cn.stevei5mc.NewTipsVariables.utils.variables.GetPlayerVarInfo;
+import cn.stevei5mc.NewTipsVariables.utils.variables.GetServerVarInfo;
 import tip.utils.variables.BaseVariable;
 
 public class BaseVariables extends BaseVariable {
@@ -53,13 +54,13 @@ public class BaseVariables extends BaseVariable {
         addStrReplaceString("{Player-Yaw}",String.valueOf((int) player.getYaw()));
         addStrReplaceString("{Player-Pitch}",String.valueOf((int) player.getPitch()));
         addStrReplaceString("{Player-HeadYaw}",String.valueOf((int) player.getHeadYaw()));
-        addStrReplaceString("{Player-World}", GetConfigInfo.getPlayerWorld(player));
-        addStrReplaceString("{Player-Ping}", GetConfigInfo.getPlayerPing(player));
-        addStrReplaceString("{Player-Health}", GetConfigInfo.getPlayerHealth(player));
-        addStrReplaceString("{Player-Food}", GetConfigInfo.getPlayerFood(player));
-        addStrReplaceString("{Player-Ui}", GetConfigInfo.getPlayerUi(player.getLoginChainData().getUIProfile()));
-        addStrReplaceString("{Player-Controls}",GetConfigInfo.getDeviceControls(player.getLoginChainData().getCurrentInputMode()));
-        addStrReplaceString("{Device-Os}", GetConfigInfo.getDeviceOS(player.getLoginChainData().getDeviceOS()));
+        addStrReplaceString("{Player-World}", GetPlayerVarInfo.getPlayerWorld(player));
+        addStrReplaceString("{Player-Ping}", GetPlayerVarInfo.getPlayerPing(player));
+        addStrReplaceString("{Player-Health}", GetPlayerVarInfo.getPlayerHealth(player));
+        addStrReplaceString("{Player-Food}", GetPlayerVarInfo.getPlayerFood(player));
+        addStrReplaceString("{Player-Ui}", GetPlayerVarInfo.getPlayerUi(player));
+        addStrReplaceString("{Player-Controls}", GetPlayerVarInfo.getDeviceControls(player));
+        addStrReplaceString("{Device-Os}", GetPlayerVarInfo.getDeviceOS(player));
     }
 
     public void server() {
@@ -71,7 +72,7 @@ public class BaseVariables extends BaseVariable {
         for (Level level : Server.getInstance().getLevels().values()) {
             addStrReplaceString("{WorldOnline@"+ level.getFolderName() +"}", String.valueOf(level.getPlayers().size()));
         }
-        addStrReplaceString("{Server-Tps}", GetConfigInfo.getServerTps());
+        addStrReplaceString("{Server-Tps}", GetServerVarInfo.getServerTps());
     }
 
     public void unicode() {
