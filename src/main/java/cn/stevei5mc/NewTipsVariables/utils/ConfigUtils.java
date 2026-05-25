@@ -2,28 +2,30 @@ package cn.stevei5mc.NewTipsVariables.utils;
 
 import cn.nukkit.utils.Config;
 import cn.stevei5mc.NewTipsVariables.Main;
+import cn.stevei5mc.NewTipsVariables.utils.enums.ConfigInfoEnum;
 
 import java.io.File;
 import java.util.HashMap;
 
 public class ConfigUtils {
-    private static Main main = Main.getInstance();
+    private static final Main main = Main.getInstance();
     private static boolean reload = false;
-    //定义配置文件的最新版本号
-    private static final int latestConfigVersion = 2; //config.yml
-    private static final int latestPlayerConfigVersion = 1; //player.yml
-    private static final int latestServerConfigVersion = 1; //server.yml
-    private static final String configVersionError = "§c配置文件 {1} 版本出现异常，将对其进行重置";
-    private static final String configVersionNotLatest = "Se检测到配置文件 {1} 不是最新的版本，将对其进行更新";
-    private static final String configIsLatestVersion = "配置文件 {1} 是最新版本";
+    private static final String configVersionNotLatest = "Se检测到配置文件 %s 不是最新的版本，将对其进行更新";
+    private static final String configIsLatestVersion = "配置文件 %s 是最新版本";
 
-    public static void updateDefaultConfig() {
+    public static void updateConfig() {
+        updateDefaultConfig();
+        updateServerConfig();
+        updatePlayerConfig();
+    }
+
+    private static void updateDefaultConfig() {
         Config config = main.getConfig();
-        int latest = latestConfigVersion;
-        if (config.getInt("version",1) == latest){
-            main.getLogger().info(configIsLatestVersion.replace("{1}","config.yml"));
-        }else if(config.getInt("version",1) < latest) {
-            main.getLogger().warning(configVersionNotLatest.replace("{1}","config.yml"));
+        int latestVersion = ConfigInfoEnum.DEFAULT_CONFIG.getLatestVersion();
+        if (config.getInt("version",1) == latestVersion){
+            main.getLogger().info(String.format(configIsLatestVersion, "config.yml"));
+        }else if(config.getInt("version",1) < latestVersion) {
+            main.getLogger().warning(String.format(configVersionNotLatest, "config.yml"));
             reload = true;
             if (config.getInt("version",1) < 2) {
                 config.set("version",2);
@@ -39,40 +41,40 @@ public class ConfigUtils {
                 config.save();
             }
         }else {
-            reload = true;
-            main.getLogger().error(configVersionError.replace("{1}","config.yml"));
-            config.save(new File(main.getDataFolder() + "/config.yml.bak"));
-            main.saveResource("config.yml",true);
+            reload = resetConfig(config, ConfigInfoEnum.DEFAULT_CONFIG);
         }
     }
 
-    public static void updateServerConfig() {
+    private static void updateServerConfig() {
         Config config = main.getConfigInServer();
-        if (config.getInt("version",1) == latestServerConfigVersion){
-            main.getLogger().info(configIsLatestVersion.replace("{1}","server.yml"));
-        }else if(config.getInt("version",1) < latestServerConfigVersion) {
-            main.getLogger().warning(configVersionNotLatest.replace("{1}","server.yml"));
+        int latestVersion = ConfigInfoEnum.SERVER_VAR_INFO_CONFIG.getLatestVersion();
+        if (config.getInt("version", 1) == latestVersion){
+            main.getLogger().info(String.format(configIsLatestVersion, "server.yml"));
+        }else if(config.getInt("version", 1) < latestVersion) {
+            main.getLogger().warning(String.format(configVersionNotLatest, "server.yml"));
         }else {
-            reload = true;
-            main.getLogger().error(configVersionError.replace("{1}","server.yml"));
-            config.save(new File(main.getDataFolder() + "/server.yml.bak"));
-            main.saveResource("server.yml",true);
+            reload = resetConfig(config, ConfigInfoEnum.SERVER_VAR_INFO_CONFIG);
         }
     }
 
-    public static void updatePlayerConfig() {
+    private static void updatePlayerConfig() {
         Config config = main.getConfigInPlayer();
-        if (config.getInt("version",1) == latestPlayerConfigVersion){
-            main.getLogger().info(configIsLatestVersion.replace("{1}","player.yml"));
-        }else if(config.getInt("version",1) < latestPlayerConfigVersion) {
-            main.getLogger().warning(configVersionNotLatest.replace("{1}","player.yml"));
+        int latestVersion = ConfigInfoEnum.PLAYER_VAR_INFO_CONFIG.getLatestVersion();
+        if (config.getInt("version", 1) == latestVersion){
+            main.getLogger().info(String.format(configIsLatestVersion, "player.yml"));
+        }else if(config.getInt("version", 1) < latestVersion) {
+            main.getLogger().warning(String.format(configVersionNotLatest, "player.yml"));
             reload = true;
         }else {
-            reload = true;
-            main.getLogger().error(configVersionError.replace("{1}","player.yml"));
-            config.save(new File(main.getDataFolder() + "/player.yml.bak"));
-            main.saveResource("player.yml",true);
+            reload = resetConfig(config, ConfigInfoEnum.PLAYER_VAR_INFO_CONFIG);
         }
+    }
+
+    private static boolean resetConfig(Config config, ConfigInfoEnum configInfo) {
+        main.getLogger().error(String.format("§c配置文件 %s 版本出现异常，将对其进行重置", configInfo.getName()));
+        config.save(new File(main.getDataFolder() + configInfo.getPath() + ".backup"));
+        main.saveResource(configInfo.getName(),true);
+        return true;
     }
 
     public static void reloadConfig() {

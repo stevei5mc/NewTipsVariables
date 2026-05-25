@@ -41,9 +41,7 @@ public class Main extends PluginBase {
         this.saveConfig();
         this.loadConfigRes();//加载配置文件
         this.loadVarRes();//加载变量文档
-        ConfigUtils.updateDefaultConfig();
-        ConfigUtils.updateServerConfig();
-        ConfigUtils.updatePlayerConfig();
+        ConfigUtils.updateConfig();
     }
 
     public void onEnable() {
