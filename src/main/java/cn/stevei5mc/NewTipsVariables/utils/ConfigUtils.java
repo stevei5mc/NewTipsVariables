@@ -10,10 +10,9 @@ import java.util.HashMap;
 public class ConfigUtils {
     private static final Main main = Main.getInstance();
     private static boolean reload = false;
-    private static final String configVersionNotLatest = "Se检测到配置文件 %s 不是最新的版本，将对其进行更新";
-    private static final String configIsLatestVersion = "配置文件 %s 是最新版本";
 
     public static void updateConfig() {
+        reload = false;
         updateDefaultConfig();
         updateServerConfig();
         updatePlayerConfig();
@@ -21,52 +20,49 @@ public class ConfigUtils {
 
     private static void updateDefaultConfig() {
         Config config = main.getConfig();
-        int latestVersion = ConfigInfoEnum.DEFAULT_CONFIG.getLatestVersion();
-        if (config.getInt("version",1) == latestVersion){
-            main.getLogger().info(String.format(configIsLatestVersion, "config.yml"));
-        }else if(config.getInt("version",1) < latestVersion) {
-            main.getLogger().warning(String.format(configVersionNotLatest, "config.yml"));
-            reload = true;
-            if (config.getInt("version",1) < 2) {
-                config.set("version",2);
+        if(checkVersion(config, ConfigInfoEnum.DEFAULT_CONFIG).equals(ConfigCheckState.NEED_UPDATE)) {
+            if (config.getInt("version", 1) < 2) {
+                config.set("version", 2);
                 if (config.exists("updata")) {
                     config.remove("updata");
                 }
                 if (!config.exists("update-plugin")) {
                     HashMap<String, Boolean> map = new HashMap<>();
                     map.put("check", false);
-                    map.put("auto",false);
-                    config.set("update-plugin",map);
+                    map.put("auto", false);
+                    config.set("update-plugin", map);
                 }
                 config.save();
             }
-        }else {
-            reload = resetConfig(config, ConfigInfoEnum.DEFAULT_CONFIG);
         }
     }
 
     private static void updateServerConfig() {
         Config config = main.getConfigInServer();
-        int latestVersion = ConfigInfoEnum.SERVER_VAR_INFO_CONFIG.getLatestVersion();
-        if (config.getInt("version", 1) == latestVersion){
-            main.getLogger().info(String.format(configIsLatestVersion, "server.yml"));
-        }else if(config.getInt("version", 1) < latestVersion) {
-            main.getLogger().warning(String.format(configVersionNotLatest, "server.yml"));
-        }else {
-            reload = resetConfig(config, ConfigInfoEnum.SERVER_VAR_INFO_CONFIG);
+        if(checkVersion(config, ConfigInfoEnum.SERVER_VAR_INFO_CONFIG).equals(ConfigCheckState.NEED_UPDATE)) {
+            main.getLogger().warning("hello world");
         }
     }
 
     private static void updatePlayerConfig() {
         Config config = main.getConfigInPlayer();
-        int latestVersion = ConfigInfoEnum.PLAYER_VAR_INFO_CONFIG.getLatestVersion();
-        if (config.getInt("version", 1) == latestVersion){
-            main.getLogger().info(String.format(configIsLatestVersion, "player.yml"));
-        }else if(config.getInt("version", 1) < latestVersion) {
-            main.getLogger().warning(String.format(configVersionNotLatest, "player.yml"));
+        if(checkVersion(config, ConfigInfoEnum.PLAYER_VAR_INFO_CONFIG).equals(ConfigCheckState.NEED_UPDATE)) {
+            main.getLogger().warning("hello world");
+        }
+    }
+
+    private static ConfigCheckState checkVersion(Config config, ConfigInfoEnum configInfo) {
+        int currentVersion = config.getInt("version", 1);
+        if (currentVersion == configInfo.getLatestVersion()) {
+            main.getLogger().info(String.format("配置文件 %s 是最新版本", configInfo.getName()));
+            return ConfigCheckState.NEED_NOT;
+        }else if (currentVersion < configInfo.getLatestVersion()) {
+            main.getLogger().warning(String.format("Se检测到配置文件 %s 不是最新的版本，将对其进行更新", configInfo.getName()));
             reload = true;
+            return ConfigCheckState.NEED_UPDATE;
         }else {
-            reload = resetConfig(config, ConfigInfoEnum.PLAYER_VAR_INFO_CONFIG);
+            reload = resetConfig(config, configInfo);
+            return ConfigCheckState.NEED_RESET;
         }
     }
 
@@ -82,5 +78,9 @@ public class ConfigUtils {
             main.getServer().dispatchCommand(main.getServer().getConsoleSender(), "NewTipsVariables reload");
             reload = false;
         }
+    }
+
+    public enum ConfigCheckState {
+        NEED_NOT, NEED_UPDATE, NEED_RESET
     }
 }
