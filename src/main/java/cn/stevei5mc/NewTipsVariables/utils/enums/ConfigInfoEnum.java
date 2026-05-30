@@ -5,8 +5,8 @@ import lombok.Getter;
 public enum ConfigInfoEnum {
 
     DEFAULT_CONFIG("config", 2),
-    PLAYER_VAR_INFO_CONFIG("player", 1),
-    SERVER_VAR_INFO_CONFIG("server", 1),
+    PLAYER_VAR_INFO_CONFIG("player", 2),
+    SERVER_VAR_INFO_CONFIG("server", 2),
     WORLD_NAME_CONFIG("world_name"),
     LANGUAGE_CONFIG("language");
 

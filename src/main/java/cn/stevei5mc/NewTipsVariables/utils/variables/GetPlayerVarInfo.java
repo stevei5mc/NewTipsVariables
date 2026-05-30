@@ -17,11 +17,11 @@ public class GetPlayerVarInfo {
      */
     public static String getPlayerPing(Player player) {
         int pingValue = player.getPing();
-        String color = main.getConfigInPlayer().getString("ping.low_color");
-        if (pingValue >= main.getConfigInPlayer().getInt("ping.high_value")) {
-            color = main.getConfigInPlayer().getString("ping.medium_color");
-        }else if (pingValue >= main.getConfigInPlayer().getInt("ping.medium_value")) {
-            color = main.getConfigInPlayer().getString("ping.medium_color");
+        String color = main.getConfigInPlayer().getString("ping.color.low");
+        if (pingValue >= main.getConfigInPlayer().getInt("ping.value.high")) {
+            color = main.getConfigInPlayer().getString("ping.color.medium");
+        }else if (pingValue >= main.getConfigInPlayer().getInt("ping.value.medium")) {
+            color = main.getConfigInPlayer().getString("ping.color.medium");
         }
         return color + pingValue;
     }
@@ -38,16 +38,31 @@ public class GetPlayerVarInfo {
             maxHealth = player.getMaxHealth();
         }
 
-        String color = main.getConfigInPlayer().getString("HP.low_color"); // 默认低血量颜色
-        if (currentHealth >= main.getConfigInPlayer().getInt("HP.high_value")) {
-            color = main.getConfigInPlayer().getString("HP.high_color");
-        } else if (currentHealth >= main.getConfigInPlayer().getInt("HP.medium_value")) {
-            color = main.getConfigInPlayer().getString("HP.medium_color");
+        String color = main.getConfigInPlayer().getString("HP.dynamic.low"); // 默认低血量颜色
+        if (currentHealth >= main.getConfigInPlayer().getInt("HP.value.high")) {
+            color = main.getConfigInPlayer().getString("HP.dynamic.high");
+        } else if (currentHealth >= main.getConfigInPlayer().getInt("HP.value.medium")) {
+            color = main.getConfigInPlayer().getString("HP.dynamic.medium");
         }
 
         return color.replace("{0}", String.valueOf(currentHealth)).replace("{1}", String.valueOf(maxHealth));
     }
 
+    public static String getPlayerCurrentHp(Player player) {
+        double currentHp = PluginsState.getPluginState(PluginsListEnum.HEALTH_API.getName()) ? PlayerHealth.getPlayerHealth(player).getHealth() : player.getHealth();
+        String color = main.getConfigInPlayer().getString("HP.color.low"); // 默认低血量颜色
+        if (currentHp >= main.getConfigInPlayer().getInt("HP.value.high")) {
+            color = main.getConfigInPlayer().getString("HP.color.high");
+        } else if (currentHp >= main.getConfigInPlayer().getInt("HP.value.medium")) {
+            color = main.getConfigInPlayer().getString("HP.color.medium");
+        }
+
+        return color + currentHp;
+    }
+
+    public static String getPlayerMaxHp(Player player) {
+        return String.valueOf(PluginsState.getPluginState(PluginsListEnum.HEALTH_API.getName()) ? PlayerHealth.getPlayerHealth(player).getHealth() : player.getHealth());
+    }
 
     /**
      * 获取玩家的饱食度状态
@@ -55,13 +70,13 @@ public class GetPlayerVarInfo {
      */
     public static String getPlayerFood(Player player) {
         float foodValue = player.getFoodData().getLevel();
-        String color = main.getConfigInPlayer().getString("Food.empty_color");
-        if (foodValue >= main.getConfigInPlayer().getInt("Food.high_value")) {
-            color = main.getConfigInPlayer().getString("Food.high_color");
-        }else if (foodValue >= main.getConfigInPlayer().getInt("Food.medium_value")) {
-            color = main.getConfigInPlayer().getString("Food.medium_color");
+        String color = main.getConfigInPlayer().getString("Food.color.empty");
+        if (foodValue >= main.getConfigInPlayer().getInt("Food.value.high")) {
+            color = main.getConfigInPlayer().getString("Food.color.high");
+        }else if (foodValue >= main.getConfigInPlayer().getInt("Food.value.medium")) {
+            color = main.getConfigInPlayer().getString("Food.color.medium");
         }else if (foodValue >= 1) {
-            color = main.getConfigInPlayer().getString("Food.low_color");
+            color = main.getConfigInPlayer().getString("Food.color.low");
         }
         return color.replace("{0}", String.valueOf(foodValue)).replace("{1}", String.valueOf(player.getFoodData().getMaxLevel()));
     }

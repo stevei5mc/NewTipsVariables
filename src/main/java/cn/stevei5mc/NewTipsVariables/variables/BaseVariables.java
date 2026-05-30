@@ -57,6 +57,8 @@ public class BaseVariables extends BaseVariable {
         addStrReplaceString("{Player-World}", GetPlayerVarInfo.getPlayerWorld(player));
         addStrReplaceString("{Player-Ping}", GetPlayerVarInfo.getPlayerPing(player));
         addStrReplaceString("{Player-Health}", GetPlayerVarInfo.getPlayerHealth(player));
+        addStrReplaceString("{Player-CurrentHP}", GetPlayerVarInfo.getPlayerCurrentHp(player));
+        addStrReplaceString("{Player-MaxHp}", GetPlayerVarInfo.getPlayerMaxHp(player));
         addStrReplaceString("{Player-Food}", GetPlayerVarInfo.getPlayerFood(player));
         addStrReplaceString("{Player-Ui}", GetPlayerVarInfo.getPlayerUi(player));
         addStrReplaceString("{Player-Controls}", GetPlayerVarInfo.getDeviceControls(player));

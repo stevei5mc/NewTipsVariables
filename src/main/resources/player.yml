@@ -2,7 +2,7 @@
 #https://github.com/stevei5mc/NewTipsVariables/blob/main/README.md
 #https://gitee.com/stevei5mc/NewTipsVariables/blob/main/README.md
 #配置文件版本，勿动
-version: 1
+version: 2
 Device:
   OS:
     Android: "Android"
@@ -28,21 +28,31 @@ Device:
     classic: "classic ui"
     pocket: "pocket ui"
 ping:
-  low_color: "§a"
-  medium_value: 80
-  medium_color: "§e"
-  high_value: 120
-  high_color: "§c"
+  value:
+    medium: 80
+    high: 120
+  color:
+    low: "§c"
+    medium: "§e"
+    high: "§a"
 HP:
-  low_color: "§c{0}§7/§c{1}"
-  medium_value: 9
-  medium_color: "§e{0}§7/§e{1}"
-  high_value: 15
-  high_color: "§a{0}§7/§a{1}"
+  value:
+    medium: 9
+    high: 15
+  color:
+    low: "§c"
+    medium: "§e"
+    high: "§a"
+  dynamic:
+    low: "§c{0}§7/§c{1}"
+    medium: "§e{0}§7/§e{1}"
+    high: "§a{0}§7/§a{1}"
 Food:
-  empty_color: "§7{0}/{1}"
-  low_color: "§c{0}§7/§c{1}"
-  medium_value: 9 
-  medium_color: "§e{0}§7/§e{1}"
-  high_value: 15
-  high_color: "§a{0}§7/§a{1}"
+  value:
+    medium: 9
+    high: 15
+  color:
+    empty: "§7{0}/{1}"
+    low: "§c{0}§7/§c{1}"
+    medium: "§e{0}§7/§e{1}"
+    high: "§a{0}§7/§a{1}"
