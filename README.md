@@ -18,8 +18,8 @@
 |/newtipsariables reload|newtipsariables.admin.reload|重载配置文件|OP|
 |/newtipsariables checkstatus|newtipsariables.admin.checkstate|检查插件状态|OP|
 ### **变量介绍文档**
-- **[基础变量](./docs/base-variables.md)**
-- **[支持下列插件](./docs/SupportPluginsVariables.md "点击查看变量文档")**
+- **[基础变量](docs/Variables/base-variables.md)**
+- **[支持下列插件](docs/Variables/SupportPluginsVariables.md "点击查看变量文档")**
 ### **配置文件使用说明**
 - **若未在此说明中写配置项出则代表该配置项还没有支持,也有可能是忘记写出来了**
 - **给出的预览图片可能不是最新的，但也差不到哪去**
