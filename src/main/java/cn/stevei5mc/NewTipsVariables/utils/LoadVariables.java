@@ -3,15 +3,14 @@ package cn.stevei5mc.NewTipsVariables.utils;
 import cn.stevei5mc.NewTipsVariables.variables.EconomyApiVariable;
 import cn.stevei5mc.NewTipsVariables.variables.LuckPermsVar;
 import cn.stevei5mc.NewTipsVariables.variables.SmallasWaterPlugins;
+import lombok.Getter;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import tip.utils.Api;
 
 public class LoadVariables{
+    @Getter
     private static LuckPerms luckperms;
-    public static LuckPerms getLP() {
-        return luckperms;
-    }
     
     //需要加载的变量的插件
     public static void pluginVariables() {

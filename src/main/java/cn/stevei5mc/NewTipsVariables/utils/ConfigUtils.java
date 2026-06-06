@@ -42,7 +42,6 @@ public class ConfigUtils {
         if(checkVersion(config, ConfigInfoEnum.SERVER_VAR_INFO_CONFIG).equals(ConfigCheckState.NEED_UPDATE)) {
             int version = config.getInt("version", 1);
             config.set("version", ConfigInfoEnum.SERVER_VAR_INFO_CONFIG.getLatestVersion());
-//            config.remove("TPS");
             if (version < 2) {
                 if (!config.exists("TPS.color")) {
                     HashMap<String, String> map = new HashMap<>();
@@ -62,6 +61,9 @@ public class ConfigUtils {
                     config.getSection("TPS").remove("high_value");
                     config.set("TPS.value", map2);
                 }
+            }
+            if (version < 3 &&config.exists("runtime")) {
+                config.set("runtime", "§a{0} §e天 §a{1} §e小时 §a{2} §e分钟 §a{3} §e秒");
             }
             config.save();
         }

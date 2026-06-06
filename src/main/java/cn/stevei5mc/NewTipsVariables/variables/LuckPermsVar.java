@@ -10,7 +10,7 @@ import tip.utils.variables.BaseVariable;
 import java.util.OptionalInt;
 
 public class LuckPermsVar extends BaseVariable {
-    public static LuckPerms luckperms = LoadVariables.getLP();
+    public static LuckPerms luckperms = LoadVariables.getLuckperms();
     public LuckPermsVar(Player player) {
         super(player);
     }

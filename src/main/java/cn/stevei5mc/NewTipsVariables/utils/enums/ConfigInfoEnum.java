@@ -6,7 +6,7 @@ public enum ConfigInfoEnum {
 
     DEFAULT_CONFIG("config", 2),
     PLAYER_VAR_INFO_CONFIG("player", 2),
-    SERVER_VAR_INFO_CONFIG("server", 2),
+    SERVER_VAR_INFO_CONFIG("server", 3),
     WORLD_NAME_CONFIG("world_name"),
     LANGUAGE_CONFIG("language");
 
