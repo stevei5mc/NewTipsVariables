@@ -39,7 +39,7 @@
         <dependency>
             <groupId>com.smallaswater.tips</groupId>
             <artifactId>Tips</artifactId>
-            <version>2.2.1</version>
+            <version>2.2.3</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -61,13 +61,6 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/lib/OreArea_v1.3.8.jar</systemPath>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.smallaswater</groupId>-->
-<!--            <artifactId>RsTask</artifactId>-->
-<!--            <version>1.8.4</version>-->
-<!--            <scope>system</scope>-->
-<!--            <systemPath>${project.basedir}/lib/RsTask_v1.8.4.jar</systemPath>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>com.samllaswater</groupId>
             <artifactId>healthapi</artifactId>
