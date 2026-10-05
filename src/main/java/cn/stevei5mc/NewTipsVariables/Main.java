@@ -59,10 +59,12 @@ public class Main extends PluginBase {
                 this.getLogger().info("§a开源链接和使用方法: §bhttps://github.com/stevei5mc/NewTipsVariables");
             },20);
         }catch (Exception ignore) {
-            //不存在作为卸载该插件
-            this.getLogger().warning("§c未检测到前置插件§aTips§c，请安装§aTips§c再试!!!");
-            this.getLogger().warning("§b下载地址: §ehttps://motci.cn/job/GameCore/ 或 https://ci.lanink.cn/job/GameCore/");
-            this.onDisable();
+            this.getServer().getScheduler().scheduleDelayedTask(this, () -> {
+                //不存在则卸载该插件
+                this.getLogger().warning("§c未检测到前置插件§aTips§c，请安装§aTips§c再试!!!");
+                this.getLogger().warning("§b下载地址: §ehttps://motci.cn/job/GameCore/ 或 https://ci.lanink.cn/job/GameCore/");
+                this.setEnabled(false);
+            }, 20, true);
         }
     }
 
