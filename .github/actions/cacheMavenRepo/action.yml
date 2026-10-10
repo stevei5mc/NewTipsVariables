@@ -1,0 +1,12 @@
+name: "Cache maven repository"
+description: "Cache maven repository"
+
+runs:
+  using: "composite"
+  steps:
+    - name: 缓存本地 maven 仓库
+      uses: actions/cache@v5
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-maven-
